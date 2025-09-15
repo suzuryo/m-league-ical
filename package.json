@@ -1,0 +1,38 @@
+{
+  "name": "m-league-ical",
+  "version": "1.0.0",
+  "description": "Mリーグのスケジュールを取得してiCal形式で出力してGithub Pagesにデプロイする",
+  "main": "dist/fetcher.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "fetch": "tsx src/fetcher.ts",
+    "start": "npm run build && node dist/fetcher.js",
+    "dev": "tsx src/fetcher.ts",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "m-league",
+    "fetcher",
+    "schedule"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "9.35.0",
+    "@types/node": "24.4.0",
+    "eslint": "9.35.0",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-prettier": "5.5.4",
+    "eslint-plugin-simple-import-sort": "12.1.1",
+    "prettier": "3.6.2",
+    "tsx": "4.20.5",
+    "typescript": "5.9.2",
+    "typescript-eslint": "8.43.0"
+  },
+  "dependencies": {
+    "date-fns": "4.1.0",
+    "date-fns-tz": "3.2.0",
+    "playwright": "1.55.0"
+  }
+}

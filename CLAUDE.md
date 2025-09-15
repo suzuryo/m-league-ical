@@ -23,9 +23,6 @@ npm run build
 ```bash
 # Install dependencies
 npm install
-
-# Install Playwright browser (required for scraping)
-npx playwright install chromium
 ```
 
 ## Architecture
@@ -38,7 +35,7 @@ This is a web fetcher for M-League (Japanese professional mahjong league) schedu
    - Fetches M-League official website for seasons 2025-2026 (September to May)
    - Fixed URLs: `https://m-league.jp/games/?mly={year}&mlm={month}#schedule`
    - Periods: 2025/9 through 2026/5 (hardcoded in `periods` array)
-   - Uses Playwright for browser automation to handle dynamic content
+   - Uses native fetch API with regex parsing for HTML content
 
 2. **Output Generation**
    - Creates both JSON and iCal (.ics) formats

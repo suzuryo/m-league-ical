@@ -3,8 +3,6 @@ import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 import { parseISO } from 'date-fns'
-import type { Browser } from 'playwright'
-import { chromium } from 'playwright'
 
 interface Schedule {
   date: string
@@ -13,119 +11,105 @@ interface Schedule {
 }
 
 async function scrapeMLeagueScheduleForMonth(
-  browser: Browser,
   year: number,
   month: number,
 ): Promise<Schedule[]> {
-  const page = await browser.newPage()
+  const url = `https://m-league.jp/games/?mly=${year}&mlm=${month}#schedule`
+
+  console.log(`Fetching schedule from: ${url}`)
 
   try {
-    const url = `https://m-league.jp/games/?mly=${year}&mlm=${month}#schedule`
+    const response = await fetch(url)
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`)
+    }
 
-    console.log(`Fetching schedule from: ${url}`)
-    await page.goto(url, { waitUntil: 'networkidle' })
+    const html = await response.text()
 
-    try {
-      await page.waitForSelector('.p-gamesSchedule2__list', { timeout: 3000 })
-    } catch {
+    // Check if schedule data exists
+    if (!html.includes('p-gamesSchedule2__list')) {
       console.log(`  No schedule data available for ${year}/${month}`)
       return []
     }
 
-    const schedules = await page.evaluate((targetYear: number) => {
-      const scheduleData: { date: string; teams: string[]; url?: string }[] = []
+    const schedules: Schedule[] = []
 
-      const gameItems = document.querySelectorAll('.p-gamesSchedule2__list')
+    // Parse schedule items - need to be careful with nested li tags
+    const listRegex = /<li class="p-gamesSchedule2__list">([\s\S]*?)(?=<li class="p-gamesSchedule2__list">|<\/ul>)/g
+    let listMatch
 
-      gameItems.forEach((item) => {
-        const dateElement = item.querySelector('.p-gamesSchedule2__data')
-        const teamImages = item.querySelectorAll('.p-gamesSchedule2__logos img')
-        const linkElement = item.querySelector('a')
+    while ((listMatch = listRegex.exec(html)) !== null) {
+      const listContent = listMatch[0]
 
-        if (dateElement && teamImages.length > 0) {
-          const dateText = dateElement.textContent?.trim() || ''
+      // Extract date
+      const dateMatch = listContent.match(
+        /<p class="p-gamesSchedule2__data">(\d+)<span[^>]*>\/[^<]*<\/span>(\d+)/,
+      )
+      if (!dateMatch) continue
 
-          const dateMatch = dateText.match(/(\d+)\/(\d+)/)
-          if (dateMatch) {
-            const month = dateMatch[1].padStart(2, '0')
-            const day = dateMatch[2].padStart(2, '0')
-            const formattedDate = `${targetYear}-${month}-${day}`
+      const monthStr = dateMatch[1].padStart(2, '0')
+      const dayStr = dateMatch[2].padStart(2, '0')
+      const formattedDate = `${year}-${monthStr}-${dayStr}`
 
-            const teams: string[] = []
-            teamImages.forEach((img) => {
-              const teamName = img.getAttribute('alt')
-              if (teamName && teamName.trim() !== '') {
-                teams.push(teamName.trim())
-              }
-            })
+      // Extract teams from img alt attributes
+      const teams: string[] = []
+      const teamRegex = /<img[^>]*alt="([^"]+)"[^>]*>/g
+      let teamMatch
 
-            if (teams.length > 0) {
-              const scheduleItem: {
-                date: string
-                teams: string[]
-                url?: string
-              } = {
-                date: formattedDate,
-                teams: teams,
-              }
-
-              // Get the URL from the anchor tag
-              const url = linkElement?.getAttribute('href')
-              if (url) {
-                scheduleItem.url = url
-              }
-
-              scheduleData.push(scheduleItem)
-            }
-          }
+      while ((teamMatch = teamRegex.exec(listContent)) !== null) {
+        const teamName = teamMatch[1].trim()
+        if (teamName && !teamName.includes('M.League')) {
+          teams.push(teamName)
         }
-      })
+      }
 
-      return scheduleData
-    }, year)
+      if (teams.length === 0) continue
+
+      // Extract URL
+      const urlMatch = listContent.match(/<a href="([^"]+)"/)
+      const gameUrl = urlMatch ? urlMatch[1] : undefined
+
+      schedules.push({
+        date: formattedDate,
+        teams: teams,
+        url: gameUrl,
+      })
+    }
 
     return schedules
-  } finally {
-    await page.close()
+  } catch (error) {
+    console.log(`  Error fetching schedule for ${year}/${month}:`, error)
+    return []
   }
 }
 
 async function scrapeAllMLeagueSchedules(): Promise<Schedule[]> {
-  const browser = await chromium.launch({
-    headless: true,
-  })
+  const allSchedules: Schedule[] = []
 
-  try {
-    const allSchedules: Schedule[] = []
+  const periods = [
+    { year: 2025, month: 9 },
+    { year: 2025, month: 10 },
+    { year: 2025, month: 11 },
+    { year: 2025, month: 12 },
+    { year: 2026, month: 1 },
+    { year: 2026, month: 2 },
+    { year: 2026, month: 3 },
+    { year: 2026, month: 4 },
+    { year: 2026, month: 5 },
+  ]
 
-    const periods = [
-      { year: 2025, month: 9 },
-      { year: 2025, month: 10 },
-      { year: 2025, month: 11 },
-      { year: 2025, month: 12 },
-      { year: 2026, month: 1 },
-      { year: 2026, month: 2 },
-      { year: 2026, month: 3 },
-      { year: 2026, month: 4 },
-      { year: 2026, month: 5 },
-    ]
-
-    for (const period of periods) {
-      const monthSchedules = await scrapeMLeagueScheduleForMonth(
-        browser,
-        period.year,
-        period.month,
-      )
-      allSchedules.push(...monthSchedules)
-      console.log(
-        `  Found ${monthSchedules.length} matches for ${period.year}/${period.month}`,
-      )
-    }
-
-    return allSchedules
-  } finally {
-    await browser.close()
+  for (const period of periods) {
+    const monthSchedules = await scrapeMLeagueScheduleForMonth(
+      period.year,
+      period.month,
+    )
+    allSchedules.push(...monthSchedules)
+    console.log(
+      `  Found ${monthSchedules.length} matches for ${period.year}/${period.month}`,
+    )
   }
+
+  return allSchedules
 }
 
 function generateICalendar(schedules: Schedule[]): string {

@@ -14,10 +14,6 @@
       "Bash(git commit*):main",
       "Bash(git merge*):main",
       "Bash(git rebase*):main"
-    ],
-    "ask": [
-      "Bash(git commit:*)",
-      "Bash(git add:*)"
     ]
   },
   "hooks": {

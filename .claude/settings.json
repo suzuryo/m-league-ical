@@ -1,0 +1,36 @@
+{
+  "includeCoAuthoredBy": false,
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:m-league.jp)"
+    ],
+    "deny": [
+      "Bash(git reset --hard*)",
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Bash(rm -rf /)",
+      "Bash(rm -rf /*)",
+      "Bash(sudo:*)",
+      "Bash(git commit*):main",
+      "Bash(git merge*):main",
+      "Bash(git rebase*):main"
+    ],
+    "ask": [
+      "Bash(git commit:*)",
+      "Bash(git add:*)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|MultiEdit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [[ \"$TOOL_PARAM_file_path\" =~ \\.(ts)$ ]]; then cd \"$PROJECT_ROOT\" && npm run lint && npm run build; fi"
+          }
+        ]
+      }
+    ]
+  }
+}

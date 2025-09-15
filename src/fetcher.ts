@@ -1,4 +1,4 @@
-import { randomUUID } from 'node:crypto'
+import { createHash } from 'node:crypto'
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
@@ -35,7 +35,8 @@ async function scrapeMLeagueScheduleForMonth(
     const schedules: Schedule[] = []
 
     // Parse schedule items - need to be careful with nested li tags
-    const listRegex = /<li class="p-gamesSchedule2__list">([\s\S]*?)(?=<li class="p-gamesSchedule2__list">|<\/ul>)/g
+    const listRegex =
+      /<li class="p-gamesSchedule2__list">([\s\S]*?)(?=<li class="p-gamesSchedule2__list">|<\/ul>)/g
     let listMatch
 
     while ((listMatch = listRegex.exec(html)) !== null) {
@@ -138,7 +139,12 @@ function generateICalendar(schedules: Schedule[]): string {
     const startMonth = String(date.getMonth() + 1).padStart(2, '0')
     const startDay = String(date.getDate()).padStart(2, '0')
 
-    const uid = `${schedule.date}-${randomUUID()}@m-league.jp`
+    // Generate deterministic UID based on date and team names (sorted for consistency)
+    const teamHash = createHash('sha256')
+      .update(schedule.date + [...schedule.teams].sort().join(','))
+      .digest('hex')
+      .substring(0, 12)
+    const uid = `${schedule.date}-${teamHash}@m-league.jp`
     const dtStart = `${startYear}${startMonth}${startDay}T190000`
     const dtEnd = `${startYear}${startMonth}${startDay}T240000`
 

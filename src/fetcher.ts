@@ -35,8 +35,9 @@ async function scrapeMLeagueScheduleForMonth(
     const schedules: Schedule[] = []
 
     // Parse schedule items - need to be careful with nested li tags
+    // Match both finished games (with is-finish class) and upcoming games (without)
     const listRegex =
-      /<li class="p-gamesSchedule2__list">([\s\S]*?)(?=<li class="p-gamesSchedule2__list">|<\/ul>)/g
+      /<li class="p-gamesSchedule2__list[^"]*"[^>]*>([\s\S]*?)(?=<li class="p-gamesSchedule2__list|<\/ul>)/g
     let listMatch
 
     while ((listMatch = listRegex.exec(html)) !== null) {
@@ -157,7 +158,9 @@ function generateICalendar(schedules: Schedule[]): string {
     icalLines.push(`DTEND;TZID=Asia/Tokyo:${dtEnd}`)
     icalLines.push(`SUMMARY:${summary}`)
     icalLines.push(`DESCRIPTION:${description}`)
-    icalLines.push(`LOCATION:${schedule.url || 'ABEMA TV'}`)
+    icalLines.push(
+      `LOCATION:${schedule.url || 'https://abema.tv/now-on-air/mahjong'}`,
+    )
 
     // アラート設定（開始時刻に通知）
     icalLines.push('BEGIN:VALARM')

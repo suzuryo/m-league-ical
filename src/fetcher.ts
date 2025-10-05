@@ -158,7 +158,9 @@ function generateICalendar(schedules: Schedule[]): string {
     icalLines.push(`DTEND;TZID=Asia/Tokyo:${dtEnd}`)
     icalLines.push(`SUMMARY:${summary}`)
     icalLines.push(`DESCRIPTION:${description}`)
-    icalLines.push(`LOCATION:${schedule.url || 'ABEMA TV'}`)
+    icalLines.push(
+      `LOCATION:${schedule.url || 'https://abema.tv/now-on-air/mahjong'}`,
+    )
 
     // アラート設定（開始時刻に通知）
     icalLines.push('BEGIN:VALARM')

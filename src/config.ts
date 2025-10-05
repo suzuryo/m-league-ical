@@ -21,6 +21,7 @@ export const M_LEAGUE_CONFIG = {
     eventStartTime: '190000', // 19:00:00
     eventEndTime: '240000', // 24:00:00
     // Fallback URL used as the event location when schedule.url is undefined.
+    // Fallback URL used as the event location when schedule.url is undefined.
     defaultLocation: 'https://abema.tv/now-on-air/mahjong',
     description: {
       prefix: '対戦チーム:',

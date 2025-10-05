@@ -3,6 +3,11 @@ import { createHash } from 'node:crypto'
 import type { Schedule } from '../types/schedule'
 
 /**
+ * Number of characters to use from the SHA-256 hash for UID generation
+ */
+const HASH_LENGTH = 12
+
+/**
  * Generate a deterministic UID for a schedule event
  * @param schedule - Schedule object containing date and teams
  * @returns UID string in the format: YYYY-MM-DD-hash@m-league.jp
@@ -11,7 +16,7 @@ export function generateUid(schedule: Schedule): string {
   const teamHash = createHash('sha256')
     .update(schedule.date + [...schedule.teams].sort().join(','))
     .digest('hex')
-    .substring(0, 12)
+    .substring(0, HASH_LENGTH)
 
   return `${schedule.date}-${teamHash}@m-league.jp`
 }

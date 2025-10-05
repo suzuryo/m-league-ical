@@ -3,8 +3,3 @@ export interface Schedule {
   teams: string[]
   url?: string
 }
-
-export interface Period {
-  year: number
-  month: number
-}

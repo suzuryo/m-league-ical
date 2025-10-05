@@ -70,26 +70,25 @@ function parseUrl(listContent: string): string | undefined {
  * @returns Array of Schedule objects
  */
 export function parseSchedules(html: string, year: number): Schedule[] {
-  const schedules: Schedule[] = []
   const listItems = parseScheduleListItems(html)
 
-  for (const listContent of listItems) {
-    const date = parseDate(listContent, year)
-    if (!date) continue
+  return listItems
+    .map((listContent) => {
+      const date = parseDate(listContent, year)
+      if (!date) return null
 
-    const teams = parseTeams(listContent)
-    if (teams.length === 0) continue
+      const teams = parseTeams(listContent)
+      if (teams.length === 0) return null
 
-    const url = parseUrl(listContent)
+      const url = parseUrl(listContent)
 
-    schedules.push({
-      date,
-      teams,
-      url,
+      return {
+        date,
+        teams,
+        url,
+      } as Schedule
     })
-  }
-
-  return schedules
+    .filter((schedule): schedule is Schedule => schedule !== null)
 }
 
 /**

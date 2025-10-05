@@ -39,6 +39,11 @@ export const M_LEAGUE_CONFIG = {
     //   - <li class="p-gamesSchedule2__list[^"]*"[^>]*> : Matches the opening <li> tag with the specific class, allowing for additional classes/attributes.
     //   - ([\s\S]*?) : Non-greedy capture of all content inside the <li> (including newlines).
     //   - (?=<li class="p-gamesSchedule2__list|<\/ul>) : Lookahead to stop at the next <li> with the same class or the closing </ul>.
+    // Matches a single <li> element with class "p-gamesSchedule2__list" and captures its inner HTML.
+    // Breakdown of the regex:
+    //   - <li class="p-gamesSchedule2__list[^"]*"[^>]*> : Matches the opening <li> tag with the specific class, allowing for additional classes/attributes.
+    //   - ([\s\S]*?) : Non-greedy capture of all content inside the <li> (including newlines).
+    //   - (?=<li class="p-gamesSchedule2__list|<\/ul>) : Lookahead to stop at the next <li> with the same class or the closing </ul>.
     listItem:
       /<li class="p-gamesSchedule2__list[^"]*"[^>]*>([\s\S]*?)(?=<li class="p-gamesSchedule2__list|<\/ul>)/g,
     date: /<p class="p-gamesSchedule2__data">(\d+)<span[^>]*>\/[^<]*<\/span>(\d+)/,

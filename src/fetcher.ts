@@ -35,8 +35,9 @@ async function scrapeMLeagueScheduleForMonth(
     const schedules: Schedule[] = []
 
     // Parse schedule items - need to be careful with nested li tags
+    // Match both finished games (with is-finish class) and upcoming games (without)
     const listRegex =
-      /<li class="p-gamesSchedule2__list">([\s\S]*?)(?=<li class="p-gamesSchedule2__list">|<\/ul>)/g
+      /<li class="p-gamesSchedule2__list[^"]*"[^>]*>([\s\S]*?)(?=<li class="p-gamesSchedule2__list|<\/ul>)/g
     let listMatch
 
     while ((listMatch = listRegex.exec(html)) !== null) {

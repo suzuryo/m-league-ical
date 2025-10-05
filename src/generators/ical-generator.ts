@@ -51,7 +51,10 @@ function generateEvent(schedule: Schedule): string[] {
   )
 
   const summary = schedule.teams.map((team) => `[${team}]`).join('')
-  const description = `${M_LEAGUE_CONFIG.calendar.description.prefix}\\n${schedule.teams.map((team) => `${M_LEAGUE_CONFIG.calendar.description.teamBullet}${team}`).join('\\n')}`
+  const teamList = schedule.teams
+    .map((team) => `${M_LEAGUE_CONFIG.calendar.description.teamBullet}${team}`)
+    .join('\\n')
+  const description = `${M_LEAGUE_CONFIG.calendar.description.prefix}\\n${teamList}`
   const location = schedule.url || M_LEAGUE_CONFIG.calendar.defaultLocation
 
   const eventLines = [

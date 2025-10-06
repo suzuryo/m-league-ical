@@ -19,6 +19,30 @@ npm start
 npm run build
 ```
 
+### Testing
+```bash
+# Run all tests
+npm test
+
+# Run tests with coverage report
+npm run test:coverage
+
+# Run tests in watch mode (interactive)
+npx vitest
+
+# Run tests with UI
+npm run test:ui
+```
+
+### Linting
+```bash
+# Run ESLint
+npm run lint
+
+# Type checking
+npm run typecheck
+```
+
 ### Setup
 ```bash
 # Install dependencies
@@ -35,7 +59,7 @@ The codebase follows a modular architecture with clear separation of concerns:
 
 ```
 src/
-├── types/schedule.ts          # Type definitions (Schedule, Period)
+├── types/schedule.d.ts          # Type definitions (Schedule, Period)
 ├── config.ts                  # Configuration (periods, selectors, regex patterns)
 ├── utils/
 │   ├── calendar-utils.ts      # UID generation, datetime formatting
@@ -83,9 +107,27 @@ All configuration is centralized in `M_LEAGUE_CONFIG`:
 
 When deployed: `https://suzuryo.github.io/m-league-ical/m-league-schedule.ics`
 
+### Testing Infrastructure
+
+- **Framework**: Vitest (configured in `vitest.config.ts`)
+- **Test Location**: All tests are in `src/__tests__/` directory following Vitest conventions
+- **Fixtures**: Real downloaded HTML data from M-League website (150 total matches across 9 months)
+  - Located in `src/__tests__/fixtures/`
+  - Files: `2025-09.html` through `2026-05.html`
+- **Coverage**: 100% coverage on all modules (excludes entry point and type definitions)
+- **Mocking**: Uses `vi.fn()` and `vi.spyOn()` for global `fetch` and `console.log`
+
+Test files cover:
+- `calendar-utils.test.ts` - UID generation and datetime formatting (9 tests)
+- `html-parser.test.ts` - Schedule parsing with real fixtures (16 tests)
+- `ical-generator.test.ts` - iCalendar format generation (8 tests)
+- `file-utils.test.ts` - File I/O operations (4 tests)
+- `m-league-scraper.test.ts` - HTTP fetching and error handling (10 tests)
+
 ## Important Notes
 
 - CSS selectors and regex patterns are defined in `src/config.ts`. If the M-League website structure changes, update them there.
 - Months without published schedules (e.g., April, May) return empty arrays gracefully.
 - Each game involves exactly 4 teams competing simultaneously.
 - The scraper uses native `fetch()` API (no external HTTP libraries).
+- Error logs in test output (e.g., "Network error") are intentional - they test error handling behavior.

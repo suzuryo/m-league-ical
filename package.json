@@ -8,7 +8,7 @@
     "build": "esbuild src/fetcher.ts --bundle --platform=node --format=esm --outfile=dist/fetcher.js --external:node:*",
     "typecheck": "tsc --noEmit",
     "fetch": "tsx src/fetcher.ts",
-    "start": "npm run build && node dist/fetcher.js",
+    "start": "pnpm run build && node dist/fetcher.js",
     "dev": "tsx src/fetcher.ts",
     "lint": "eslint .",
     "test": "vitest --run",

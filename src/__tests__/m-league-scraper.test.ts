@@ -152,8 +152,8 @@ describe('m-league-scraper', () => {
 
       const schedules = await scraper.fetchAll()
 
-      // 実際のデータに基づく合計: 150試合
-      expect(schedules.length).toBe(150)
+      // 実際のデータに基づく合計: 173試合
+      expect(schedules.length).toBe(173)
       expect(global.fetch).toHaveBeenCalledTimes(9)
     })
 

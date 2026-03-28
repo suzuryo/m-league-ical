@@ -32,14 +32,14 @@ describe('html-parser', () => {
       expect(schedules.length).toBe(24)
     })
 
-    it('スケジュールがない月(2026年4月)は空配列を返す', () => {
+    it('2026年4月のHTMLから正しくスケジュールを抽出する', () => {
       const html = readFileSync(join(FIXTURES_DIR, '2026-04.html'), 'utf-8')
       const schedules = parseSchedules(html, 2026)
 
-      expect(schedules.length).toBe(0)
+      expect(schedules.length).toBe(15)
     })
 
-    it('全期間で合計150試合のスケジュールを抽出する', () => {
+    it('全期間で合計173試合のスケジュールを抽出する', () => {
       const files = [
         '2025-09.html',
         '2025-10.html',
@@ -60,7 +60,7 @@ describe('html-parser', () => {
         total += schedules.length
       })
 
-      expect(total).toBe(150)
+      expect(total).toBe(173)
     })
 
     it('抽出したスケジュールが正しい形式を持つ', () => {
@@ -203,7 +203,7 @@ describe('html-parser', () => {
       )
 
       expect(hasScheduleData(html2025_09)).toBe(true)
-      expect(hasScheduleData(html2026_04)).toBe(true) // HTMLにはクラスが存在するがデータがない
+      expect(hasScheduleData(html2026_04)).toBe(true)
     })
   })
 })

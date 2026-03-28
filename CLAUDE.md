@@ -111,7 +111,7 @@ When deployed: `https://suzuryo.github.io/m-league-ical/m-league-schedule.ics`
 
 - **Framework**: Vitest (configured in `vitest.config.ts`)
 - **Test Location**: All tests are in `src/__tests__/` directory following Vitest conventions
-- **Fixtures**: Real downloaded HTML data from M-League website (150 total matches across 9 months)
+- **Fixtures**: Real downloaded HTML data from M-League website (173 total matches across 9 months)
   - Located in `src/__tests__/fixtures/`
   - Files: `2025-09.html` through `2026-05.html`
 - **Coverage**: 100% coverage on all modules (excludes entry point and type definitions)

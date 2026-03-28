@@ -1184,19 +1184,6 @@ DESCRIPTION:[EX風林火山][渋谷ABEMAS][セガサミーフェニックス][TE
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-01-08-085e682018bc@m-league.jp
-DTSTART;TZID=Asia/Tokyo:20260108T190000
-DTEND;TZID=Asia/Tokyo:20260108T235959
-SUMMARY:[赤坂ドリブンズ][EX風林火山][セガサミーフェニックス][U-NEXT Pirates]
-DESCRIPTION:対戦チーム:\n・赤坂ドリブンズ\n・EX風林火山\n・セガサミーフェニックス\n・U-NEXT Pirates
-LOCATION:https://abema.tv/now-on-air/mahjong
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:PT0M
-DESCRIPTION:[赤坂ドリブンズ][EX風林火山][セガサミーフェニックス][U-NEXT Pirates]
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
 UID:2026-01-08-ef2814bd32e9@m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260108T190000
 DTEND;TZID=Asia/Tokyo:20260108T235959
@@ -1207,6 +1194,19 @@ BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
 DESCRIPTION:[EARTH JETS][KADOKAWAサクラナイツ][KONAMI麻雀格闘倶楽部][BEAST X]
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-01-08-085e682018bc@m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260108T190000
+DTEND;TZID=Asia/Tokyo:20260108T235959
+SUMMARY:[赤坂ドリブンズ][EX風林火山][セガサミーフェニックス][U-NEXT Pirates]
+DESCRIPTION:対戦チーム:\n・赤坂ドリブンズ\n・EX風林火山\n・セガサミーフェニックス\n・U-NEXT Pirates
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[赤坂ドリブンズ][EX風林火山][セガサミーフェニックス][U-NEXT Pirates]
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
@@ -1262,19 +1262,6 @@ DESCRIPTION:[赤坂ドリブンズ][KADOKAWAサクラナイツ][BEAST X][U-NEXT 
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-01-15-af245132a6ab@m-league.jp
-DTSTART;TZID=Asia/Tokyo:20260115T190000
-DTEND;TZID=Asia/Tokyo:20260115T235959
-SUMMARY:[EARTH JETS][EX風林火山][渋谷ABEMAS][U-NEXT Pirates]
-DESCRIPTION:対戦チーム:\n・EARTH JETS\n・EX風林火山\n・渋谷ABEMAS\n・U-NEXT Pirates
-LOCATION:https://abema.tv/now-on-air/mahjong
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:PT0M
-DESCRIPTION:[EARTH JETS][EX風林火山][渋谷ABEMAS][U-NEXT Pirates]
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
 UID:2026-01-15-88950478374c@m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260115T190000
 DTEND;TZID=Asia/Tokyo:20260115T235959
@@ -1288,16 +1275,16 @@ DESCRIPTION:[赤坂ドリブンズ][KONAMI麻雀格闘倶楽部][セガサミー
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-01-16-a03f99a2c550@m-league.jp
-DTSTART;TZID=Asia/Tokyo:20260116T190000
-DTEND;TZID=Asia/Tokyo:20260116T235959
-SUMMARY:[EX風林火山][KONAMI麻雀格闘倶楽部][TEAM RAIDEN / 雷電][BEAST X]
-DESCRIPTION:対戦チーム:\n・EX風林火山\n・KONAMI麻雀格闘倶楽部\n・TEAM RAIDEN / 雷電\n・BEAST X
+UID:2026-01-15-af245132a6ab@m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260115T190000
+DTEND;TZID=Asia/Tokyo:20260115T235959
+SUMMARY:[EARTH JETS][EX風林火山][渋谷ABEMAS][U-NEXT Pirates]
+DESCRIPTION:対戦チーム:\n・EARTH JETS\n・EX風林火山\n・渋谷ABEMAS\n・U-NEXT Pirates
 LOCATION:https://abema.tv/now-on-air/mahjong
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
-DESCRIPTION:[EX風林火山][KONAMI麻雀格闘倶楽部][TEAM RAIDEN / 雷電][BEAST X]
+DESCRIPTION:[EARTH JETS][EX風林火山][渋谷ABEMAS][U-NEXT Pirates]
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
@@ -1311,6 +1298,19 @@ BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
 DESCRIPTION:[EARTH JETS][KADOKAWAサクラナイツ][渋谷ABEMAS][セガサミーフェニックス]
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-01-16-a03f99a2c550@m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260116T190000
+DTEND;TZID=Asia/Tokyo:20260116T235959
+SUMMARY:[EX風林火山][KONAMI麻雀格闘倶楽部][TEAM RAIDEN / 雷電][BEAST X]
+DESCRIPTION:対戦チーム:\n・EX風林火山\n・KONAMI麻雀格闘倶楽部\n・TEAM RAIDEN / 雷電\n・BEAST X
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[EX風林火山][KONAMI麻雀格闘倶楽部][TEAM RAIDEN / 雷電][BEAST X]
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
@@ -1418,19 +1418,6 @@ DESCRIPTION:[EARTH JETS][EX風林火山][渋谷ABEMAS][BEAST X]
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-01-29-9cdcac4f55db@m-league.jp
-DTSTART;TZID=Asia/Tokyo:20260129T190000
-DTEND;TZID=Asia/Tokyo:20260129T235959
-SUMMARY:[赤坂ドリブンズ][KONAMI麻雀格闘倶楽部][セガサミーフェニックス][BEAST X]
-DESCRIPTION:対戦チーム:\n・赤坂ドリブンズ\n・KONAMI麻雀格闘倶楽部\n・セガサミーフェニックス\n・BEAST X
-LOCATION:https://abema.tv/now-on-air/mahjong
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:PT0M
-DESCRIPTION:[赤坂ドリブンズ][KONAMI麻雀格闘倶楽部][セガサミーフェニックス][BEAST X]
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
 UID:2026-01-29-4f13c289ab2c@m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260129T190000
 DTEND;TZID=Asia/Tokyo:20260129T235959
@@ -1441,6 +1428,19 @@ BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
 DESCRIPTION:[KADOKAWAサクラナイツ][渋谷ABEMAS][TEAM RAIDEN / 雷電][U-NEXT Pirates]
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-01-29-9cdcac4f55db@m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260129T190000
+DTEND;TZID=Asia/Tokyo:20260129T235959
+SUMMARY:[赤坂ドリブンズ][KONAMI麻雀格闘倶楽部][セガサミーフェニックス][BEAST X]
+DESCRIPTION:対戦チーム:\n・赤坂ドリブンズ\n・KONAMI麻雀格闘倶楽部\n・セガサミーフェニックス\n・BEAST X
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[赤坂ドリブンズ][KONAMI麻雀格闘倶楽部][セガサミーフェニックス][BEAST X]
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
@@ -1600,19 +1600,6 @@ DESCRIPTION:[KONAMI麻雀格闘倶楽部][セガサミーフェニックス][TEA
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-02-13-d1fd60dafbc6@m-league.jp
-DTSTART;TZID=Asia/Tokyo:20260213T190000
-DTEND;TZID=Asia/Tokyo:20260213T235959
-SUMMARY:[赤坂ドリブンズ][EX風林火山][TEAM RAIDEN / 雷電][U-NEXT Pirates]
-DESCRIPTION:対戦チーム:\n・赤坂ドリブンズ\n・EX風林火山\n・TEAM RAIDEN / 雷電\n・U-NEXT Pirates
-LOCATION:https://abema.tv/now-on-air/mahjong
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:PT0M
-DESCRIPTION:[赤坂ドリブンズ][EX風林火山][TEAM RAIDEN / 雷電][U-NEXT Pirates]
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
 UID:2026-02-13-c79032852122@m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260213T190000
 DTEND;TZID=Asia/Tokyo:20260213T235959
@@ -1623,6 +1610,19 @@ BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
 DESCRIPTION:[EARTH JETS][KADOKAWAサクラナイツ][KONAMI麻雀格闘倶楽部][セガサミーフェニックス]
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-02-13-d1fd60dafbc6@m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260213T190000
+DTEND;TZID=Asia/Tokyo:20260213T235959
+SUMMARY:[赤坂ドリブンズ][EX風林火山][TEAM RAIDEN / 雷電][U-NEXT Pirates]
+DESCRIPTION:対戦チーム:\n・赤坂ドリブンズ\n・EX風林火山\n・TEAM RAIDEN / 雷電\n・U-NEXT Pirates
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[赤坂ドリブンズ][EX風林火山][TEAM RAIDEN / 雷電][U-NEXT Pirates]
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
@@ -1652,19 +1652,6 @@ DESCRIPTION:[KADOKAWAサクラナイツ][KONAMI麻雀格闘倶楽部][TEAM RAIDE
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-02-19-bf6cdba29a11@m-league.jp
-DTSTART;TZID=Asia/Tokyo:20260219T190000
-DTEND;TZID=Asia/Tokyo:20260219T235959
-SUMMARY:[EARTH JETS][渋谷ABEMAS][セガサミーフェニックス][BEAST X]
-DESCRIPTION:対戦チーム:\n・EARTH JETS\n・渋谷ABEMAS\n・セガサミーフェニックス\n・BEAST X
-LOCATION:https://abema.tv/now-on-air/mahjong
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:PT0M
-DESCRIPTION:[EARTH JETS][渋谷ABEMAS][セガサミーフェニックス][BEAST X]
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
 UID:2026-02-19-f6a0857280cd@m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260219T190000
 DTEND;TZID=Asia/Tokyo:20260219T235959
@@ -1675,6 +1662,19 @@ BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
 DESCRIPTION:[赤坂ドリブンズ][EX風林火山][KADOKAWAサクラナイツ][KONAMI麻雀格闘倶楽部]
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-02-19-bf6cdba29a11@m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260219T190000
+DTEND;TZID=Asia/Tokyo:20260219T235959
+SUMMARY:[EARTH JETS][渋谷ABEMAS][セガサミーフェニックス][BEAST X]
+DESCRIPTION:対戦チーム:\n・EARTH JETS\n・渋谷ABEMAS\n・セガサミーフェニックス\n・BEAST X
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[EARTH JETS][渋谷ABEMAS][セガサミーフェニックス][BEAST X]
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
@@ -1961,6 +1961,305 @@ BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
 DESCRIPTION:[赤坂ドリブンズ][セガサミーフェニックス][TEAM RAIDEN / 雷電][U-NEXT Pirates]
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-04-06-2e4c51754697@m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260406T190000
+DTEND;TZID=Asia/Tokyo:20260406T235959
+SUMMARY:[EX風林火山][KONAMI麻雀格闘倶楽部][TEAM RAIDEN / 雷電][BEAST X]
+DESCRIPTION:対戦チーム:\n・EX風林火山\n・KONAMI麻雀格闘倶楽部\n・TEAM RAIDEN / 雷電\n・BEAST X
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[EX風林火山][KONAMI麻雀格闘倶楽部][TEAM RAIDEN / 雷電][BEAST X]
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-04-07-cd0cd4afb91b@m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260407T190000
+DTEND;TZID=Asia/Tokyo:20260407T235959
+SUMMARY:[赤坂ドリブンズ][EX風林火山][セガサミーフェニックス][TEAM RAIDEN / 雷電]
+DESCRIPTION:対戦チーム:\n・赤坂ドリブンズ\n・EX風林火山\n・セガサミーフェニックス\n・TEAM RAIDEN / 雷電
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[赤坂ドリブンズ][EX風林火山][セガサミーフェニックス][TEAM RAIDEN / 雷電]
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-04-09-cb46e403bbe4@m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260409T190000
+DTEND;TZID=Asia/Tokyo:20260409T235959
+SUMMARY:[赤坂ドリブンズ][KONAMI麻雀格闘倶楽部][セガサミーフェニックス][BEAST X]
+DESCRIPTION:対戦チーム:\n・赤坂ドリブンズ\n・KONAMI麻雀格闘倶楽部\n・セガサミーフェニックス\n・BEAST X
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[赤坂ドリブンズ][KONAMI麻雀格闘倶楽部][セガサミーフェニックス][BEAST X]
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-04-10-487362b6dfb6@m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260410T190000
+DTEND;TZID=Asia/Tokyo:20260410T235959
+SUMMARY:[赤坂ドリブンズ][EX風林火山][KONAMI麻雀格闘倶楽部][セガサミーフェニックス]
+DESCRIPTION:対戦チーム:\n・赤坂ドリブンズ\n・EX風林火山\n・KONAMI麻雀格闘倶楽部\n・セガサミーフェニックス
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[赤坂ドリブンズ][EX風林火山][KONAMI麻雀格闘倶楽部][セガサミーフェニックス]
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-04-13-1a5a1e407b12@m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260413T190000
+DTEND;TZID=Asia/Tokyo:20260413T235959
+SUMMARY:[EX風林火山][セガサミーフェニックス][TEAM RAIDEN / 雷電][BEAST X]
+DESCRIPTION:対戦チーム:\n・EX風林火山\n・セガサミーフェニックス\n・TEAM RAIDEN / 雷電\n・BEAST X
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[EX風林火山][セガサミーフェニックス][TEAM RAIDEN / 雷電][BEAST X]
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-04-14-3023b03874a4@m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260414T190000
+DTEND;TZID=Asia/Tokyo:20260414T235959
+SUMMARY:[赤坂ドリブンズ][KONAMI麻雀格闘倶楽部][TEAM RAIDEN / 雷電][BEAST X]
+DESCRIPTION:対戦チーム:\n・赤坂ドリブンズ\n・KONAMI麻雀格闘倶楽部\n・TEAM RAIDEN / 雷電\n・BEAST X
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[赤坂ドリブンズ][KONAMI麻雀格闘倶楽部][TEAM RAIDEN / 雷電][BEAST X]
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-04-16-0f5bd806bf6c@m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260416T190000
+DTEND;TZID=Asia/Tokyo:20260416T235959
+SUMMARY:[KONAMI麻雀格闘倶楽部][セガサミーフェニックス][TEAM RAIDEN / 雷電][BEAST X]
+DESCRIPTION:対戦チーム:\n・KONAMI麻雀格闘倶楽部\n・セガサミーフェニックス\n・TEAM RAIDEN / 雷電\n・BEAST X
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[KONAMI麻雀格闘倶楽部][セガサミーフェニックス][TEAM RAIDEN / 雷電][BEAST X]
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-04-17-1de51ae654d6@m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260417T190000
+DTEND;TZID=Asia/Tokyo:20260417T235959
+SUMMARY:[赤坂ドリブンズ][EX風林火山][KONAMI麻雀格闘倶楽部][TEAM RAIDEN / 雷電]
+DESCRIPTION:対戦チーム:\n・赤坂ドリブンズ\n・EX風林火山\n・KONAMI麻雀格闘倶楽部\n・TEAM RAIDEN / 雷電
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[赤坂ドリブンズ][EX風林火山][KONAMI麻雀格闘倶楽部][TEAM RAIDEN / 雷電]
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-04-20-9976f79d01c1@m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260420T190000
+DTEND;TZID=Asia/Tokyo:20260420T235959
+SUMMARY:[赤坂ドリブンズ][EX風林火山][セガサミーフェニックス][BEAST X]
+DESCRIPTION:対戦チーム:\n・赤坂ドリブンズ\n・EX風林火山\n・セガサミーフェニックス\n・BEAST X
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[赤坂ドリブンズ][EX風林火山][セガサミーフェニックス][BEAST X]
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-04-21-33e685261407@m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260421T190000
+DTEND;TZID=Asia/Tokyo:20260421T235959
+SUMMARY:[EX風林火山][KONAMI麻雀格闘倶楽部][セガサミーフェニックス][BEAST X]
+DESCRIPTION:対戦チーム:\n・EX風林火山\n・KONAMI麻雀格闘倶楽部\n・セガサミーフェニックス\n・BEAST X
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[EX風林火山][KONAMI麻雀格闘倶楽部][セガサミーフェニックス][BEAST X]
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-04-23-3e94a2c1f2ac@m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260423T190000
+DTEND;TZID=Asia/Tokyo:20260423T235959
+SUMMARY:[赤坂ドリブンズ][EX風林火山][TEAM RAIDEN / 雷電][BEAST X]
+DESCRIPTION:対戦チーム:\n・赤坂ドリブンズ\n・EX風林火山\n・TEAM RAIDEN / 雷電\n・BEAST X
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[赤坂ドリブンズ][EX風林火山][TEAM RAIDEN / 雷電][BEAST X]
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-04-24-d9a2eb904ff5@m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260424T190000
+DTEND;TZID=Asia/Tokyo:20260424T235959
+SUMMARY:[赤坂ドリブンズ][KONAMI麻雀格闘倶楽部][セガサミーフェニックス][TEAM RAIDEN / 雷電]
+DESCRIPTION:対戦チーム:\n・赤坂ドリブンズ\n・KONAMI麻雀格闘倶楽部\n・セガサミーフェニックス\n・TEAM RAIDEN / 雷電
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[赤坂ドリブンズ][KONAMI麻雀格闘倶楽部][セガサミーフェニックス][TEAM RAIDEN / 雷電]
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-04-27-193093222640@m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260427T190000
+DTEND;TZID=Asia/Tokyo:20260427T235959
+SUMMARY:[赤坂ドリブンズ][セガサミーフェニックス][TEAM RAIDEN / 雷電][BEAST X]
+DESCRIPTION:対戦チーム:\n・赤坂ドリブンズ\n・セガサミーフェニックス\n・TEAM RAIDEN / 雷電\n・BEAST X
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[赤坂ドリブンズ][セガサミーフェニックス][TEAM RAIDEN / 雷電][BEAST X]
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-04-28-ccbe7105f977@m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260428T190000
+DTEND;TZID=Asia/Tokyo:20260428T235959
+SUMMARY:[EX風林火山][KONAMI麻雀格闘倶楽部][セガサミーフェニックス][TEAM RAIDEN / 雷電]
+DESCRIPTION:対戦チーム:\n・EX風林火山\n・KONAMI麻雀格闘倶楽部\n・セガサミーフェニックス\n・TEAM RAIDEN / 雷電
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[EX風林火山][KONAMI麻雀格闘倶楽部][セガサミーフェニックス][TEAM RAIDEN / 雷電]
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-04-30-7048b2eec76f@m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260430T190000
+DTEND;TZID=Asia/Tokyo:20260430T235959
+SUMMARY:[赤坂ドリブンズ][EX風林火山][KONAMI麻雀格闘倶楽部][BEAST X]
+DESCRIPTION:対戦チーム:\n・赤坂ドリブンズ\n・EX風林火山\n・KONAMI麻雀格闘倶楽部\n・BEAST X
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[赤坂ドリブンズ][EX風林火山][KONAMI麻雀格闘倶楽部][BEAST X]
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-05-04-d5e5dcfc42fd@m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260504T190000
+DTEND;TZID=Asia/Tokyo:20260504T235959
+SUMMARY:[試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦]
+DESCRIPTION:対戦チーム:\n・試合日程 | 麻雀プロリーグ戦\n・試合日程 | 麻雀プロリーグ戦\n・試合日程 | 麻雀プロリーグ戦\n・試合日程 | 麻雀プロリーグ戦
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦]
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-05-05-791e4ae4d521@m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260505T190000
+DTEND;TZID=Asia/Tokyo:20260505T235959
+SUMMARY:[試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦]
+DESCRIPTION:対戦チーム:\n・試合日程 | 麻雀プロリーグ戦\n・試合日程 | 麻雀プロリーグ戦\n・試合日程 | 麻雀プロリーグ戦\n・試合日程 | 麻雀プロリーグ戦
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦]
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-05-07-d48d1437aad6@m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260507T190000
+DTEND;TZID=Asia/Tokyo:20260507T235959
+SUMMARY:[試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦]
+DESCRIPTION:対戦チーム:\n・試合日程 | 麻雀プロリーグ戦\n・試合日程 | 麻雀プロリーグ戦\n・試合日程 | 麻雀プロリーグ戦\n・試合日程 | 麻雀プロリーグ戦
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦]
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-05-08-c38a6b7b11b2@m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260508T190000
+DTEND;TZID=Asia/Tokyo:20260508T235959
+SUMMARY:[試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦]
+DESCRIPTION:対戦チーム:\n・試合日程 | 麻雀プロリーグ戦\n・試合日程 | 麻雀プロリーグ戦\n・試合日程 | 麻雀プロリーグ戦\n・試合日程 | 麻雀プロリーグ戦
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦]
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-05-11-eeadb9fc7a85@m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260511T190000
+DTEND;TZID=Asia/Tokyo:20260511T235959
+SUMMARY:[試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦]
+DESCRIPTION:対戦チーム:\n・試合日程 | 麻雀プロリーグ戦\n・試合日程 | 麻雀プロリーグ戦\n・試合日程 | 麻雀プロリーグ戦\n・試合日程 | 麻雀プロリーグ戦
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦]
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-05-12-a50c5ba15ba9@m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260512T190000
+DTEND;TZID=Asia/Tokyo:20260512T235959
+SUMMARY:[試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦]
+DESCRIPTION:対戦チーム:\n・試合日程 | 麻雀プロリーグ戦\n・試合日程 | 麻雀プロリーグ戦\n・試合日程 | 麻雀プロリーグ戦\n・試合日程 | 麻雀プロリーグ戦
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦]
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-05-14-2b82e2f08e29@m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260514T190000
+DTEND;TZID=Asia/Tokyo:20260514T235959
+SUMMARY:[試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦]
+DESCRIPTION:対戦チーム:\n・試合日程 | 麻雀プロリーグ戦\n・試合日程 | 麻雀プロリーグ戦\n・試合日程 | 麻雀プロリーグ戦\n・試合日程 | 麻雀プロリーグ戦
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦]
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-05-15-da6d39e31fc8@m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260515T190000
+DTEND;TZID=Asia/Tokyo:20260515T235959
+SUMMARY:[試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦]
+DESCRIPTION:対戦チーム:\n・試合日程 | 麻雀プロリーグ戦\n・試合日程 | 麻雀プロリーグ戦\n・試合日程 | 麻雀プロリーグ戦\n・試合日程 | 麻雀プロリーグ戦
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦][試合日程 | 麻雀プロリーグ戦]
 END:VALARM
 END:VEVENT
 END:VCALENDAR

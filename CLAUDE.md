@@ -6,47 +6,44 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Fetching and File Generation
 ```bash
-# Run the fetcher to generate calendar files (uses tsx, faster for development)
-npm run fetch
+# Run the fetcher to generate calendar files
+bun run fetch
 
 # Development mode (same as fetch)
-npm run dev
+bun run dev
 
-# Build with esbuild and run compiled version (single bundled file)
-npm start
-
-# Build TypeScript only (creates dist/fetcher.js)
-npm run build
+# Run compiled version
+bun run start
 ```
 
 ### Testing
 ```bash
 # Run all tests
-npm test
+bun run test
 
 # Run tests with coverage report
-npm run test:coverage
+bun run test:coverage
 
 # Run tests in watch mode (interactive)
-npx vitest
+bunx vitest
 
 # Run tests with UI
-npm run test:ui
+bun run test:ui
 ```
 
 ### Linting
 ```bash
-# Run ESLint
-npm run lint
+# Run Biome
+bun run lint
 
 # Type checking
-npm run typecheck
+bun run typecheck
 ```
 
 ### Setup
 ```bash
 # Install dependencies
-npm install
+bun install
 ```
 
 ## Architecture
@@ -99,9 +96,7 @@ All configuration is centralized in `M_LEAGUE_CONFIG`:
 
 ### Build System
 
-- **Development**: Uses `tsx` for direct TypeScript execution (no build step)
-- **Production**: Uses `esbuild` to bundle all modules into single `dist/fetcher.js` (7.8kb, ~3ms build)
-- **TypeScript**: `moduleResolution: "bundler"` - no `.js` extensions needed in imports
+- **Runtime**: Uses Bun for native TypeScript execution (no build step needed)
 
 ### GitHub Pages URL
 

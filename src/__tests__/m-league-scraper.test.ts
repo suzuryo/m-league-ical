@@ -22,7 +22,7 @@ describe('m-league-scraper', () => {
       global.fetch = vi.fn().mockResolvedValue({
         ok: true,
         text: async () => html,
-      })
+      }) as unknown as typeof fetch
 
       const schedules = await scraper.fetchMonth(2025, 9)
 
@@ -36,7 +36,7 @@ describe('m-league-scraper', () => {
       global.fetch = vi.fn().mockResolvedValue({
         ok: true,
         text: async () => html,
-      })
+      }) as unknown as typeof fetch
 
       const consoleSpy = vi.spyOn(console, 'log')
 
@@ -54,7 +54,7 @@ describe('m-league-scraper', () => {
       global.fetch = vi.fn().mockResolvedValue({
         ok: false,
         status: 404,
-      })
+      }) as unknown as typeof fetch
 
       const consoleSpy = vi.spyOn(console, 'log')
 
@@ -70,7 +70,11 @@ describe('m-league-scraper', () => {
     })
 
     it('ネットワークエラーの場合は空配列を返す', async () => {
-      global.fetch = vi.fn().mockRejectedValue(new Error('Network error'))
+      global.fetch = vi
+        .fn()
+        .mockRejectedValue(
+          new Error('Network error'),
+        ) as unknown as typeof fetch
 
       const consoleSpy = vi.spyOn(console, 'log')
 
@@ -91,7 +95,7 @@ describe('m-league-scraper', () => {
       global.fetch = vi.fn().mockResolvedValue({
         ok: true,
         text: async () => html,
-      })
+      }) as unknown as typeof fetch
 
       await scraper.fetchMonth(2025, 9)
 
@@ -106,7 +110,7 @@ describe('m-league-scraper', () => {
       global.fetch = vi.fn().mockResolvedValue({
         ok: true,
         text: async () => html,
-      })
+      }) as unknown as typeof fetch
 
       const consoleSpy = vi.spyOn(console, 'log')
 
@@ -148,7 +152,7 @@ describe('m-league-scraper', () => {
         }
       })
 
-      global.fetch = mockFetch
+      global.fetch = mockFetch as unknown as typeof fetch
 
       const schedules = await scraper.fetchAll()
 
@@ -163,7 +167,7 @@ describe('m-league-scraper', () => {
       global.fetch = vi.fn().mockResolvedValue({
         ok: true,
         text: async () => html,
-      })
+      }) as unknown as typeof fetch
 
       const consoleSpy = vi.spyOn(console, 'log')
 
@@ -190,7 +194,7 @@ describe('m-league-scraper', () => {
           ok: true,
           text: async () => html,
         })
-      })
+      }) as unknown as typeof fetch
 
       const schedules = await scraper.fetchAll()
 
@@ -210,7 +214,7 @@ describe('m-league-scraper', () => {
           ok: true,
           text: async () => '<html><body></body></html>',
         })
-      })
+      }) as unknown as typeof fetch
 
       const consoleSpy = vi.spyOn(console, 'log')
 

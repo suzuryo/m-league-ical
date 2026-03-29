@@ -12,7 +12,7 @@ bun run fetch
 # Development mode (same as fetch)
 bun run dev
 
-# Run compiled version
+# Run the fetcher (alias for fetch)
 bun run start
 ```
 
@@ -27,14 +27,15 @@ bun run test:coverage
 # Run tests in watch mode (interactive)
 bunx vitest
 
-# Run tests with UI
-bun run test:ui
 ```
 
 ### Linting
 ```bash
-# Run Biome
+# Run Biome (lint + format check)
 bun run lint
+
+# Auto-fix lint and format issues
+bun run format
 
 # Type checking
 bun run typecheck

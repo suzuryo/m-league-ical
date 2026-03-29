@@ -1,10 +1,12 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code (claude.ai/code)
+when working with code in this repository.
 
 ## Commands
 
 ### Fetching and File Generation
+
 ```bash
 # Run the fetcher to generate calendar files
 bun run fetch
@@ -17,6 +19,7 @@ bun run start
 ```
 
 ### Testing
+
 ```bash
 # Run all tests
 bun run test
@@ -30,6 +33,7 @@ bunx vitest
 ```
 
 ### Linting
+
 ```bash
 # Run Biome (lint + format check)
 bun run lint
@@ -42,6 +46,7 @@ bun run typecheck
 ```
 
 ### Setup
+
 ```bash
 # Install dependencies
 bun install
@@ -49,13 +54,15 @@ bun install
 
 ## Architecture
 
-This is a web fetcher for M-League (Japanese professional mahjong league) schedules that generates iCal calendar files for subscription.
+This is a web fetcher for M-League
+(Japanese professional mahjong league) schedules
+that generates iCal calendar files for subscription.
 
 ### Module Structure
 
 The codebase follows a modular architecture with clear separation of concerns:
 
-```
+```text
 src/
 ├── types/schedule.d.ts          # Type definitions (Schedule, Period)
 ├── config.ts                  # Configuration (periods, selectors, regex patterns)
@@ -73,7 +80,8 @@ src/
 
 ### Data Flow
 
-1. **Scraper** (`MLeagueScraper`) fetches HTML from M-League website for each month (2025/9 through 2026/5)
+1. **Scraper** (`MLeagueScraper`) fetches HTML from M-League
+   website for each month (2025/9 through 2026/5)
 2. **Parser** (`html-parser.ts`) extracts schedule data using regex patterns
 3. **Generator** (`ical-generator.ts`) converts schedules to iCalendar format
 4. **File Utils** saves output to `docs/m-league-schedule.ics` for GitHub Pages
@@ -81,6 +89,7 @@ src/
 ### Key Configuration (`src/config.ts`)
 
 All configuration is centralized in `M_LEAGUE_CONFIG`:
+
 - **Periods**: 2025/9 through 2026/5 (hardcoded array)
 - **Selectors**: CSS class names for HTML parsing
 - **Regex Patterns**: For extracting dates, teams, URLs from HTML
@@ -106,14 +115,17 @@ When deployed: `https://suzuryo.github.io/m-league-ical/m-league-schedule.ics`
 ### Testing Infrastructure
 
 - **Framework**: Vitest (configured in `vitest.config.ts`)
-- **Test Location**: All tests are in `src/__tests__/` directory following Vitest conventions
-- **Fixtures**: Real downloaded HTML data from M-League website (173 total matches across 9 months)
+- **Test Location**: All tests are in `src/__tests__/`
+  directory following Vitest conventions
+- **Fixtures**: Real downloaded HTML data from M-League
+  website (173 total matches across 9 months)
   - Located in `src/__tests__/fixtures/`
   - Files: `2025-09.html` through `2026-05.html`
 - **Coverage**: 100% coverage on all modules (excludes entry point and type definitions)
 - **Mocking**: Uses `vi.fn()` and `vi.spyOn()` for global `fetch` and `console.log`
 
 Test files cover:
+
 - `calendar-utils.test.ts` - UID generation and datetime formatting (9 tests)
 - `html-parser.test.ts` - Schedule parsing with real fixtures (16 tests)
 - `ical-generator.test.ts` - iCalendar format generation (8 tests)
@@ -122,8 +134,11 @@ Test files cover:
 
 ## Important Notes
 
-- CSS selectors and regex patterns are defined in `src/config.ts`. If the M-League website structure changes, update them there.
+- CSS selectors and regex patterns are defined in
+  `src/config.ts`. If the M-League website structure
+  changes, update them there.
 - Months without published schedules (e.g., April, May) return empty arrays gracefully.
 - Each game involves exactly 4 teams competing simultaneously.
 - The scraper uses native `fetch()` API (no external HTTP libraries).
-- Error logs in test output (e.g., "Network error") are intentional - they test error handling behavior.
+- Error logs in test output (e.g., "Network error")
+  are intentional - they test error handling behavior.

@@ -9,10 +9,11 @@ import type { Schedule } from '../types/schedule'
 function parseScheduleListItems(html: string): string[] {
   const items: string[] = []
   const listRegex = M_LEAGUE_CONFIG.regex.listItem
-  let match
+  let match = listRegex.exec(html)
 
-  while ((match = listRegex.exec(html)) !== null) {
+  while (match !== null) {
     items.push(match[0])
+    match = listRegex.exec(html)
   }
 
   return items
@@ -41,13 +42,14 @@ function parseDate(listContent: string, year: number): string | null {
 function parseTeams(listContent: string): string[] {
   const teams: string[] = []
   const teamRegex = M_LEAGUE_CONFIG.regex.team
-  let match
+  let match = teamRegex.exec(listContent)
 
-  while ((match = teamRegex.exec(listContent)) !== null) {
+  while (match !== null) {
     const teamName = match[1].trim()
     if (teamName && !teamName.includes('M.League')) {
       teams.push(teamName)
     }
+    match = teamRegex.exec(listContent)
   }
 
   return teams

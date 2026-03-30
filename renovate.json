@@ -1,0 +1,21 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "timezone": "Asia/Tokyo",
+  "schedule": ["before 10am on Monday"],
+  "reviewers": ["suzuryo"],
+  "assignees": ["suzuryo"],
+  "prConcurrentLimit": 10,
+  "packageRules": [
+    {
+      "matchManagers": ["npm"],
+      "labels": ["dependencies", "automated"],
+      "semanticCommitType": "chore"
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "labels": ["github-actions", "automated"],
+      "semanticCommitType": "ci"
+    }
+  ]
+}

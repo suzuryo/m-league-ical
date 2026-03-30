@@ -1,7 +1,9 @@
 name: dependabot-bun-lock
 
 on:
-  pull_request:
+  push:
+    branches:
+      - "dependabot/**"
     paths:
       - "package.json"
 
@@ -15,7 +17,6 @@ jobs:
     steps:
       - uses: actions/checkout@v6
         with:
-          ref: ${{ github.head_ref }}
           token: ${{ secrets.PAT }}
 
       - uses: oven-sh/setup-bun@v2

@@ -1,0 +1,49 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: [
+    'config:recommended',
+    // 新規に追加された GitHub Actions も自動でコミットSHA固定し、
+    // digest 更新を Renovate に管理させる
+    'helpers:pinGitHubActionDigests',
+  ],
+  dependencyDashboardApproval: false,
+  timezone: 'Asia/Tokyo',
+  schedule: ['before 10am on Monday'],
+  reviewers: ['suzuryo'],
+  assignees: ['suzuryo'],
+  prConcurrentLimit: 10,
+
+  // サプライチェーン攻撃対策:
+  // bunfig.toml の minimumReleaseAge (= 3 日) より長く設定することで、
+  // Renovate が PR を作成する時点で公開から 4 日以上経過した状態になり、
+  // bun.lock 更新時の bun install が確実に解決できる (= バッファ)。
+  minimumReleaseAge: '4 days',
+  // cooldown 未経過の更新で PR / ブランチを作らせない
+  // (待機中の PR が先に作られる挙動を抑止する)
+  internalChecksFilter: 'strict',
+
+  // 週次でロックファイルを定期メンテナンス
+  lockFileMaintenance: {
+    enabled: true,
+    schedule: ['before 5am on monday'],
+  },
+
+  // 脆弱性修正は cooldown をバイパスして即時 PR 化する
+  osvVulnerabilityAlerts: true,
+  vulnerabilityAlerts: {
+    labels: ['security'],
+  },
+
+  packageRules: [
+    {
+      matchManagers: ['npm'],
+      labels: ['dependencies', 'automated'],
+      semanticCommitType: 'chore',
+    },
+    {
+      matchManagers: ['github-actions'],
+      labels: ['github-actions', 'automated'],
+      semanticCommitType: 'ci',
+    },
+  ],
+}

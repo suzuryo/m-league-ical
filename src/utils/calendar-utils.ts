@@ -36,7 +36,7 @@ export function formatDateTime(dateString: string, timeString: string): string {
 /**
  * Generate a deterministic UID for a tournament match event
  * @param match - TournamentMatch object containing date, stage, table, and players
- * @returns UID string in the format: YYYY-MM-DD-hash@m-tournament.jp
+ * @returns UID string in the format: YYYY-MM-DD-hash@m-tournament.m-league.jp
  */
 export function generateTournamentUid(match: TournamentMatch): string {
   const sortedPlayers = [...match.players].sort().join(',')
@@ -45,5 +45,5 @@ export function generateTournamentUid(match: TournamentMatch): string {
     .digest('hex')
     .substring(0, HASH_LENGTH)
 
-  return `${match.date}-${hash}@m-tournament.jp`
+  return `${match.date}-${hash}@m-tournament.m-league.jp`
 }

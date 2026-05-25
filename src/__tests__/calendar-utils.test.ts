@@ -102,7 +102,9 @@ describe('calendar-utils', () => {
       const uid2 = generateTournamentUid(match)
 
       expect(uid1).toBe(uid2)
-      expect(uid1).toMatch(/^2026-07-28-[a-f0-9]{12}@m-tournament\.jp$/)
+      expect(uid1).toMatch(
+        /^2026-07-28-[a-f0-9]{12}@m-tournament\.m-league\.jp$/,
+      )
     })
 
     it('選手の順序が異なっても同じUIDを生成する', () => {

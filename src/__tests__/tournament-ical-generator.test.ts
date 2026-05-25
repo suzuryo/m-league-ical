@@ -115,7 +115,9 @@ describe('tournament-ical-generator', () => {
 
       const ical = generateTournamentICalendar(matches)
 
-      expect(ical).toMatch(/UID:2026-07-28-[a-f0-9]{12}@m-tournament\.jp/)
+      expect(ical).toMatch(
+        /UID:2026-07-28-[a-f0-9]{12}@m-tournament\.m-league\.jp/,
+      )
     })
 
     it('開始時刻が試合ごとに異なる場合も正しく出力する', () => {

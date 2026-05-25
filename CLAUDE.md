@@ -156,8 +156,9 @@ Mトーナメント:
 - Event title format: `[Stage][Table][Player1][Player2][Player3][Player4]`
 - Time: 試合ごとに異なる
   (FINAL系は HTML から取得、予選系はデフォルト 19:00)
-- Calendar name: `Mトーナメント 2025-26 スケジュール`
-- UID prefix: `@m-tournament.jp`
+- Calendar name: `Mトーナメント 2026 スケジュール`
+  (年を跨がない大会なので年は単独。シーズン切替時に手動更新)
+- UID prefix: `@m-tournament.m-league.jp`
 - PRODID: `-//M-Tournament Schedule//JP`
 
 ### Build System

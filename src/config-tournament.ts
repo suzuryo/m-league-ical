@@ -8,7 +8,7 @@ export const M_TOURNAMENT_CONFIG = {
   currentSeasonMarker: /Mトーナメント\s*2026/,
 
   calendar: {
-    name: 'Mトーナメント 2025-26 スケジュール',
+    name: 'Mトーナメント 2026 スケジュール',
     timezone: 'Asia/Tokyo',
     defaultStartTime: '190000',
     defaultEndTime: '235959',

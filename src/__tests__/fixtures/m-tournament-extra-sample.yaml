@@ -1,0 +1,28 @@
+matches:
+  - date: "2026-08-15"
+    stage: "予選1st"
+    table: "C卓"
+    startTime: "190000"
+    players:
+      - 選手A
+      - 選手B
+      - 選手C
+      - 選手D
+    url: "https://abema.tv/sample"
+    source: "https://x.com/m_league_/status/123"
+
+  - date: "2026-08-20"
+    stage: "予選2nd"
+    table: "B卓"
+    players:
+      - 選手E
+      - 選手F
+      - 選手G
+      - 選手H
+
+  - date: "2026-08-25"
+    players:
+      - 選手I
+      - 選手J
+      - 選手K
+      - 選手L

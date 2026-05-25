@@ -1,0 +1,18 @@
+# X (Twitter) で発表された対戦カードの手動記録
+# 公式サイト (https://m-tournament.m-league.jp/) に同じ試合が掲載されたら、
+# その時点で自動的に公式の情報に置き換わる。
+#
+# 重複判定は (date, stage, table) の3つ組で行う。
+# 卓名が確定していない場合は table を省略するか空文字にする。
+#
+# スキーマ:
+# matches:
+#   - date: "YYYY-MM-DD"        # 必須
+#     stage: "予選1st"          # 任意
+#     table: "A卓"              # 任意
+#     startTime: "190000"       # 任意 (HHMMSS, デフォルト 190000)
+#     players: [選手A, 選手B]   # 必須 (1人以上)
+#     url: "https://abema.tv/.."  # 任意
+#     source: "https://x.com/.."  # 任意 (Xの投稿URL、人間用メモ)
+
+matches: []

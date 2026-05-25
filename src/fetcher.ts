@@ -1,8 +1,10 @@
 import { generateICalendar } from './generators/ical-generator'
 import { generateTournamentICalendar } from './generators/tournament-ical-generator'
+import { parseExtraData } from './parsers/tournament-extra-parser'
 import { MLeagueScraper } from './scrapers/m-league-scraper'
 import { MTournamentScraper } from './scrapers/m-tournament-scraper'
 import { saveToFile } from './utils/file-utils'
+import { mergeMatches } from './utils/tournament-merger'
 
 async function fetchMLeague(): Promise<void> {
   console.log('=== M-League ===')
@@ -26,15 +28,22 @@ async function fetchMTournament(): Promise<void> {
   console.log('\n=== M-Tournament ===')
 
   const scraper = new MTournamentScraper()
-  const matches = await scraper.fetch()
+  const officialMatches = await scraper.fetch()
+  const extraMatches = parseExtraData('data/m-tournament-extra.yaml')
+  const merged = mergeMatches(officialMatches, extraMatches)
 
-  if (matches.length === 0) {
+  if (merged.length === 0) {
     console.log('No M-Tournament schedule data found')
     return
   }
 
-  console.log(`\nTotal: ${matches.length} M-Tournament matches found\n`)
-  const ical = generateTournamentICalendar(matches)
+  const extraCount = merged.length - officialMatches.length
+  console.log(
+    `\nTotal: ${merged.length} M-Tournament matches ` +
+      `(official: ${officialMatches.length}, extra: ${extraCount})\n`,
+  )
+
+  const ical = generateTournamentICalendar(merged)
   saveToFile('docs/m-tournament-schedule.ics', ical)
   console.log('- docs/m-tournament-schedule.ics generated')
 }

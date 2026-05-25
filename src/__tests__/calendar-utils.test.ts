@@ -1,7 +1,12 @@
 import { describe, expect, it } from 'vitest'
 
 import type { Schedule } from '../types/schedule'
-import { formatDateTime, generateUid } from '../utils/calendar-utils'
+import type { TournamentMatch } from '../types/tournament-match'
+import {
+  formatDateTime,
+  generateTournamentUid,
+  generateUid,
+} from '../utils/calendar-utils'
 
 describe('calendar-utils', () => {
   describe('generateUid', () => {
@@ -79,6 +84,84 @@ describe('calendar-utils', () => {
       }
 
       expect(generateUid(schedule1)).toBe(generateUid(schedule2))
+    })
+  })
+
+  describe('generateTournamentUid', () => {
+    it('同じ試合に対して常に同じUIDを生成する', () => {
+      const match: TournamentMatch = {
+        date: '2026-07-28',
+        startTime: '190000',
+        endTime: '235959',
+        stage: 'FINAL STAGE',
+        table: 'A卓',
+        players: ['小林剛', '伊達朱里紗', '佐々木寿人', '堀慎吾'],
+      }
+
+      const uid1 = generateTournamentUid(match)
+      const uid2 = generateTournamentUid(match)
+
+      expect(uid1).toBe(uid2)
+      expect(uid1).toMatch(/^2026-07-28-[a-f0-9]{12}@m-tournament\.jp$/)
+    })
+
+    it('選手の順序が異なっても同じUIDを生成する', () => {
+      const match1: TournamentMatch = {
+        date: '2026-07-28',
+        startTime: '190000',
+        endTime: '235959',
+        stage: 'FINAL STAGE',
+        table: 'A卓',
+        players: ['A', 'B', 'C', 'D'],
+      }
+      const match2: TournamentMatch = {
+        ...match1,
+        players: ['D', 'C', 'B', 'A'],
+      }
+
+      expect(generateTournamentUid(match1)).toBe(generateTournamentUid(match2))
+    })
+
+    it('卓が異なれば異なるUIDを生成する', () => {
+      const base: TournamentMatch = {
+        date: '2026-07-28',
+        startTime: '190000',
+        endTime: '235959',
+        stage: 'FINAL STAGE',
+        table: 'A卓',
+        players: ['A', 'B', 'C', 'D'],
+      }
+      const other: TournamentMatch = { ...base, table: 'B卓' }
+
+      expect(generateTournamentUid(base)).not.toBe(generateTournamentUid(other))
+    })
+
+    it('ステージが異なれば異なるUIDを生成する', () => {
+      const base: TournamentMatch = {
+        date: '2026-07-28',
+        startTime: '190000',
+        endTime: '235959',
+        stage: 'FINAL STAGE',
+        table: 'A卓',
+        players: ['A', 'B', 'C', 'D'],
+      }
+      const other: TournamentMatch = { ...base, stage: '予選1st' }
+
+      expect(generateTournamentUid(base)).not.toBe(generateTournamentUid(other))
+    })
+
+    it('URLの有無はUIDに影響しない', () => {
+      const base: TournamentMatch = {
+        date: '2026-07-28',
+        startTime: '190000',
+        endTime: '235959',
+        stage: 'FINAL STAGE',
+        table: 'A卓',
+        players: ['A', 'B', 'C', 'D'],
+      }
+      const other: TournamentMatch = { ...base, url: 'https://example.com' }
+
+      expect(generateTournamentUid(base)).toBe(generateTournamentUid(other))
     })
   })
 

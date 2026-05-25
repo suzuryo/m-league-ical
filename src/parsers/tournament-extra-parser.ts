@@ -4,6 +4,7 @@ import { parse } from 'yaml'
 
 import { M_TOURNAMENT_CONFIG } from '../config-tournament'
 import type { TournamentMatch } from '../types/tournament-match'
+import { addMinutesToTime } from '../utils/calendar-utils'
 
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/
 const TIME_PATTERN = /^\d{6}$/
@@ -54,7 +55,10 @@ function validateEntry(entry: RawEntry): TournamentMatch | null {
   return {
     date: entry.date,
     startTime,
-    endTime: M_TOURNAMENT_CONFIG.calendar.defaultEndTime,
+    endTime: addMinutesToTime(
+      startTime,
+      M_TOURNAMENT_CONFIG.calendar.matchDurationMinutes,
+    ),
     stage,
     table,
     players,

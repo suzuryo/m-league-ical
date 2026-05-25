@@ -34,6 +34,22 @@ export function formatDateTime(dateString: string, timeString: string): string {
 }
 
 /**
+ * Add minutes to a HHMMSS time string. Wraps within 24 hours.
+ * @param timeString - HHMMSS format time
+ * @param minutes - Minutes to add (non-negative)
+ * @returns HHMMSS format
+ */
+export function addMinutesToTime(timeString: string, minutes: number): string {
+  const h = Number.parseInt(timeString.substring(0, 2), 10)
+  const m = Number.parseInt(timeString.substring(2, 4), 10)
+  const s = timeString.substring(4, 6)
+  const total = h * 60 + m + minutes
+  const newH = Math.floor(total / 60) % 24
+  const newM = total % 60
+  return `${String(newH).padStart(2, '0')}${String(newM).padStart(2, '0')}${s}`
+}
+
+/**
  * Generate a deterministic UID for a tournament match event
  * @param match - TournamentMatch object containing date, stage, table, and players
  * @returns UID string in the format: YYYY-MM-DD-hash@m-tournament.m-league.jp

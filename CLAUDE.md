@@ -154,8 +154,9 @@ Mリーグ:
 Mトーナメント:
 
 - Event title format: `[Stage][Table][Player1][Player2][Player3][Player4]`
-- Time: 試合ごとに異なる
+- 開始時刻: 試合ごとに異なる
   (FINAL系は HTML から取得、予選系はデフォルト 19:00)
+- 終了時刻: 開始時刻 + `matchDurationMinutes` (デフォルト 210 分 = 3時間30分)
 - Calendar name: `Mトーナメント 2026 スケジュール`
   (年を跨がない大会なので年は単独。シーズン切替時に手動更新)
 - UID prefix: `@m-tournament.m-league.jp`

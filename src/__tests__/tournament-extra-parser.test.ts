@@ -34,7 +34,7 @@ describe('tournament-extra-parser', () => {
       expect(matches[0]).toEqual({
         date: '2026-08-15',
         startTime: '190000',
-        endTime: '235959',
+        endTime: '223000',
         stage: '予選1st',
         table: 'C卓',
         players: ['選手A', '選手B', '選手C', '選手D'],
@@ -48,11 +48,11 @@ describe('tournament-extra-parser', () => {
       expect(matches[1].startTime).toBe('190000')
     })
 
-    it('endTimeは常に235959', () => {
+    it('endTimeはstartTimeから3時間30分後', () => {
       const matches = parseExtraData(SAMPLE_FILE)
 
       for (const match of matches) {
-        expect(match.endTime).toBe('235959')
+        expect(match.endTime).toBe('223000')
       }
     })
 

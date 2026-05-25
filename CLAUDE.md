@@ -71,10 +71,12 @@ src/
 ├── config-tournament.ts               # Mトーナメント用設定
 ├── utils/
 │   ├── calendar-utils.ts              # UID生成、datetimeフォーマット
-│   └── file-utils.ts                  # ファイル入出力
+│   ├── file-utils.ts                  # ファイル入出力
+│   └── tournament-merger.ts           # 公式と補助のマージ
 ├── parsers/
 │   ├── html-parser.ts                 # Mリーグ HTMLパース (regex-based)
-│   └── tournament-html-parser.ts      # Mトーナメント HTMLパース
+│   ├── tournament-html-parser.ts      # Mトーナメント HTMLパース
+│   └── tournament-extra-parser.ts     # 補助データYAMLパーサー
 ├── generators/
 │   ├── ical-generator.ts              # Mリーグ iCalendar生成
 │   └── tournament-ical-generator.ts   # Mトーナメント iCal生成
@@ -82,6 +84,13 @@ src/
 │   ├── m-league-scraper.ts            # MLeagueScraper クラス
 │   └── m-tournament-scraper.ts        # MTournamentScraper クラス
 └── fetcher.ts                         # Entry point (orchestrates modules)
+```
+
+トップレベルに補助データ用のディレクトリがある:
+
+```text
+data/
+└── m-tournament-extra.yaml            # X発表カードの手動補助データ
 ```
 
 ### Data Flow
@@ -95,7 +104,12 @@ src/
    <https://m-tournament.m-league.jp/> から HTML を取得
 6. `parseTournamentMatches` が 2 つのセクション
    (`c-schedule__list` と `p-gamesSchedule2__list`) をパース
-7. `generateTournamentICalendar` で iCalendar 形式に変換し
+7. `parseExtraData('data/m-tournament-extra.yaml')` で
+   補助データ (X 等で先行発表された対戦カード) を読み込む
+8. `mergeMatches(official, extra)` で重複除去
+   (キー: date+stage+table、公式優先)。
+   結果は日付・時刻順にソートされて返る
+9. `generateTournamentICalendar` で iCalendar 形式に変換し
    `docs/m-tournament-schedule.ics` に保存
 
 ### Key Configuration (`src/config.ts`)
@@ -116,6 +130,15 @@ All configuration is centralized in `M_LEAGUE_CONFIG`:
 - **`year`**: 現在シーズンの年 (手動更新が必要)
 - **`sections.finalStage` と `sections.qualifier`** の 2 系統で
   異なる HTML 構造に対応
+
+### Extra Data (`data/m-tournament-extra.yaml`)
+
+`data/m-tournament-extra.yaml` は X (Twitter) 等で
+先行発表された対戦カードを人間が手動で記録するファイル。
+スキーマは
+`docs/superpowers/specs/2026-05-26-m-tournament-extra-data-design.md`
+を参照。公式サイトに同じ試合 (date+stage+table キー) が掲載されたら
+自動的に公式情報で上書きされる。
 
 ### iCal Format Specifications
 
@@ -158,10 +181,11 @@ Mトーナメント:
   - Located in `src/__tests__/fixtures/`
   - Files: `2025-09.html` through `2026-05.html`
   - `m-tournament.html` - Mトーナメントサイトの実 HTML (1ファイル、29試合分)
+  - `m-tournament-extra-sample.yaml` - 補助データテスト用
 - **Coverage**: 100% coverage on all modules (excludes entry point and type definitions)
 - **Mocking**: Uses `vi.fn()` and `vi.spyOn()` for global `fetch` and `console.log`
 
-Test files cover (全 81 tests):
+Test files cover (全 108 tests):
 
 - `calendar-utils.test.ts` - UID generation and datetime formatting (14 tests)
 - `html-parser.test.ts` - Schedule parsing with real fixtures (16 tests)
@@ -171,6 +195,8 @@ Test files cover (全 81 tests):
 - `tournament-html-parser.test.ts` - Mトーナメント HTML パース (17 tests)
 - `m-tournament-scraper.test.ts` - Mトーナメント HTTP fetch (5 tests)
 - `tournament-ical-generator.test.ts` - Mトーナメント iCal 生成 (7 tests)
+- `tournament-extra-parser.test.ts` - 補助データYAMLパース (17 tests)
+- `tournament-merger.test.ts` - 公式と補助のマージ (10 tests)
 
 ## Important Notes
 
@@ -189,3 +215,6 @@ Test files cover (全 81 tests):
   (`c-schedule__list` と `p-gamesSchedule2__list`)。
 - 視聴 URL は `<a href="">` ではなく
   `onclick="window.open('...')"` から抽出する。
+- `data/m-tournament-extra.yaml` は X 等で先行発表された対戦カードを
+  人間が手動で記録するファイル。公式に同じ試合が出てきたら
+  自動的に公式情報で上書きされる。ファイルが無くても動作する。

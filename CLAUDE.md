@@ -210,6 +210,10 @@ Test files cover (全 108 tests):
   are intentional - they test error handling behavior.
 - `M_TOURNAMENT_CONFIG.year` は年を跨がない大会の年を表す。
   シーズン切り替え時は手動で更新する。
+  併せて `M_TOURNAMENT_CONFIG.currentSeasonMarker` の正規表現も
+  新しい年に合わせて更新する必要がある。
+  サイトに `currentSeasonMarker` がマッチしない間は公式データの取得を
+  スキップする（前シーズンの試合がカレンダーに混入するのを防ぐため）。
 - Mトーナメントは 1 ページに FINAL STAGE / 予選 の 2 セクションがあり、
   それぞれ異なる HTML 構造を持つ
   (`c-schedule__list` と `p-gamesSchedule2__list`)。

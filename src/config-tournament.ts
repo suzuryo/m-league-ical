@@ -2,6 +2,11 @@ export const M_TOURNAMENT_CONFIG = {
   baseUrl: 'https://m-tournament.m-league.jp/',
   year: 2026,
 
+  // 現在のシーズン (year) のサイトかを判定するマーカー。
+  // サイトが前年版を表示している間は試合データを取り込まない。
+  // year を更新するときは下記正規表現も合わせて更新する。
+  currentSeasonMarker: /Mトーナメント\s*2026/,
+
   calendar: {
     name: 'Mトーナメント 2025-26 スケジュール',
     timezone: 'Asia/Tokyo',

@@ -29,6 +29,14 @@ export class MTournamentScraper {
         return []
       }
 
+      // Skip if the site still shows a previous season.
+      if (!M_TOURNAMENT_CONFIG.currentSeasonMarker.test(html)) {
+        console.log(
+          `  Site does not yet show ${M_TOURNAMENT_CONFIG.year} season, skipping official data`,
+        )
+        return []
+      }
+
       return parseTournamentMatches(html, M_TOURNAMENT_CONFIG.year)
     } catch (error) {
       console.log('  Error fetching tournament schedule:', error)

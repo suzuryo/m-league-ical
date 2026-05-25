@@ -163,6 +163,19 @@ describe('tournament-extra-parser', () => {
       expect(matches).toEqual([])
     })
 
+    it('playersが非文字列のみのエントリはスキップ', () => {
+      const file = join(tempDir, 'non-string-players.yaml')
+      writeFileSync(
+        file,
+        'matches:\n  - date: "2026-08-15"\n    players: [123, true, null]\n',
+        'utf-8',
+      )
+
+      const matches = parseExtraData(file)
+
+      expect(matches).toEqual([])
+    })
+
     it('不正なdate形式のエントリはスキップ', () => {
       const file = join(tempDir, 'bad-date.yaml')
       writeFileSync(

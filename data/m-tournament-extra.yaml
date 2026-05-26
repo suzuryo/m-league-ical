@@ -41,3 +41,75 @@ matches:
       - 中田花奈
       - 宮崎和樹
     source: "https://x.com/m_league_/status/2058791456354263337"
+
+  # 2026/6/5 Mトーナメント2026 対戦カード発表 第2弾
+  - date: "2026-06-05"
+    stage: "予選1st"
+    table: "C卓"
+    startTime: "150000"
+    players:
+      - 小林剛
+      - 小川光
+      - 塩澤彰大
+      - 奥村知美
+    source: "https://x.com/m_league_/status/2058790415873044800"
+
+  # D卓は「進行次第で時間変更あり」と但し書きあり (X投稿原文ママ)
+  - date: "2026-06-05"
+    stage: "予選1st"
+    table: "D卓"
+    startTime: "190000"
+    players:
+      - 石原真人
+      - HIRO柴田
+      - 徐曄
+      - 魚谷侑未
+    source: "https://x.com/m_league_/status/2058790415873044800"
+
+  # 2026/6/8 Mトーナメント2026 対戦カード発表 第3弾
+  - date: "2026-06-08"
+    stage: "予選1st"
+    table: "E卓"
+    startTime: "150000"
+    players:
+      - 園田賢
+      - 本田朋広
+      - 日向藍子
+      - 渡辺史哉
+    source: "https://x.com/m_league_/status/2059152551707132000"
+
+  # F卓は「進行次第で時間変更あり」と但し書きあり (X投稿原文ママ)
+  - date: "2026-06-08"
+    stage: "予選1st"
+    table: "F卓"
+    startTime: "190000"
+    players:
+      - 仲林圭
+      - 黒沢咲
+      - 近藤誠一
+      - 朝比奈ゆり
+    source: "https://x.com/m_league_/status/2059152551707132000"
+
+  # 2026/6/12 Mトーナメント2026 対戦カード発表 第4弾
+  - date: "2026-06-12"
+    stage: "予選1st"
+    table: "G卓"
+    startTime: "150000"
+    players:
+      - 逢川恵夢
+      - 藤崎智
+      - 浅井堂岐
+      - 羽月まりえ
+    source: "https://x.com/m_league_/status/2059156579329642544"
+
+  # H卓は「進行次第で時間変更あり」と但し書きあり (X投稿原文ママ)
+  - date: "2026-06-12"
+    stage: "予選1st"
+    table: "H卓"
+    startTime: "190000"
+    players:
+      - 渋川難波
+      - 鈴木たろう
+      - 村上淳
+      - 角葉子
+    source: "https://x.com/m_league_/status/2059156579329642544"

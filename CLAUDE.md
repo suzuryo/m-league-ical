@@ -153,7 +153,8 @@ Mリーグ:
 
 Mトーナメント:
 
-- Event title format: `[Stage][Table][Player1][Player2][Player3][Player4]`
+- Event title format: `[Stage Table] Player1・Player2・Player3・Player4`
+  (stage/tableのどちらかが欠ける場合は[]内が片方のみ、両方欠ける場合は[]を省略)
 - 開始時刻: 試合ごとに異なる
   (FINAL系は HTML から取得、予選系はデフォルト 19:00)
 - 終了時刻: 開始時刻 + `matchDurationMinutes` (デフォルト 210 分 = 3時間30分)

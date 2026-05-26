@@ -29,7 +29,7 @@ describe('tournament-ical-generator', () => {
       expect(ical).toContain('TZID:Asia/Tokyo')
       expect(ical).toContain('BEGIN:VEVENT')
       expect(ical).toContain(
-        'SUMMARY:[FINAL STAGE][A卓][小林剛][伊達朱里紗][佐々木寿人][堀慎吾]',
+        'SUMMARY:[FINAL STAGE A卓] 小林剛・伊達朱里紗・佐々木寿人・堀慎吾',
       )
       expect(ical).toContain('DTSTART;TZID=Asia/Tokyo:20260728T190000')
       expect(ical).toContain('DTEND;TZID=Asia/Tokyo:20260728T235959')
@@ -87,8 +87,8 @@ describe('tournament-ical-generator', () => {
       const eventCount = (ical.match(/BEGIN:VEVENT/g) || []).length
       expect(eventCount).toBe(2)
 
-      expect(ical).toContain('SUMMARY:[予選1st][A卓][A][B][C][D]')
-      expect(ical).toContain('SUMMARY:[予選1st][B卓][E][F][G][H]')
+      expect(ical).toContain('SUMMARY:[予選1st A卓] A・B・C・D')
+      expect(ical).toContain('SUMMARY:[予選1st B卓] E・F・G・H')
       expect(ical).toContain('DTSTART;TZID=Asia/Tokyo:20260728T190000')
       expect(ical).toContain('DTSTART;TZID=Asia/Tokyo:20260729T150000')
     })
@@ -151,9 +151,8 @@ describe('tournament-ical-generator', () => {
 
       const ical = generateTournamentICalendar(matches)
 
-      // 卓部分は空のブラケットや欠落でも、stage と players は出る
-      expect(ical).toContain('[FINAL]')
-      expect(ical).toContain('[A]')
+      // 卓が空でも、stage と players が連結された summary が出る
+      expect(ical).toContain('SUMMARY:[FINAL] A・B・C・D')
     })
   })
 })

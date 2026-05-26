@@ -1,5 +1,6 @@
 import { M_TOURNAMENT_CONFIG } from '../config-tournament'
 import type { TournamentMatch } from '../types/tournament-match'
+import { addMinutesToTime } from '../utils/calendar-utils'
 
 type SectionConfig =
   (typeof M_TOURNAMENT_CONFIG.sections)[keyof typeof M_TOURNAMENT_CONFIG.sections]
@@ -132,7 +133,10 @@ function parseSection(
       return {
         date: dt.date,
         startTime: dt.startTime,
-        endTime: M_TOURNAMENT_CONFIG.calendar.defaultEndTime,
+        endTime: addMinutesToTime(
+          dt.startTime,
+          M_TOURNAMENT_CONFIG.calendar.matchDurationMinutes,
+        ),
         stage: st.stage,
         table: st.table,
         players,

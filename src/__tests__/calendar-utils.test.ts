@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import type { Schedule } from '../types/schedule'
 import type { TournamentMatch } from '../types/tournament-match'
 import {
+  addMinutesToTime,
   formatDateTime,
   generateTournamentUid,
   generateUid,
@@ -192,6 +193,28 @@ describe('calendar-utils', () => {
 
       expect(result1).toBe('20250902T000000')
       expect(result2).toBe('20250902T123456')
+    })
+  })
+
+  describe('addMinutesToTime', () => {
+    it('19:00:00に210分(3時間30分)を加算すると22:30:00', () => {
+      expect(addMinutesToTime('190000', 210)).toBe('223000')
+    })
+
+    it('15:00:00に210分を加算すると18:30:00', () => {
+      expect(addMinutesToTime('150000', 210)).toBe('183000')
+    })
+
+    it('0分の加算は元の時刻を返す', () => {
+      expect(addMinutesToTime('190000', 0)).toBe('190000')
+    })
+
+    it('秒の部分は保持される', () => {
+      expect(addMinutesToTime('190030', 30)).toBe('193030')
+    })
+
+    it('24時間を超える場合は24時間でラップする', () => {
+      expect(addMinutesToTime('230000', 120)).toBe('010000')
     })
   })
 })

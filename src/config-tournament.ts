@@ -11,7 +11,8 @@ export const M_TOURNAMENT_CONFIG = {
     name: 'Mトーナメント 2026 スケジュール',
     timezone: 'Asia/Tokyo',
     defaultStartTime: '190000',
-    defaultEndTime: '235959',
+    // 試合の長さ (分)。開始時刻 + これが終了時刻になる。
+    matchDurationMinutes: 210,
     // Fallback URL used as the event location when schedule.url is undefined.
     defaultLocation: 'https://abema.tv/now-on-air/mahjong',
     description: {

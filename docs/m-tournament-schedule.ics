@@ -16,7 +16,7 @@ END:VTIMEZONE
 BEGIN:VEVENT
 UID:2026-06-01-e49d118d6147@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260601T150000
-DTEND;TZID=Asia/Tokyo:20260601T235959
+DTEND;TZID=Asia/Tokyo:20260601T183000
 SUMMARY:[予選1st][A卓][松本吉弘][東城りお][河野高志][清水香織]
 DESCRIPTION:対戦選手:\n・松本吉弘\n・東城りお\n・河野高志\n・清水香織
 LOCATION:https://abema.tv/now-on-air/mahjong
@@ -29,7 +29,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:2026-06-01-2f78e7da30f4@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260601T190000
-DTEND;TZID=Asia/Tokyo:20260601T235959
+DTEND;TZID=Asia/Tokyo:20260601T223000
 SUMMARY:[予選1st][B卓][佐々木寿人][小池諒][中田花奈][宮崎和樹]
 DESCRIPTION:対戦選手:\n・佐々木寿人\n・小池諒\n・中田花奈\n・宮崎和樹
 LOCATION:https://abema.tv/now-on-air/mahjong

@@ -96,11 +96,15 @@ describe('tournament-html-parser', () => {
       }
     })
 
-    it('endTimeは全試合で235959', () => {
+    it('endTimeはstartTimeから3時間30分後', () => {
       const matches = parseTournamentMatches(FIXTURE_HTML, 2025)
 
       for (const match of matches) {
-        expect(match.endTime).toBe('235959')
+        if (match.startTime === '190000') {
+          expect(match.endTime).toBe('223000')
+        } else if (match.startTime === '150000') {
+          expect(match.endTime).toBe('183000')
+        }
       }
     })
 

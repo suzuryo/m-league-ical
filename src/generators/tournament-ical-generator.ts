@@ -44,17 +44,17 @@ function generateEvent(match: TournamentMatch): string[] {
   const dtStart = formatDateTime(match.date, match.startTime)
   const dtEnd = formatDateTime(match.date, match.endTime)
 
-  const summaryParts: string[] = []
+  const headerParts: string[] = []
   if (match.stage) {
-    summaryParts.push(`[${match.stage}]`)
+    headerParts.push(match.stage)
   }
   if (match.table) {
-    summaryParts.push(`[${match.table}]`)
+    headerParts.push(match.table)
   }
-  for (const player of match.players) {
-    summaryParts.push(`[${player}]`)
-  }
-  const summary = summaryParts.join('')
+  const header = headerParts.length > 0 ? `[${headerParts.join(' ')}]` : ''
+  const playersStr = match.players.join('・')
+  const summary =
+    header && playersStr ? `${header} ${playersStr}` : `${header}${playersStr}`
 
   const playerList = match.players
     .map(

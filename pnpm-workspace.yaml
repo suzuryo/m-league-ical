@@ -1,0 +1,14 @@
+# サプライチェーン攻撃対策: 公開から 4320 分 (= 3 日) 未満のバージョンは
+# 依存解決時に除外する。悪意あるパッケージの多くは公開後 数時間〜数日で
+# 検出・削除されるため、その猶予期間を設けることで取り込みを防ぐ。
+# (pnpm 11 では minimumReleaseAge を明示すると strict モードが有効になり強制される。
+#  Renovate 側の minimumReleaseAge をこの値より長く設定し、PR 作成時点で
+#  pnpm install が確実に解決できるようにしている)
+minimumReleaseAge: 4320
+
+# 依存パッケージの install 時ビルドスクリプト実行はデフォルトで全てブロックする
+# (サプライチェーン攻撃対策)。tsx が依存する esbuild はネイティブバイナリを
+# optionalDependencies (@esbuild/*) で配布するため、ビルドスクリプトを実行せずとも
+# 動作する。明示的に false を記録して ERR_PNPM_IGNORED_BUILDS の警告を抑止する。
+allowBuilds:
+  esbuild: false

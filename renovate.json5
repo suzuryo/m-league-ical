@@ -14,9 +14,9 @@
   prConcurrentLimit: 10,
 
   // サプライチェーン攻撃対策:
-  // bunfig.toml の minimumReleaseAge (= 3 日) より長く設定することで、
+  // pnpm-workspace.yaml の minimumReleaseAge (= 3 日) より長く設定することで、
   // Renovate が PR を作成する時点で公開から 4 日以上経過した状態になり、
-  // bun.lock 更新時の bun install が確実に解決できる (= バッファ)。
+  // pnpm-lock.yaml 更新時の pnpm install が確実に解決できる (= バッファ)。
   minimumReleaseAge: '4 days',
   // cooldown 未経過の更新で PR / ブランチを作らせない
   // (待機中の PR が先に作られる挙動を抑止する)

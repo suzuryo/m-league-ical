@@ -11,7 +11,7 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "moduleResolution": "bundler",
-    "types": ["bun-types"],
+    "types": ["node"],
     "allowSyntheticDefaultImports": true,
     "verbatimModuleSyntax": true,
     "sourceMap": true

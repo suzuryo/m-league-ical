@@ -9,26 +9,26 @@ when working with code in this repository.
 
 ```bash
 # Run the fetcher to generate calendar files
-bun run fetch
+pnpm run fetch
 
 # Development mode (same as fetch)
-bun run dev
+pnpm run dev
 
 # Run the fetcher (alias for fetch)
-bun run start
+pnpm run start
 ```
 
 ### Testing
 
 ```bash
 # Run all tests
-bun run test
+pnpm run test
 
 # Run tests with coverage report
-bun run test:coverage
+pnpm run test:coverage
 
 # Run tests in watch mode (interactive)
-bunx vitest
+pnpm vitest
 
 ```
 
@@ -36,20 +36,20 @@ bunx vitest
 
 ```bash
 # Run Biome (lint + format check)
-bun run lint
+pnpm run lint
 
 # Auto-fix lint and format issues
-bun run format
+pnpm run format
 
 # Type checking
-bun run typecheck
+pnpm run typecheck
 ```
 
 ### Setup
 
 ```bash
 # Install dependencies
-bun install
+pnpm install
 ```
 
 ## Architecture
@@ -165,7 +165,12 @@ Mトーナメント:
 
 ### Build System
 
-- **Runtime**: Uses Bun for native TypeScript execution (no build step needed)
+- **Package manager**: pnpm (version pinned via `mise.toml` and the
+  `packageManager` field in `package.json`)
+- **Runtime**: Uses tsx (`tsx src/fetcher.ts`) for native TypeScript
+  execution on Node.js (no build step needed)
+- **Supply-chain**: `pnpm-workspace.yaml` sets `minimumReleaseAge` (3 days)
+  and blocks dependency build scripts by default (`allowBuilds`)
 
 ### GitHub Pages URL
 

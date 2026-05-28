@@ -117,4 +117,56 @@ TRIGGER:PT0M
 DESCRIPTION:[予選1st H卓] 渋川難波・鈴木たろう・村上淳・角葉子
 END:VALARM
 END:VEVENT
+BEGIN:VEVENT
+UID:2026-06-15-2dee3749ace8@m-tournament.m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260615T150000
+DTEND;TZID=Asia/Tokyo:20260615T183000
+SUMMARY:[予選1st I卓] 醍醐大・鈴木大介・菅原千瑛・紺野真太郎
+DESCRIPTION:対戦選手:\n・醍醐大\n・鈴木大介\n・菅原千瑛\n・紺野真太郎
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[予選1st I卓] 醍醐大・鈴木大介・菅原千瑛・紺野真太郎
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-06-15-a61921c46e2a@m-tournament.m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260615T190000
+DTEND;TZID=Asia/Tokyo:20260615T223000
+SUMMARY:[予選1st J卓] 伊達朱里紗・三浦智博・今村大樹・牧野伸彦
+DESCRIPTION:対戦選手:\n・伊達朱里紗\n・三浦智博\n・今村大樹\n・牧野伸彦
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[予選1st J卓] 伊達朱里紗・三浦智博・今村大樹・牧野伸彦
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-06-19-b8315fab5321@m-tournament.m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260619T150000
+DTEND;TZID=Asia/Tokyo:20260619T183000
+SUMMARY:[予選1st K卓] 茅森早香・阿久津翔太・安藤弘樹・前田直哉
+DESCRIPTION:対戦選手:\n・茅森早香\n・阿久津翔太\n・安藤弘樹\n・前田直哉
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[予選1st K卓] 茅森早香・阿久津翔太・安藤弘樹・前田直哉
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-06-19-6a677358c3c4@m-tournament.m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260619T190000
+DTEND;TZID=Asia/Tokyo:20260619T223000
+SUMMARY:[予選1st L卓] 瑞原明奈・吉田幸雄・浜野太陽・西村雄一郎
+DESCRIPTION:対戦選手:\n・瑞原明奈\n・吉田幸雄\n・浜野太陽\n・西村雄一郎
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[予選1st L卓] 瑞原明奈・吉田幸雄・浜野太陽・西村雄一郎
+END:VALARM
+END:VEVENT
 END:VCALENDAR

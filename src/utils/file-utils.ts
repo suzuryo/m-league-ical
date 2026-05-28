@@ -1,5 +1,5 @@
-import { writeFileSync } from 'node:fs'
-import { join } from 'node:path'
+import { mkdirSync, writeFileSync } from 'node:fs'
+import { dirname, join } from 'node:path'
 
 /**
  * Save content to a file
@@ -8,6 +8,7 @@ import { join } from 'node:path'
  */
 export function saveToFile(filename: string, content: string): void {
   const filepath = join(process.cwd(), filename)
+  mkdirSync(dirname(filepath), { recursive: true })
   writeFileSync(filepath, content, 'utf-8')
   console.log(`Saved to ${filename}`)
 }

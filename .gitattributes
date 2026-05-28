@@ -1,0 +1,3 @@
+# iCalendar (RFC 5545) は改行を CRLF と規定しているため、
+# リポジトリ・チェックアウト・GitHub Pages 配信のいずれでも CRLF を保持する。
+*.ics text eol=crlf

@@ -113,3 +113,51 @@ matches:
       - 村上淳
       - 角葉子
     source: "https://x.com/m_league_/status/2059156579329642544"
+
+  # 2026/6/15 Mトーナメント2026 対戦カード発表 第5弾
+  - date: "2026-06-15"
+    stage: "予選1st"
+    table: "I卓"
+    startTime: "150000"
+    players:
+      - 醍醐大
+      - 鈴木大介
+      - 菅原千瑛
+      - 紺野真太郎
+    source: "https://x.com/m_league_/status/2059878586161500541"
+
+  # J卓は「進行次第で時間変更あり」と但し書きあり (X投稿原文ママ)
+  - date: "2026-06-15"
+    stage: "予選1st"
+    table: "J卓"
+    startTime: "190000"
+    players:
+      - 伊達朱里紗
+      - 三浦智博
+      - 今村大樹
+      - 牧野伸彦
+    source: "https://x.com/m_league_/status/2059878586161500541"
+
+  # 2026/6/19 Mトーナメント2026 対戦カード発表 第6弾
+  - date: "2026-06-19"
+    stage: "予選1st"
+    table: "K卓"
+    startTime: "150000"
+    players:
+      - 茅森早香
+      - 阿久津翔太
+      - 安藤弘樹
+      - 前田直哉
+    source: "https://x.com/m_league_/status/2059878837576511913"
+
+  # L卓は「進行次第で時間変更あり」と但し書きあり (X投稿原文ママ)
+  - date: "2026-06-19"
+    stage: "予選1st"
+    table: "L卓"
+    startTime: "190000"
+    players:
+      - 瑞原明奈
+      - 吉田幸雄
+      - 浜野太陽
+      - 西村雄一郎
+    source: "https://x.com/m_league_/status/2059878837576511913"

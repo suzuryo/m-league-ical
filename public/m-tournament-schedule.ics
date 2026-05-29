@@ -169,4 +169,56 @@ TRIGGER:PT0M
 DESCRIPTION:[予選1st L卓] 瑞原明奈・吉田幸雄・浜野太陽・西村雄一郎
 END:VALARM
 END:VEVENT
+BEGIN:VEVENT
+UID:2026-06-22-0d9a58469c9d@m-tournament.m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260622T150000
+DTEND;TZID=Asia/Tokyo:20260622T183000
+SUMMARY:[予選1st M卓] 渡辺太・鈴木優・高宮まり・石川正明
+DESCRIPTION:対戦選手:\n・渡辺太\n・鈴木優\n・高宮まり\n・石川正明
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[予選1st M卓] 渡辺太・鈴木優・高宮まり・石川正明
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-06-22-2aeb43c2535f@m-tournament.m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260622T190000
+DTEND;TZID=Asia/Tokyo:20260622T223000
+SUMMARY:[予選1st N卓] 多井隆晴・瀬戸熊直樹・鈴木聡一郎・桑田憲汰
+DESCRIPTION:対戦選手:\n・多井隆晴\n・瀬戸熊直樹\n・鈴木聡一郎\n・桑田憲汰
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[予選1st N卓] 多井隆晴・瀬戸熊直樹・鈴木聡一郎・桑田憲汰
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-06-26-1e0fb6fe8330@m-tournament.m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260626T150000
+DTEND;TZID=Asia/Tokyo:20260626T183000
+SUMMARY:[予選1st O卓] 浅見真紀・竹内元太・忍田幸夫・和久津晶
+DESCRIPTION:対戦選手:\n・浅見真紀\n・竹内元太\n・忍田幸夫\n・和久津晶
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[予選1st O卓] 浅見真紀・竹内元太・忍田幸夫・和久津晶
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-06-26-83b44254a4ad@m-tournament.m-league.jp
+DTSTART;TZID=Asia/Tokyo:20260626T190000
+DTEND;TZID=Asia/Tokyo:20260626T223000
+SUMMARY:[予選1st P卓] 堀慎吾・石井一馬・萩原聖人・高津柚那
+DESCRIPTION:対戦選手:\n・堀慎吾\n・石井一馬\n・萩原聖人\n・高津柚那
+LOCATION:https://abema.tv/now-on-air/mahjong
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:[予選1st P卓] 堀慎吾・石井一馬・萩原聖人・高津柚那
+END:VALARM
+END:VEVENT
 END:VCALENDAR

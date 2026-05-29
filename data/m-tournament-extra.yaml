@@ -161,3 +161,51 @@ matches:
       - 浜野太陽
       - 西村雄一郎
     source: "https://x.com/m_league_/status/2059878837576511913"
+
+  # 2026/6/22 Mトーナメント2026 対戦カード発表 第7弾
+  - date: "2026-06-22"
+    stage: "予選1st"
+    table: "M卓"
+    startTime: "150000"
+    players:
+      - 渡辺太
+      - 鈴木優
+      - 高宮まり
+      - 石川正明
+    source: "https://x.com/m_league_/status/2060241728636940589"
+
+  # N卓は「進行次第で時間変更あり」と但し書きあり (X投稿原文ママ)
+  - date: "2026-06-22"
+    stage: "予選1st"
+    table: "N卓"
+    startTime: "190000"
+    players:
+      - 多井隆晴
+      - 瀬戸熊直樹
+      - 鈴木聡一郎
+      - 桑田憲汰
+    source: "https://x.com/m_league_/status/2060241728636940589"
+
+  # 2026/6/26 Mトーナメント2026 対戦カード発表 第8弾
+  - date: "2026-06-26"
+    stage: "予選1st"
+    table: "O卓"
+    startTime: "150000"
+    players:
+      - 浅見真紀
+      - 竹内元太
+      - 忍田幸夫
+      - 和久津晶
+    source: "https://x.com/m_league_/status/2060241980232270333"
+
+  # P卓は「進行次第で時間変更あり」と但し書きあり (X投稿原文ママ)
+  - date: "2026-06-26"
+    stage: "予選1st"
+    table: "P卓"
+    startTime: "190000"
+    players:
+      - 堀慎吾
+      - 石井一馬
+      - 萩原聖人
+      - 高津柚那
+    source: "https://x.com/m_league_/status/2060241980232270333"

@@ -20,8 +20,8 @@ async function fetchMLeague(): Promise<void> {
 
   console.log(`\nTotal: ${schedules.length} M-League matches found\n`)
   const ical = generateICalendar(schedules)
-  saveToFile('docs/m-league-schedule.ics', ical)
-  console.log('- docs/m-league-schedule.ics generated')
+  saveToFile('public/m-league-schedule.ics', ical)
+  console.log('- public/m-league-schedule.ics generated')
 }
 
 async function fetchMTournament(): Promise<void> {
@@ -44,8 +44,8 @@ async function fetchMTournament(): Promise<void> {
   )
 
   const ical = generateTournamentICalendar(merged)
-  saveToFile('docs/m-tournament-schedule.ics', ical)
-  console.log('- docs/m-tournament-schedule.ics generated')
+  saveToFile('public/m-tournament-schedule.ics', ical)
+  console.log('- public/m-tournament-schedule.ics generated')
 }
 
 async function main() {

@@ -99,7 +99,7 @@ data/
    website for each month (2025/9 through 2026/5)
 2. **Parser** (`html-parser.ts`) extracts schedule data using regex patterns
 3. **Generator** (`ical-generator.ts`) converts schedules to iCalendar format
-4. **File Utils** saves output to `docs/m-league-schedule.ics` for GitHub Pages
+4. **File Utils** saves output to `public/m-league-schedule.ics` for GitHub Pages
 5. Mトーナメントは `MTournamentScraper.fetch()` で
    <https://m-tournament.m-league.jp/> から HTML を取得
 6. `parseTournamentMatches` が 2 つのセクション
@@ -110,7 +110,7 @@ data/
    (キー: date+stage+table、公式優先)。
    結果は日付・時刻順にソートされて返る
 9. `generateTournamentICalendar` で iCalendar 形式に変換し
-   `docs/m-tournament-schedule.ics` に保存
+   `public/m-tournament-schedule.ics` に保存
 
 ### Key Configuration (`src/config.ts`)
 
@@ -173,6 +173,16 @@ Mトーナメント:
   and blocks dependency build scripts by default (`allowBuilds`)
 
 ### GitHub Pages URL
+
+GitHub Pages は `public/` ディレクトリのみを配信する
+(`.github/workflows/github-pages.yml` の `path: 'public'`)。
+ics 2 ファイルは `public/` 直下に出力されるため、公開 URL は
+サイトルート直下のまま変わらない。
+`docs/` は設計ドキュメント (`docs/superpowers/`) 用で**公開されない**。
+
+iCalendar (RFC 5545) は改行を CRLF と規定しているため、
+`.gitattributes` の `*.ics text eol=crlf` でチェックアウト・配信時に
+CRLF を保持する (リポジトリ blob は LF 正規化)。
 
 デプロイ後の公開 URL:
 

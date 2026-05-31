@@ -104,13 +104,18 @@ function parsePlayers(cardContent: string, section: SectionConfig): string[] {
 /**
  * Extract the broadcast URL from a match card.
  * Trims trailing whitespace observed inside some onclick values.
+ * 未定カードは onclick="window.open('#')" のようにプレースホルダを持つ。
+ * http(s) でない値は視聴URLではないので undefined 扱いにし、
+ * generator のデフォルトロケーションにフォールバックさせる。
  */
 function parseUrl(
   cardContent: string,
   section: SectionConfig,
 ): string | undefined {
   const m = cardContent.match(section.url)
-  return m ? m[1].trim() : undefined
+  if (!m) return undefined
+  const url = m[1].trim()
+  return /^https?:\/\//.test(url) ? url : undefined
 }
 
 /**

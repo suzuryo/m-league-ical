@@ -174,6 +174,13 @@ describe('tournament-html-parser', () => {
       expect(matches).toHaveLength(1)
       expect(matches[0].players).toEqual(['p2'])
     })
+
+    it('視聴URLが#などhttp以外のときはundefinedになる', () => {
+      const html = `<ol><li class="c-schedule__list"><p class="c-schedule__date">FINAL</p><span>7/4</span> (土) <span>19:00</span><ul class="c-schedule__logos"><li><img alt="p"></li></ul><button onclick="window.open('#');">視聴</button></li></ol>`
+      const matches = parseTournamentMatches(html, 2026)
+      expect(matches).toHaveLength(1)
+      expect(matches[0].url).toBeUndefined()
+    })
   })
 
   describe('hasTournamentData', () => {

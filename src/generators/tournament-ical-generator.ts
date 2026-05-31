@@ -56,13 +56,6 @@ function generateEvent(match: TournamentMatch): string[] {
   const summary =
     header && playersStr ? `${header} ${playersStr}` : `${header}${playersStr}`
 
-  const playerList = match.players
-    .map(
-      (player) =>
-        `${M_TOURNAMENT_CONFIG.calendar.description.playerBullet}${player}`,
-    )
-    .join('\\n')
-  const description = `${M_TOURNAMENT_CONFIG.calendar.description.prefix}\\n${playerList}`
   const location = match.url || M_TOURNAMENT_CONFIG.calendar.defaultLocation
 
   const eventLines = [
@@ -71,10 +64,20 @@ function generateEvent(match: TournamentMatch): string[] {
     `DTSTART;TZID=${M_TOURNAMENT_CONFIG.calendar.timezone}:${dtStart}`,
     `DTEND;TZID=${M_TOURNAMENT_CONFIG.calendar.timezone}:${dtEnd}`,
     `SUMMARY:${summary}`,
-    `DESCRIPTION:${description}`,
-    `LOCATION:${location}`,
   ]
 
+  if (match.players.length > 0) {
+    const playerList = match.players
+      .map(
+        (player) =>
+          `${M_TOURNAMENT_CONFIG.calendar.description.playerBullet}${player}`,
+      )
+      .join('\\n')
+    const description = `${M_TOURNAMENT_CONFIG.calendar.description.prefix}\\n${playerList}`
+    eventLines.push(`DESCRIPTION:${description}`)
+  }
+
+  eventLines.push(`LOCATION:${location}`)
   eventLines.push(...generateAlarm(summary))
   eventLines.push('END:VEVENT')
 

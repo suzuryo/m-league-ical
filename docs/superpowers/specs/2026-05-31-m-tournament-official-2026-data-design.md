@@ -150,14 +150,17 @@ MTournamentScraper.fetch()
 
 ## テスト方針
 
-- 既存 `src/__tests__/fixtures/m-tournament.html` フィクスチャは**残す**
-  (FINAL系=出場者あり+時刻ありパスの担保)。「空players許容」への挙動変更に伴い、
-  player0人カードがイベント化されるようになるため、既存テストの期待カウントを更新する。
-- **2026サイトの実HTMLを新フィクスチャとして追加**し、以下を検証:
-  - `currentSeasonMarker` が新HTMLに一致する。
-  - 予選1stの位置ベース時刻 (A,C,E,G,I,K,M,O卓=15:00 / B,D,F,H,J,L,N,P卓=19:00)。
+- `src/__tests__/fixtures/m-tournament.html` を**現サイト(2026)の実HTMLで上書き**する
+  (旧2025データは置き換え)。tournament-html-parser テストはこの2026フィクスチャの
+  実態に合わせて全面的に書き直す。検証内容:
+  - 総35件 (確定16 + 未定19)。
+  - `currentSeasonMarker` が一致する。
+  - 予選の位置ベース時刻 (各日付の1番目=15:00 / 2番目=19:00)。
   - 未定カード (FINAL系・予選2nd・予選3rd) が players 空でイベント化される。
-  - 確定カードが引き続き4人の players を持つ (player抽出のリグレッション検出)。
+  - 確定カード (予選1st) が引き続き4人の players を持つ (player抽出のリグレッション検出)。
+  - FINAL系がサイト明示の時刻 (15:00/19:00) を保持する。
+- 上書きで失う旧データのカバレッジ (FINAL系=出場者あり、`<div>` 版 stage ラッパー) は
+  テスト内の**合成HTML**で補う。
 - 合成HTMLで**同日3試合のエラーパス**を検証する。
 - generator に**空playersテスト**を追加 (DESCRIPTION 行なし・header のみ SUMMARY)。
 - 100% カバレッジを維持する。

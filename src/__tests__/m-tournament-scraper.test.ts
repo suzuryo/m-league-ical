@@ -7,11 +7,14 @@ import { MTournamentScraper } from '../scrapers/m-tournament-scraper'
 
 const FIXTURES_DIR = join(__dirname, './fixtures')
 
-// Fixture HTML shows the previous season (2025). Tests that need to exercise
-// the parsing path must inject the current season marker.
-function loadFixtureWithCurrentSeason(): string {
-  const html = readFileSync(join(FIXTURES_DIR, 'm-tournament.html'), 'utf-8')
-  return html.replace('Mトーナメント2025', 'Mトーナメント 2026')
+// フィクスチャは現シーズン (2026) の実HTML。生でマーカー (2026トーナメント) を含む。
+function loadFixture(): string {
+  return readFileSync(join(FIXTURES_DIR, 'm-tournament.html'), 'utf-8')
+}
+
+// マーカーを除去して「前シーズン表示中」を再現する。
+function loadFixtureWithoutMarker(): string {
+  return loadFixture().replace('2026トーナメント', '2025トーナメント')
 }
 
 describe('m-tournament-scraper', () => {
@@ -24,7 +27,7 @@ describe('m-tournament-scraper', () => {
 
   describe('fetch', () => {
     it('HTMLを取得してパースする', async () => {
-      const html = loadFixtureWithCurrentSeason()
+      const html = loadFixture()
 
       global.fetch = vi.fn().mockResolvedValue({
         ok: true,
@@ -33,14 +36,11 @@ describe('m-tournament-scraper', () => {
 
       const matches = await scraper.fetch()
 
-      expect(matches.length).toBeGreaterThan(0)
+      expect(matches.length).toBe(35)
     })
 
     it('現在シーズンのマーカーが無いHTMLは空配列を返す', async () => {
-      const html = readFileSync(
-        join(FIXTURES_DIR, 'm-tournament.html'),
-        'utf-8',
-      )
+      const html = loadFixtureWithoutMarker()
 
       global.fetch = vi.fn().mockResolvedValue({
         ok: true,
@@ -119,7 +119,7 @@ describe('m-tournament-scraper', () => {
     })
 
     it('fetchを呼び出すURLはconfigのbaseUrl', async () => {
-      const html = loadFixtureWithCurrentSeason()
+      const html = loadFixture()
 
       const fetchMock = vi.fn().mockResolvedValue({
         ok: true,

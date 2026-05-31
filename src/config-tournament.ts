@@ -3,14 +3,17 @@ export const M_TOURNAMENT_CONFIG = {
   year: 2026,
 
   // 現在のシーズン (year) のサイトかを判定するマーカー。
-  // サイトが前年版を表示している間は試合データを取り込まない。
+  // サイトのメインビジュアル alt="2026トーナメント" に一致する。
+  // meta description は運営の更新漏れで「Mトーナメント2025」のままなので使わない。
   // year を更新するときは下記正規表現も合わせて更新する。
-  currentSeasonMarker: /Mトーナメント\s*2026/,
+  currentSeasonMarker: /2026トーナメント/,
 
   calendar: {
     name: 'Mトーナメント 2026 スケジュール',
     timezone: 'Asia/Tokyo',
     defaultStartTime: '190000',
+    // 予選セクションは時刻非掲載。同日の最初の試合に使う開始時刻。
+    firstMatchStartTime: '150000',
     // 試合の長さ (分)。開始時刻 + これが終了時刻になる。
     matchDurationMinutes: 210,
     // Fallback URL used as the event location when schedule.url is undefined.

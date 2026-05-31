@@ -71,7 +71,9 @@ function parseStageAndTable(
   const m = cardContent.match(section.stageAndTable)
   if (!m) return { stage: '', table: '' }
 
-  const stage = normalizeStage((m[1] ?? '').trim())
+  // group1 (stage) は両セクションの正規表現で必須キャプチャなので必ず定義される。
+  // group2 (table) は finalStage では任意 (FINAL は卓なし) のため undefined になりうる。
+  const stage = normalizeStage(m[1].trim())
   const table = (m[2] ?? '').trim()
   return { stage, table }
 }
@@ -175,6 +177,8 @@ function parseSection(
     })
     .filter((m): m is TournamentMatch => m !== null)
 
+  // 時刻非掲載セクションでは parseDateTime の startTime は仮値。
+  // assignPositionalStartTimes が日付内の位置で上書きする。
   if (!section.hasTimeInfo) {
     assignPositionalStartTimes(matches)
   }

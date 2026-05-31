@@ -52,7 +52,8 @@ export const M_TOURNAMENT_CONFIG = {
       url: /onclick="window\.open\('([^']+)'\)\s*;?\s*"/,
       hasTimeInfo: true,
     },
-    // 予選 (SCHEDULE): 22 matches without time info (defaults to 19:00 JST).
+    // 予選 (SCHEDULE): サイトは時刻非掲載。日付内の位置で時刻を割り当てる
+    // (1番目=firstMatchStartTime / 2番目=defaultStartTime / 3番目以降はエラー)。
     qualifier: {
       // Matches a single <li class="p-gamesSchedule2__list ..."> element and captures its inner HTML.
       // Each card contains nested <li> elements (the logos block uses <li><img></li> for each

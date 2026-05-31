@@ -117,7 +117,7 @@ describe('tournament-html-parser', () => {
     it('同日3試合以上はエラーを投げる', () => {
       const html = `<ul>${qCard('A卓')}${qCard('B卓')}${qCard('C卓')}</ul>`
       expect(() => parseTournamentMatches(html, 2026)).toThrow(
-        /Unexpected 3rd\+ qualifier match on 2026-08-01/,
+        /Unexpected 3rd\+ qualifier match on 2026-08-01 \(stage=予選1st, table=C卓\)/,
       )
     })
   })
@@ -155,6 +155,24 @@ describe('tournament-html-parser', () => {
         players: [],
         url: undefined,
       })
+    })
+
+    it('stage表記がFINAL/SEMIFINAL以外のカードはstage/table空になる', () => {
+      const html = `<ol><li class="c-schedule__list"><p class="c-schedule__date">準決勝</p><span>7/2</span> (木) <span>19:00</span><ul class="c-schedule__logos"><li><img alt="p1"></li></ul></li></ol>`
+      const matches = parseTournamentMatches(html, 2026)
+      expect(matches).toHaveLength(1)
+      expect(matches[0]).toMatchObject({
+        stage: '',
+        table: '',
+        players: ['p1'],
+      })
+    })
+
+    it('altが空白のみのimgはplayersに含めない', () => {
+      const html = `<ol><li class="c-schedule__list"><p class="c-schedule__date">FINAL</p><span>7/3</span> (金) <span>19:00</span><ul class="c-schedule__logos"><li><img alt=" "></li><li><img alt="p2"></li></ul></li></ol>`
+      const matches = parseTournamentMatches(html, 2026)
+      expect(matches).toHaveLength(1)
+      expect(matches[0].players).toEqual(['p2'])
     })
   })
 

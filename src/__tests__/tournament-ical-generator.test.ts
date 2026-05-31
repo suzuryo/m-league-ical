@@ -154,5 +154,44 @@ describe('tournament-ical-generator', () => {
       // 卓が空でも、stage と players が連結された summary が出る
       expect(ical).toContain('SUMMARY:[FINAL] A・B・C・D')
     })
+
+    it('stage・tableが両方空のときSUMMARYはplayersStrのみ', () => {
+      const matches: TournamentMatch[] = [
+        {
+          date: '2026-07-27',
+          startTime: '150000',
+          endTime: '183000',
+          stage: '',
+          table: '',
+          players: ['A', 'B', 'C', 'D'],
+        },
+      ]
+
+      const ical = generateTournamentICalendar(matches)
+
+      expect(ical).toContain('SUMMARY:A・B・C・D')
+      expect(ical).not.toContain('SUMMARY:[]')
+    })
+
+    it('出場者が空のときVEVENTのDESCRIPTION行を出力しない', () => {
+      const matches: TournamentMatch[] = [
+        {
+          date: '2026-07-27',
+          startTime: '150000',
+          endTime: '183000',
+          stage: 'FINAL STAGE',
+          table: 'A卓',
+          players: [],
+        },
+      ]
+
+      const ical = generateTournamentICalendar(matches)
+
+      expect(ical).toContain('SUMMARY:[FINAL STAGE A卓]')
+      expect(ical).not.toContain('DESCRIPTION:対戦選手:')
+      expect(ical).toContain('DESCRIPTION:[FINAL STAGE A卓]')
+      expect(ical).toContain('BEGIN:VEVENT')
+      expect(ical).toContain('END:VEVENT')
+    })
   })
 })

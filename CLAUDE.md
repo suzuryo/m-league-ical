@@ -156,8 +156,11 @@ Mトーナメント:
 - Event title format: `[Stage Table] Player1・Player2・Player3・Player4`
   (stage/tableのどちらかが欠ける場合は[]内が片方のみ、両方欠ける場合は[]を省略)
 - 開始時刻: 試合ごとに異なる
-  (FINAL系は HTML から取得、予選系はデフォルト 19:00)
+  (FINAL系は HTML から取得、予選系は位置ベース:
+  同日1番目=15:00 / 2番目=19:00、3番目以降はエラー)
 - 終了時刻: 開始時刻 + `matchDurationMinutes` (デフォルト 210 分 = 3時間30分)
+- 出場者未定の試合 (FINAL系・予選2nd/3rd) は出場者なし (DESCRIPTION省略)
+  でイベント生成する
 - Calendar name: `Mトーナメント 2026 スケジュール`
   (年を跨がない大会なので年は単独。シーズン切替時に手動更新)
 - UID prefix: `@m-tournament.m-league.jp`
@@ -198,22 +201,23 @@ CRLF を保持する (リポジトリ blob は LF 正規化)。
   website (173 total matches across 9 months)
   - Located in `src/__tests__/fixtures/`
   - Files: `2025-09.html` through `2026-05.html`
-  - `m-tournament.html` - Mトーナメントサイトの実 HTML (1ファイル、29試合分)
+  - `m-tournament.html` - Mトーナメントサイトの実 HTML
+    (2026シーズン、確定16+未定19=35試合分)
   - `m-tournament-extra-sample.yaml` - 補助データテスト用
 - **Coverage**: 100% coverage on all modules (excludes entry point and type definitions)
 - **Mocking**: Uses `vi.fn()` and `vi.spyOn()` for global `fetch` and `console.log`
 
-Test files cover (全 108 tests):
+Test files cover (全 123 tests):
 
-- `calendar-utils.test.ts` - UID generation and datetime formatting (14 tests)
+- `calendar-utils.test.ts` - UID generation and datetime formatting (19 tests)
 - `html-parser.test.ts` - Schedule parsing with real fixtures (16 tests)
 - `ical-generator.test.ts` - iCalendar format generation (8 tests)
 - `file-utils.test.ts` - File I/O operations (4 tests)
 - `m-league-scraper.test.ts` - HTTP fetching and error handling (10 tests)
-- `tournament-html-parser.test.ts` - Mトーナメント HTML パース (17 tests)
-- `m-tournament-scraper.test.ts` - Mトーナメント HTTP fetch (5 tests)
-- `tournament-ical-generator.test.ts` - Mトーナメント iCal 生成 (7 tests)
-- `tournament-extra-parser.test.ts` - 補助データYAMLパース (17 tests)
+- `tournament-html-parser.test.ts` - Mトーナメント HTML パース (23 tests)
+- `m-tournament-scraper.test.ts` - Mトーナメント HTTP fetch (6 tests)
+- `tournament-ical-generator.test.ts` - Mトーナメント iCal 生成 (9 tests)
+- `tournament-extra-parser.test.ts` - 補助データYAMLパース (18 tests)
 - `tournament-merger.test.ts` - 公式と補助のマージ (10 tests)
 
 ## Important Notes
@@ -229,7 +233,10 @@ Test files cover (全 108 tests):
 - `M_TOURNAMENT_CONFIG.year` は年を跨がない大会の年を表す。
   シーズン切り替え時は手動で更新する。
   併せて `M_TOURNAMENT_CONFIG.currentSeasonMarker` の正規表現も
-  新しい年に合わせて更新する必要がある。
+  新しい年に合わせて更新する必要がある。現在は `/2026トーナメント/`
+  (サイトのメインビジュアル alt に一致)。
+  meta description は運営の更新漏れで前シーズン表記のままになることがあるため
+  使用しない。
   サイトに `currentSeasonMarker` がマッチしない間は公式データの取得を
   スキップする（前シーズンの試合がカレンダーに混入するのを防ぐため）。
 - Mトーナメントは 1 ページに FINAL STAGE / 予選 の 2 セクションがあり、

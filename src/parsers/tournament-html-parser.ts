@@ -71,7 +71,9 @@ function parseStageAndTable(
   const m = cardContent.match(section.stageAndTable)
   if (!m) return { stage: '', table: '' }
 
-  const stage = normalizeStage((m[1] ?? '').trim())
+  // group1 (stage) は両セクションの正規表現で必須キャプチャなので必ず定義される。
+  // group2 (table) は finalStage では任意 (FINAL は卓なし) のため undefined になりうる。
+  const stage = normalizeStage(m[1].trim())
   const table = (m[2] ?? '').trim()
   return { stage, table }
 }
@@ -102,31 +104,66 @@ function parsePlayers(cardContent: string, section: SectionConfig): string[] {
 /**
  * Extract the broadcast URL from a match card.
  * Trims trailing whitespace observed inside some onclick values.
+ * 未定カードは onclick="window.open('#')" のようにプレースホルダを持つ。
+ * http(s) でない値は視聴URLではないので undefined 扱いにし、
+ * generator のデフォルトロケーションにフォールバックさせる。
  */
 function parseUrl(
   cardContent: string,
   section: SectionConfig,
 ): string | undefined {
   const m = cardContent.match(section.url)
-  return m ? m[1].trim() : undefined
+  if (!m) return undefined
+  const url = m[1].trim()
+  return /^https?:\/\//.test(url) ? url : undefined
+}
+
+/**
+ * 時刻情報を持たないセクション (予選) の開始時刻を位置ベースで割り当てる。
+ * 同一日付の中でカード出現順に 1番目=firstMatchStartTime / 2番目=defaultStartTime。
+ * 3番目以降は想定外データなのでエラーを投げる。終了時刻も再計算する。
+ */
+function assignPositionalStartTimes(matches: TournamentMatch[]): void {
+  const countByDate = new Map<string, number>()
+  for (const match of matches) {
+    const index = countByDate.get(match.date) ?? 0
+    countByDate.set(match.date, index + 1)
+
+    let startTime: string
+    if (index === 0) {
+      startTime = M_TOURNAMENT_CONFIG.calendar.firstMatchStartTime
+    } else if (index === 1) {
+      startTime = M_TOURNAMENT_CONFIG.calendar.defaultStartTime
+    } else {
+      throw new Error(
+        `Unexpected 3rd+ qualifier match on ${match.date} ` +
+          `(stage=${match.stage}, table=${match.table})`,
+      )
+    }
+
+    match.startTime = startTime
+    match.endTime = addMinutesToTime(
+      startTime,
+      M_TOURNAMENT_CONFIG.calendar.matchDurationMinutes,
+    )
+  }
 }
 
 /**
  * Parse all matches contained in a single section.
+ * 出場者未定 (players が空) のカードもイベント化する。必須は日付のみ。
  */
 function parseSection(
   html: string,
   year: number,
   section: SectionConfig,
 ): TournamentMatch[] {
-  return parseMatchCards(html, section)
+  const matches = parseMatchCards(html, section)
     .map((card): TournamentMatch | null => {
       const dt = parseDateTime(card, year, section)
       if (!dt) return null
 
       const players = parsePlayers(card, section)
-      if (players.length === 0) return null
-
       const st = parseStageAndTable(card, section)
       const url = parseUrl(card, section)
 
@@ -144,6 +181,14 @@ function parseSection(
       }
     })
     .filter((m): m is TournamentMatch => m !== null)
+
+  // 時刻非掲載セクションでは parseDateTime の startTime は仮値。
+  // assignPositionalStartTimes が日付内の位置で上書きする。
+  if (!section.hasTimeInfo) {
+    assignPositionalStartTimes(matches)
+  }
+
+  return matches
 }
 
 /**

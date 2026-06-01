@@ -222,15 +222,16 @@ DESCRIPTION:[予選1st P卓] 堀慎吾・石井一馬・萩原聖人・高津柚
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-07-06-0e4339ef044b@m-tournament.m-league.jp
+UID:2026-07-06-078380e59bff@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260706T150000
 DTEND;TZID=Asia/Tokyo:20260706T183000
-SUMMARY:[予選2nd A卓]
+SUMMARY:[予選2nd A卓] 松本吉弘・佐々木寿人
+DESCRIPTION:対戦選手:\n・松本吉弘\n・佐々木寿人
 LOCATION:https://abema.tv/now-on-air/mahjong
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
-DESCRIPTION:[予選2nd A卓]
+DESCRIPTION:[予選2nd A卓] 松本吉弘・佐々木寿人
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
@@ -270,99 +271,107 @@ DESCRIPTION:[予選2nd D卓]
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-07-13-66da9c44c76d@m-tournament.m-league.jp
+UID:2026-07-13-a6f6c81c7f7e@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260713T150000
 DTEND;TZID=Asia/Tokyo:20260713T183000
-SUMMARY:[予選3rd A卓]
+SUMMARY:[予選3rd A卓] 岡田紗佳・東城りお
+DESCRIPTION:対戦選手:\n・岡田紗佳\n・東城りお
 LOCATION:https://abema.tv/now-on-air/mahjong
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
-DESCRIPTION:[予選3rd A卓]
+DESCRIPTION:[予選3rd A卓] 岡田紗佳・東城りお
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-07-13-223dc59085cd@m-tournament.m-league.jp
+UID:2026-07-13-2b6bd141de62@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260713T190000
 DTEND;TZID=Asia/Tokyo:20260713T223000
-SUMMARY:[予選3rd B卓]
+SUMMARY:[予選3rd B卓] 内川幸太郎・小池諒
+DESCRIPTION:対戦選手:\n・内川幸太郎\n・小池諒
 LOCATION:https://abema.tv/now-on-air/mahjong
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
-DESCRIPTION:[予選3rd B卓]
+DESCRIPTION:[予選3rd B卓] 内川幸太郎・小池諒
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-07-17-ce24793045fc@m-tournament.m-league.jp
+UID:2026-07-17-2a08b2855fed@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260717T150000
 DTEND;TZID=Asia/Tokyo:20260717T183000
-SUMMARY:[予選3rd C卓]
+SUMMARY:[予選3rd C卓] 白鳥翔
+DESCRIPTION:対戦選手:\n・白鳥翔
 LOCATION:https://abema.tv/now-on-air/mahjong
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
-DESCRIPTION:[予選3rd C卓]
+DESCRIPTION:[予選3rd C卓] 白鳥翔
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-07-17-70adbae3bc06@m-tournament.m-league.jp
+UID:2026-07-17-2be189dff230@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260717T190000
 DTEND;TZID=Asia/Tokyo:20260717T223000
-SUMMARY:[予選3rd D卓]
+SUMMARY:[予選3rd D卓] 勝又健志
+DESCRIPTION:対戦選手:\n・勝又健志
 LOCATION:https://abema.tv/now-on-air/mahjong
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
-DESCRIPTION:[予選3rd D卓]
+DESCRIPTION:[予選3rd D卓] 勝又健志
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-07-20-763dd36172bf@m-tournament.m-league.jp
+UID:2026-07-20-42c8afff5285@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260720T150000
 DTEND;TZID=Asia/Tokyo:20260720T183000
-SUMMARY:[予選3rd E卓]
+SUMMARY:[予選3rd E卓] 滝沢和典
+DESCRIPTION:対戦選手:\n・滝沢和典
 LOCATION:https://abema.tv/now-on-air/mahjong
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
-DESCRIPTION:[予選3rd E卓]
+DESCRIPTION:[予選3rd E卓] 滝沢和典
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-07-20-645f4acbcf1b@m-tournament.m-league.jp
+UID:2026-07-20-462cdab8cf89@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260720T190000
 DTEND;TZID=Asia/Tokyo:20260720T223000
-SUMMARY:[予選3rd F卓]
+SUMMARY:[予選3rd F卓] 永井孝典
+DESCRIPTION:対戦選手:\n・永井孝典
 LOCATION:https://abema.tv/now-on-air/mahjong
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
-DESCRIPTION:[予選3rd F卓]
+DESCRIPTION:[予選3rd F卓] 永井孝典
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-07-24-38730de871dc@m-tournament.m-league.jp
+UID:2026-07-24-972466dc8a39@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260724T150000
 DTEND;TZID=Asia/Tokyo:20260724T183000
-SUMMARY:[予選3rd G卓]
+SUMMARY:[予選3rd G卓] 下石戟
+DESCRIPTION:対戦選手:\n・下石戟
 LOCATION:https://abema.tv/now-on-air/mahjong
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
-DESCRIPTION:[予選3rd G卓]
+DESCRIPTION:[予選3rd G卓] 下石戟
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-07-24-29b397cab990@m-tournament.m-league.jp
+UID:2026-07-24-904e7e6a42c7@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260724T190000
 DTEND;TZID=Asia/Tokyo:20260724T223000
-SUMMARY:[予選3rd H卓]
+SUMMARY:[予選3rd H卓] 二階堂亜樹
+DESCRIPTION:対戦選手:\n・二階堂亜樹
 LOCATION:https://abema.tv/now-on-air/mahjong
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
-DESCRIPTION:[予選3rd H卓]
+DESCRIPTION:[予選3rd H卓] 二階堂亜樹
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT

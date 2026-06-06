@@ -1,39 +1,42 @@
 {
   $schema: 'https://docs.renovatebot.com/renovate-schema.json',
   extends: [
-    'config:recommended',
-    // 新規に追加された GitHub Actions も自動でコミットSHA固定し、
-    // digest 更新を Renovate に管理させる
-    'helpers:pinGitHubActionDigests',
+    // 公式ベストプラクティス集。recommended + configMigration / pinDevDependencies /
+    // docker:pinDigests / pinGitHubActionDigests / security:minimumReleaseAgeNpm 等を内包。
+    'config:best-practices',
+    // 依存更新の commit を semantic (fix(deps) / chore(deps)) に強制する。
+    ':semanticCommits',
+    // schedule などの時刻基準を Asia/Tokyo にする。
+    ':timezone(Asia/Tokyo)',
   ],
-  dependencyDashboardApproval: false,
-  timezone: 'Asia/Tokyo',
-  schedule: ['before 10am on Monday'],
+  // 更新 PR を作成する時間帯。cron 5 フィールド(分は必ず `*`)。月・木の終日。
+  schedule: ['* * * * 1,4'],
+  // 同時にオープンする PR の上限。
+  prConcurrentLimit: 20,
+  // 時間あたり PR 作成数の上限を撤廃し、ウィンドウ内で一気に作成する。
+  prHourlyLimit: 0,
+  // 全 PR に付与するラベル。
+  labels: ['dependencies'],
+  // PR のレビュー/担当を固定する(リポ固有・保持)。
   reviewers: ['suzuryo'],
   assignees: ['suzuryo'],
-  prConcurrentLimit: 10,
-
-  // サプライチェーン攻撃対策:
-  // pnpm-workspace.yaml の minimumReleaseAge (= 3 日) より長く設定することで、
-  // Renovate が PR を作成する時点で公開から 4 日以上経過した状態になり、
-  // pnpm-lock.yaml 更新時の pnpm install が確実に解決できる (= バッファ)。
-  minimumReleaseAge: '4 days',
-  // cooldown 未経過の更新で PR / ブランチを作らせない
-  // (待機中の PR が先に作られる挙動を抑止する)
+  // cooldown 未経過の更新で PR / ブランチを作らせない(リポ固有・保持)。
   internalChecksFilter: 'strict',
-
-  // 週次でロックファイルを定期メンテナンス
-  lockFileMaintenance: {
-    enabled: true,
-    schedule: ['before 5am on monday'],
-  },
-
-  // 脆弱性修正は cooldown をバイパスして即時 PR 化する
+  // OSV データベースで脆弱性を検出する。
   osvVulnerabilityAlerts: true,
+  // 未解決の脆弱性をダッシュボードにサマリ表示する。
+  dependencyDashboardOSVVulnerabilitySummary: 'unresolved',
+  // 脆弱性修正は cooldown をバイパスして即時 PR 化する(リポ固有・保持)。
   vulnerabilityAlerts: {
     labels: ['security'],
   },
-
+  // 直接依存の更新がなくても lockfile 全体を定期リフレッシュし間接依存を更新する。
+  lockFileMaintenance: {
+    enabled: true,
+    // 実行する時間帯。月曜の終日。
+    schedule: ['* * * * 1'],
+  },
+  // commit type / label のマッピング(リポ固有・保持)。
   packageRules: [
     {
       matchManagers: ['npm'],

@@ -202,6 +202,46 @@ describe('tournament-extra-parser', () => {
       expect(matches).toEqual([])
     })
 
+    it('override:trueフラグがパースされる', () => {
+      const file = join(tempDir, 'override.yaml')
+      writeFileSync(
+        file,
+        'matches:\n  - date: "2026-08-15"\n    override: true\n    players: [A, B, C, D]\n',
+        'utf-8',
+      )
+
+      const matches = parseExtraData(file)
+
+      expect(matches.length).toBe(1)
+      expect(matches[0].override).toBe(true)
+    })
+
+    it('override省略時はoverrideプロパティを持たない', () => {
+      const file = join(tempDir, 'no-override.yaml')
+      writeFileSync(
+        file,
+        'matches:\n  - date: "2026-08-15"\n    players: [A, B, C, D]\n',
+        'utf-8',
+      )
+
+      const matches = parseExtraData(file)
+
+      expect(matches[0]).not.toHaveProperty('override')
+    })
+
+    it('override非booleanのエントリはスキップ', () => {
+      const file = join(tempDir, 'bad-override.yaml')
+      writeFileSync(
+        file,
+        'matches:\n  - date: "2026-08-15"\n    override: "yes"\n    players: [A, B, C, D]\n',
+        'utf-8',
+      )
+
+      const matches = parseExtraData(file)
+
+      expect(matches).toEqual([])
+    })
+
     it('一部不正なエントリがあっても正常なものは取得できる', () => {
       const file = join(tempDir, 'mixed.yaml')
       writeFileSync(

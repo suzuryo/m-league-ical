@@ -105,16 +105,16 @@ DESCRIPTION:[予選1st G卓] 逢川恵夢・藤崎智・浅井堂岐・羽月ま
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-06-12-8381599e0c19@m-tournament.m-league.jp
+UID:2026-06-12-fb481249449a@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260612T190000
 DTEND;TZID=Asia/Tokyo:20260612T223000
-SUMMARY:[予選1st H卓] 鈴木たろう・村上淳・角葉子
-DESCRIPTION:対戦選手:\n・鈴木たろう\n・村上淳\n・角葉子
+SUMMARY:[予選1st H卓] 御崎千結・鈴木たろう・村上淳・角葉子
+DESCRIPTION:対戦選手:\n・御崎千結\n・鈴木たろう\n・村上淳\n・角葉子
 LOCATION:https://abema.go.link/h3YEP
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
-DESCRIPTION:[予選1st H卓] 鈴木たろう・村上淳・角葉子
+DESCRIPTION:[予選1st H卓] 御崎千結・鈴木たろう・村上淳・角葉子
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT

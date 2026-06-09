@@ -105,16 +105,16 @@ DESCRIPTION:[予選1st G卓] 逢川恵夢・藤崎智・浅井堂岐・羽月ま
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-06-12-9edd01828eb2@m-tournament.m-league.jp
+UID:2026-06-12-8381599e0c19@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260612T190000
 DTEND;TZID=Asia/Tokyo:20260612T223000
-SUMMARY:[予選1st H卓] 渋川難波・鈴木たろう・村上淳・角葉子
-DESCRIPTION:対戦選手:\n・渋川難波\n・鈴木たろう\n・村上淳\n・角葉子
+SUMMARY:[予選1st H卓] 鈴木たろう・村上淳・角葉子
+DESCRIPTION:対戦選手:\n・鈴木たろう\n・村上淳\n・角葉子
 LOCATION:https://abema.go.link/h3YEP
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
-DESCRIPTION:[予選1st H卓] 渋川難波・鈴木たろう・村上淳・角葉子
+DESCRIPTION:[予選1st H卓] 鈴木たろう・村上淳・角葉子
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
@@ -235,15 +235,16 @@ DESCRIPTION:[予選2nd A卓] 松本吉弘・佐々木寿人・小林剛・石原
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-07-06-80db01df230a@m-tournament.m-league.jp
+UID:2026-07-06-738fed17f3ea@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260706T190000
 DTEND;TZID=Asia/Tokyo:20260706T223000
-SUMMARY:[予選2nd B卓]
+SUMMARY:[予選2nd B卓] 日向藍子・黒沢咲
+DESCRIPTION:対戦選手:\n・日向藍子\n・黒沢咲
 LOCATION:https://abema.tv/now-on-air/mahjong
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
-DESCRIPTION:[予選2nd B卓]
+DESCRIPTION:[予選2nd B卓] 日向藍子・黒沢咲
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
@@ -297,29 +298,29 @@ DESCRIPTION:[予選3rd B卓] 内川幸太郎・小池諒・HIRO柴田
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-07-17-2a08b2855fed@m-tournament.m-league.jp
+UID:2026-07-17-ebfa4e6142f0@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260717T150000
 DTEND;TZID=Asia/Tokyo:20260717T183000
-SUMMARY:[予選3rd C卓] 白鳥翔
-DESCRIPTION:対戦選手:\n・白鳥翔
+SUMMARY:[予選3rd C卓] 白鳥翔・渡辺史哉
+DESCRIPTION:対戦選手:\n・白鳥翔\n・渡辺史哉
 LOCATION:https://abema.tv/now-on-air/mahjong
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
-DESCRIPTION:[予選3rd C卓] 白鳥翔
+DESCRIPTION:[予選3rd C卓] 白鳥翔・渡辺史哉
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-07-17-2be189dff230@m-tournament.m-league.jp
+UID:2026-07-17-54c80a4783f2@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260717T190000
 DTEND;TZID=Asia/Tokyo:20260717T223000
-SUMMARY:[予選3rd D卓] 勝又健志
-DESCRIPTION:対戦選手:\n・勝又健志
+SUMMARY:[予選3rd D卓] 勝又健志・近藤誠一
+DESCRIPTION:対戦選手:\n・勝又健志\n・近藤誠一
 LOCATION:https://abema.tv/now-on-air/mahjong
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
-DESCRIPTION:[予選3rd D卓] 勝又健志
+DESCRIPTION:[予選3rd D卓] 勝又健志・近藤誠一
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT

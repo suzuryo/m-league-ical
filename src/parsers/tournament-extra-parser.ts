@@ -17,6 +17,7 @@ type RawEntry = {
   players?: unknown
   url?: unknown
   source?: unknown
+  override?: unknown
 }
 
 type RawDocument = {
@@ -48,6 +49,11 @@ function validateEntry(entry: RawEntry): TournamentMatch | null {
     startTime = entry.startTime
   }
 
+  // override は任意。指定された場合は boolean のみ許容し、それ以外は不正として弾く。
+  if (entry.override !== undefined && typeof entry.override !== 'boolean') {
+    return null
+  }
+
   const stage = isString(entry.stage) ? entry.stage : ''
   const table = isString(entry.table) ? entry.table : ''
   const url = isString(entry.url) ? entry.url : undefined
@@ -63,6 +69,8 @@ function validateEntry(entry: RawEntry): TournamentMatch | null {
     table,
     players,
     url,
+    // override は true のときだけ付与する (公式優先の既定挙動を保つため)。
+    ...(entry.override === true ? { override: true } : {}),
   }
 }
 

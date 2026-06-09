@@ -101,11 +101,14 @@ matches:
       - 選手D
     url: "https://abema.tv/.."  # 任意: 視聴URL
     source: "https://x.com/.."  # 任意: X投稿URL (人間のためのメモ、parserは利用しない)
+    override: true              # 任意: true で同キーの公式試合を上書き (後述)
 ```
 
 - ファイルが存在しなくても fetcher は正常動作する
 - `matches: []` (空配列) でも正常動作
 - `source` は実行時には使われないが、後で見返すための注釈として残す
+- `override` は省略時 `false` 相当。`boolean` 以外を指定したエントリは不正として
+  スキップする (他フィールドのバリデーションと同様)
 
 ### バリデーションエラー時の挙動
 
@@ -132,6 +135,18 @@ matches:
 - FINAL のように卓名が無い場合は `table=""` でマッチングする
 - 補助データで卓名 (例: "C卓") を入れ、後で公式に同じ試合が出てきたら同じキーになって公式優先で上書きされる
 
+### override による例外 (後付け)
+
+通常は同キーで公式優先だが、補助データ側に `override: true` を付けた場合は
+**補助データを優先**して同キーの公式試合を上書きする。
+
+想定ケース: 出場辞退などで公式サイトの出場者枠が 1 つ未定 (空欄の
+プレースホルダ画像) のまま掲載され、X で正規メンバーが発表済みのとき。
+パーサーは空 `alt` を捨てるため公式試合の `players` が欠けた状態になるが、
+`override: true` の補助エントリで正しい 4 名に差し替えられる。
+
+公式が正しい出場者を掲載したらこの補助エントリは削除する運用とする。
+
 ### 実装
 
 ```typescript
@@ -140,9 +155,15 @@ function mergeMatches(
   extra: TournamentMatch[],
 ): TournamentMatch[] {
   const keyOf = (m: TournamentMatch) => `${m.date}|${m.stage}|${m.table}`
-  const officialKeys = new Set(official.map(keyOf))
-  const filteredExtra = extra.filter((m) => !officialKeys.has(keyOf(m)))
-  return [...official, ...filteredExtra]
+  // override 指定の補助と同キーの公式は除外する
+  const overrideKeys = new Set(extra.filter((m) => m.override).map(keyOf))
+  const filteredOfficial = official.filter((m) => !overrideKeys.has(keyOf(m)))
+  // override 指定は常に採用、それ以外は公式に同キーが無い場合のみ採用
+  const officialKeys = new Set(filteredOfficial.map(keyOf))
+  const filteredExtra = extra.filter(
+    (m) => m.override || !officialKeys.has(keyOf(m)),
+  )
+  return [...filteredOfficial, ...filteredExtra]
 }
 ```
 

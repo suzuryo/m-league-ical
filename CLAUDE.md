@@ -108,6 +108,8 @@ data/
    補助データ (X 等で先行発表された対戦カード) を読み込む
 8. `mergeMatches(official, extra)` で重複除去
    (キー: date+stage+table、公式優先)。
+   ただし補助データに `override: true` のエントリがあれば、
+   同キーの公式試合を上書きして補助データを優先する。
    結果は日付・時刻順にソートされて返る
 9. `generateTournamentICalendar` で iCalendar 形式に変換し
    `public/m-tournament-schedule.ics` に保存
@@ -139,6 +141,10 @@ All configuration is centralized in `M_LEAGUE_CONFIG`:
 `docs/superpowers/specs/2026-05-26-m-tournament-extra-data-design.md`
 を参照。公式サイトに同じ試合 (date+stage+table キー) が掲載されたら
 自動的に公式情報で上書きされる。
+ただしエントリに `override: true` を付けると、公式より補助データを優先する
+(出場辞退などで公式の出場者枠が未定 (空欄) のまま掲載されたが、
+X で正規メンバーが発表済みのケース用)。公式が正しい出場者を載せたら
+そのエントリは削除する。
 
 ### iCal Format Specifications
 
@@ -247,3 +253,5 @@ Test files cover (全 123 tests):
 - `data/m-tournament-extra.yaml` は X 等で先行発表された対戦カードを
   人間が手動で記録するファイル。公式に同じ試合が出てきたら
   自動的に公式情報で上書きされる。ファイルが無くても動作する。
+  エントリに `override: true` を付けた場合のみ、公式より補助データを優先する
+  (出場辞退で公式の出場者枠が空欄のまま掲載されたケースなどに使う)。

@@ -107,5 +107,43 @@ describe('tournament-merger', () => {
       const merged = mergeMatches(official, extra)
       expect(merged.length).toBe(1)
     })
+
+    it('override:trueの補助は同キーの公式に勝つ', () => {
+      const official = [
+        makeMatch({ players: ['official1', 'official2', 'official3'] }),
+      ]
+      const extra = [
+        makeMatch({
+          players: ['extra1', 'extra2', 'extra3', 'extra4'],
+          override: true,
+        }),
+      ]
+
+      const merged = mergeMatches(official, extra)
+      expect(merged.length).toBe(1)
+      expect(merged[0].players).toEqual([
+        'extra1',
+        'extra2',
+        'extra3',
+        'extra4',
+      ])
+    })
+
+    it('override:trueでも公式に同キーが無ければそのまま追加される', () => {
+      const extra = [makeMatch({ override: true })]
+
+      const merged = mergeMatches([], extra)
+      expect(merged.length).toBe(1)
+      expect(merged[0].players).toEqual(['A', 'B', 'C', 'D'])
+    })
+
+    it('override指定がない補助は従来どおり公式が優先される', () => {
+      const official = [makeMatch({ players: ['official1'] })]
+      const extra = [makeMatch({ players: ['extra1'] })]
+
+      const merged = mergeMatches(official, extra)
+      expect(merged.length).toBe(1)
+      expect(merged[0].players).toEqual(['official1'])
+    })
   })
 })

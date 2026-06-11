@@ -24,18 +24,4 @@
 #
 # 今後 X で先行発表された未掲載カードがあれば matches に追記する。
 
-matches:
-  # 出場辞退により公式サイトの出場者枠が1つ未定 (空欄) のまま掲載されているため、
-  # X で発表された正規メンバーで上書きする。公式が4名揃えたら削除すること。
-  - date: "2026-06-12"
-    stage: "予選1st"
-    table: "H卓"
-    startTime: "190000"
-    players:
-      - 御崎千結
-      - 鈴木たろう
-      - 村上淳
-      - 角葉子
-    url: "https://abema.go.link/h3YEP"
-    source: "https://x.com/m_league_/status/2064180706461487161"
-    override: true
+matches: []

@@ -2,18 +2,20 @@
   $schema: 'https://docs.renovatebot.com/renovate-schema.json',
   extends: [
     // 公式ベストプラクティス集。recommended + configMigration / pinDevDependencies /
-    // docker:pinDigests / pinGitHubActionDigests / security:minimumReleaseAgeNpm 等を内包。
+    // docker:pinDigests / pinGitHubActionDigests / security:minimumReleaseAgeNpm /
+    // group:monorepos 等を内包。
     'config:best-practices',
     // 依存更新の commit を semantic (fix(deps) / chore(deps)) に強制する。
     ':semanticCommits',
     // schedule などの時刻基準を Asia/Tokyo にする。
     ':timezone(Asia/Tokyo)',
   ],
-  // 更新 PR を作成する時間帯。cron 5 フィールド(分は必ず `*`)。月・木の終日。
-  schedule: ['* * * * 1,4'],
+  // 更新 PR を作成する曜日。cron 5 フィールド(分は必ず `*`)。月曜の終日のみ。
+  // 脆弱性修正 (vulnerabilityAlerts) はこの schedule を無視して即時 PR 化される。
+  schedule: ['* * * * 1'],
   // 同時にオープンする PR の上限。
   prConcurrentLimit: 20,
-  // 時間あたり PR 作成数の上限を撤廃し、ウィンドウ内で一気に作成する。
+  // 時間あたり PR 作成数の上限を撤廃し、月曜のウィンドウ内で一気に作成する。
   prHourlyLimit: 0,
   // 全 PR に付与するラベル。
   labels: ['dependencies'],
@@ -26,25 +28,36 @@
   osvVulnerabilityAlerts: true,
   // 未解決の脆弱性をダッシュボードにサマリ表示する。
   dependencyDashboardOSVVulnerabilitySummary: 'unresolved',
-  // 脆弱性修正は cooldown をバイパスして即時 PR 化する(リポ固有・保持)。
+  // 脆弱性修正は cooldown / schedule をバイパスして即時 PR 化する(リポ固有・保持)。
   vulnerabilityAlerts: {
     labels: ['security'],
   },
   // 直接依存の更新がなくても lockfile 全体を定期リフレッシュし間接依存を更新する。
   lockFileMaintenance: {
     enabled: true,
-    // 実行する時間帯。月曜の終日。
+    // 実行する時間帯。月曜の終日(本体 schedule とは独立に指定が必要)。
     schedule: ['* * * * 1'],
   },
-  // commit type / label のマッピング(リポ固有・保持)。
   packageRules: [
+    // メジャー以外 (minor/patch/digest) は manager を横断して 1 つの PR にまとめ、
+    // 月曜の通知を 1 本に集約する。github-actions の routine 更新もここに含まれ、
+    // commit type は chore に統一される。
+    {
+      matchUpdateTypes: ['minor', 'patch', 'digest', 'pinDigest'],
+      groupName: 'non-major dependencies',
+      semanticCommitType: 'chore',
+      labels: ['dependencies', 'automated'],
+    },
+    // メジャー更新は影響が大きいので manager 別に個別 PR とし、commit type / label を分ける。
     {
       matchManagers: ['npm'],
+      matchUpdateTypes: ['major'],
       labels: ['dependencies', 'automated'],
       semanticCommitType: 'chore',
     },
     {
       matchManagers: ['github-actions'],
+      matchUpdateTypes: ['major'],
       labels: ['github-actions', 'automated'],
       semanticCommitType: 'ci',
     },

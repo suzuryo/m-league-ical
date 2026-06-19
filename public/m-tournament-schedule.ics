@@ -248,16 +248,16 @@ DESCRIPTION:[予選2nd B卓] 日向藍子・黒沢咲・藤崎智・御崎千結
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-07-10-78c2d045d2a7@m-tournament.m-league.jp
+UID:2026-07-10-b09bf8e80da0@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260710T150000
 DTEND;TZID=Asia/Tokyo:20260710T183000
-SUMMARY:[予選2nd C卓] 醍醐大・伊達朱里紗
-DESCRIPTION:対戦選手:\n・醍醐大\n・伊達朱里紗
+SUMMARY:[予選2nd C卓] 醍醐大・伊達朱里紗・安藤弘樹・浜野太陽
+DESCRIPTION:対戦選手:\n・醍醐大\n・伊達朱里紗\n・安藤弘樹\n・浜野太陽
 LOCATION:https://abema.tv/now-on-air/mahjong
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
-DESCRIPTION:[予選2nd C卓] 醍醐大・伊達朱里紗
+DESCRIPTION:[予選2nd C卓] 醍醐大・伊達朱里紗・安藤弘樹・浜野太陽
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
@@ -325,29 +325,29 @@ DESCRIPTION:[予選3rd D卓] 勝又健志・近藤誠一・村上淳
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-07-20-111a667cdf6e@m-tournament.m-league.jp
+UID:2026-07-20-8f89758c485e@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260720T150000
 DTEND;TZID=Asia/Tokyo:20260720T183000
-SUMMARY:[予選3rd E卓] 滝沢和典・菅原千瑛
-DESCRIPTION:対戦選手:\n・滝沢和典\n・菅原千瑛
+SUMMARY:[予選3rd E卓] 滝沢和典・菅原千瑛・前田直哉
+DESCRIPTION:対戦選手:\n・滝沢和典\n・菅原千瑛\n・前田直哉
 LOCATION:https://abema.tv/now-on-air/mahjong
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
-DESCRIPTION:[予選3rd E卓] 滝沢和典・菅原千瑛
+DESCRIPTION:[予選3rd E卓] 滝沢和典・菅原千瑛・前田直哉
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-07-20-762bfa317e1c@m-tournament.m-league.jp
+UID:2026-07-20-dfe5af15122e@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260720T190000
 DTEND;TZID=Asia/Tokyo:20260720T223000
-SUMMARY:[予選3rd F卓] 永井孝典・今村大樹
-DESCRIPTION:対戦選手:\n・永井孝典\n・今村大樹
+SUMMARY:[予選3rd F卓] 永井孝典・今村大樹・瑞原明奈
+DESCRIPTION:対戦選手:\n・永井孝典\n・今村大樹\n・瑞原明奈
 LOCATION:https://abema.tv/now-on-air/mahjong
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
-DESCRIPTION:[予選3rd F卓] 永井孝典・今村大樹
+DESCRIPTION:[予選3rd F卓] 永井孝典・今村大樹・瑞原明奈
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT

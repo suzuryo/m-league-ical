@@ -261,15 +261,16 @@ DESCRIPTION:[予選2nd C卓] 醍醐大・伊達朱里紗・安藤弘樹・浜野
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-07-10-89139738d177@m-tournament.m-league.jp
+UID:2026-07-10-5d0dc1fea702@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260710T190000
 DTEND;TZID=Asia/Tokyo:20260710T223000
-SUMMARY:[予選2nd D卓]
+SUMMARY:[予選2nd D卓] 高宮まり・瀬戸熊直樹
+DESCRIPTION:対戦選手:\n・高宮まり\n・瀬戸熊直樹
 LOCATION:https://abema.tv/now-on-air/mahjong
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
-DESCRIPTION:[予選2nd D卓]
+DESCRIPTION:[予選2nd D卓] 高宮まり・瀬戸熊直樹
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
@@ -351,29 +352,29 @@ DESCRIPTION:[予選3rd F卓] 永井孝典・今村大樹・瑞原明奈
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-07-24-972466dc8a39@m-tournament.m-league.jp
+UID:2026-07-24-320692d36df9@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260724T150000
 DTEND;TZID=Asia/Tokyo:20260724T183000
-SUMMARY:[予選3rd G卓] 下石戟
-DESCRIPTION:対戦選手:\n・下石戟
+SUMMARY:[予選3rd G卓] 下石戟・渡辺太
+DESCRIPTION:対戦選手:\n・下石戟\n・渡辺太
 LOCATION:https://abema.tv/now-on-air/mahjong
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
-DESCRIPTION:[予選3rd G卓] 下石戟
+DESCRIPTION:[予選3rd G卓] 下石戟・渡辺太
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-07-24-904e7e6a42c7@m-tournament.m-league.jp
+UID:2026-07-24-9ad62f776703@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260724T190000
 DTEND;TZID=Asia/Tokyo:20260724T223000
-SUMMARY:[予選3rd H卓] 二階堂亜樹
-DESCRIPTION:対戦選手:\n・二階堂亜樹
+SUMMARY:[予選3rd H卓] 二階堂亜樹・多井隆晴
+DESCRIPTION:対戦選手:\n・二階堂亜樹\n・多井隆晴
 LOCATION:https://abema.tv/now-on-air/mahjong
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
-DESCRIPTION:[予選3rd H卓] 二階堂亜樹
+DESCRIPTION:[予選3rd H卓] 二階堂亜樹・多井隆晴
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT

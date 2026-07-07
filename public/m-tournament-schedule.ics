@@ -227,7 +227,7 @@ DTSTART;TZID=Asia/Tokyo:20260706T150000
 DTEND;TZID=Asia/Tokyo:20260706T183000
 SUMMARY:[予選2nd A卓] 松本吉弘・佐々木寿人・小林剛・石原 真人
 DESCRIPTION:対戦選手:\n・松本吉弘\n・佐々木寿人\n・小林剛\n・石原 真人
-LOCATION:https://abema.tv/now-on-air/mahjong
+LOCATION:https://abema.go.link/33w1q
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
@@ -240,7 +240,7 @@ DTSTART;TZID=Asia/Tokyo:20260706T190000
 DTEND;TZID=Asia/Tokyo:20260706T223000
 SUMMARY:[予選2nd B卓] 日向藍子・黒沢咲・藤崎智・御崎千結
 DESCRIPTION:対戦選手:\n・日向藍子\n・黒沢咲\n・藤崎智\n・御崎千結
-LOCATION:https://abema.tv/now-on-air/mahjong
+LOCATION:https://abema.go.link/33w1q
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
@@ -253,7 +253,7 @@ DTSTART;TZID=Asia/Tokyo:20260710T150000
 DTEND;TZID=Asia/Tokyo:20260710T183000
 SUMMARY:[予選2nd C卓] 醍醐大・伊達朱里紗・安藤弘樹・浜野太陽
 DESCRIPTION:対戦選手:\n・醍醐大\n・伊達朱里紗\n・安藤弘樹\n・浜野太陽
-LOCATION:https://abema.tv/now-on-air/mahjong
+LOCATION:https://abema.go.link/g19v2
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
@@ -266,7 +266,7 @@ DTSTART;TZID=Asia/Tokyo:20260710T190000
 DTEND;TZID=Asia/Tokyo:20260710T223000
 SUMMARY:[予選2nd D卓] 高宮まり・瀬戸熊直樹・忍田幸夫・石井一馬
 DESCRIPTION:対戦選手:\n・高宮まり\n・瀬戸熊直樹\n・忍田幸夫\n・石井一馬
-LOCATION:https://abema.tv/now-on-air/mahjong
+LOCATION:https://abema.go.link/g19v2
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
@@ -274,55 +274,55 @@ DESCRIPTION:[予選2nd D卓] 高宮まり・瀬戸熊直樹・忍田幸夫・石
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-07-13-7e7b85155c7f@m-tournament.m-league.jp
+UID:2026-07-13-e337c2951c87@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260713T150000
 DTEND;TZID=Asia/Tokyo:20260713T183000
-SUMMARY:[予選3rd A卓] 岡田紗佳・東城りお・塩澤彰大
-DESCRIPTION:対戦選手:\n・岡田紗佳\n・東城りお\n・塩澤彰大
+SUMMARY:[予選3rd A卓] 岡田紗佳・東城りお・塩澤彰大・松本吉弘
+DESCRIPTION:対戦選手:\n・岡田紗佳\n・東城りお\n・塩澤彰大\n・松本吉弘
 LOCATION:https://abema.tv/now-on-air/mahjong
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
-DESCRIPTION:[予選3rd A卓] 岡田紗佳・東城りお・塩澤彰大
+DESCRIPTION:[予選3rd A卓] 岡田紗佳・東城りお・塩澤彰大・松本吉弘
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-07-13-2cc02883aac4@m-tournament.m-league.jp
+UID:2026-07-13-e4adb05ec35e@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260713T190000
 DTEND;TZID=Asia/Tokyo:20260713T223000
-SUMMARY:[予選3rd B卓] 内川幸太郎・小池諒・HIRO柴田
-DESCRIPTION:対戦選手:\n・内川幸太郎\n・小池諒\n・HIRO柴田
+SUMMARY:[予選3rd B卓] 内川幸太郎・小池諒・HIRO柴田・小林剛
+DESCRIPTION:対戦選手:\n・内川幸太郎\n・小池諒\n・HIRO柴田\n・小林剛
 LOCATION:https://abema.tv/now-on-air/mahjong
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
-DESCRIPTION:[予選3rd B卓] 内川幸太郎・小池諒・HIRO柴田
+DESCRIPTION:[予選3rd B卓] 内川幸太郎・小池諒・HIRO柴田・小林剛
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-07-17-373de23eeaa2@m-tournament.m-league.jp
+UID:2026-07-17-f26df17e1aa0@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260717T150000
 DTEND;TZID=Asia/Tokyo:20260717T183000
-SUMMARY:[予選3rd C卓] 白鳥翔・渡辺史哉・逢川恵夢
-DESCRIPTION:対戦選手:\n・白鳥翔\n・渡辺史哉\n・逢川恵夢
+SUMMARY:[予選3rd C卓] 白鳥翔・渡辺史哉・逢川恵夢・藤崎智
+DESCRIPTION:対戦選手:\n・白鳥翔\n・渡辺史哉\n・逢川恵夢\n・藤崎智
 LOCATION:https://abema.tv/now-on-air/mahjong
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
-DESCRIPTION:[予選3rd C卓] 白鳥翔・渡辺史哉・逢川恵夢
+DESCRIPTION:[予選3rd C卓] 白鳥翔・渡辺史哉・逢川恵夢・藤崎智
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-07-17-ea6b8761f415@m-tournament.m-league.jp
+UID:2026-07-17-bfd72b3a7966@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260717T190000
 DTEND;TZID=Asia/Tokyo:20260717T223000
-SUMMARY:[予選3rd D卓] 勝又健志・近藤誠一・村上淳
-DESCRIPTION:対戦選手:\n・勝又健志\n・近藤誠一\n・村上淳
+SUMMARY:[予選3rd D卓] 勝又健志・近藤誠一・村上淳・日向藍子
+DESCRIPTION:対戦選手:\n・勝又健志\n・近藤誠一\n・村上淳\n・日向藍子
 LOCATION:https://abema.tv/now-on-air/mahjong
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
-DESCRIPTION:[予選3rd D卓] 勝又健志・近藤誠一・村上淳
+DESCRIPTION:[予選3rd D卓] 勝又健志・近藤誠一・村上淳・日向藍子
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT

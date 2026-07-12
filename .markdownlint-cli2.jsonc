@@ -1,0 +1,8 @@
+{
+  // ルール本体は .markdownlint.json を参照する(dotfiles と統一)。
+  // ここではリント対象(globs)・除外(ignores)・カスタムルールのみ指定する。
+  "globs": ["**/*.md"],
+  // wiki 記法 [[...]] を禁止する共有カスタムルール(コード内は除外)
+  "customRules": ["./markdownlint-rules/no-wikilinks.cjs"],
+  "ignores": ["**/node_modules", ".git", "dist", "coverage"]
+}

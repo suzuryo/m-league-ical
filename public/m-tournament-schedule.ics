@@ -279,7 +279,7 @@ DTSTART;TZID=Asia/Tokyo:20260713T150000
 DTEND;TZID=Asia/Tokyo:20260713T183000
 SUMMARY:[予選3rd A卓] 岡田紗佳・東城りお・塩澤彰大・松本吉弘
 DESCRIPTION:対戦選手:\n・岡田紗佳\n・東城りお\n・塩澤彰大\n・松本吉弘
-LOCATION:https://abema.tv/now-on-air/mahjong
+LOCATION:https://abema.go.link/3jIGs
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
@@ -292,7 +292,7 @@ DTSTART;TZID=Asia/Tokyo:20260713T190000
 DTEND;TZID=Asia/Tokyo:20260713T223000
 SUMMARY:[予選3rd B卓] 内川幸太郎・小池諒・HIRO柴田・小林剛
 DESCRIPTION:対戦選手:\n・内川幸太郎\n・小池諒\n・HIRO柴田\n・小林剛
-LOCATION:https://abema.tv/now-on-air/mahjong
+LOCATION:https://abema.go.link/3jIGs
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
@@ -305,7 +305,7 @@ DTSTART;TZID=Asia/Tokyo:20260717T150000
 DTEND;TZID=Asia/Tokyo:20260717T183000
 SUMMARY:[予選3rd C卓] 白鳥翔・渡辺史哉・逢川恵夢・藤崎智
 DESCRIPTION:対戦選手:\n・白鳥翔\n・渡辺史哉\n・逢川恵夢\n・藤崎智
-LOCATION:https://abema.tv/now-on-air/mahjong
+LOCATION:https://abema.go.link/28EfO
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
@@ -318,7 +318,7 @@ DTSTART;TZID=Asia/Tokyo:20260717T190000
 DTEND;TZID=Asia/Tokyo:20260717T223000
 SUMMARY:[予選3rd D卓] 勝又健志・近藤誠一・村上淳・日向藍子
 DESCRIPTION:対戦選手:\n・勝又健志\n・近藤誠一\n・村上淳\n・日向藍子
-LOCATION:https://abema.tv/now-on-air/mahjong
+LOCATION:https://abema.go.link/28EfO
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
@@ -378,27 +378,29 @@ DESCRIPTION:[予選3rd H卓] 二階堂亜樹・多井隆晴・萩原聖人・瀬
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-07-27-4f13d41c4022@m-tournament.m-league.jp
+UID:2026-07-27-89c4869e901a@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260727T150000
 DTEND;TZID=Asia/Tokyo:20260727T183000
-SUMMARY:[FINAL STAGE A卓]
+SUMMARY:[FINAL STAGE A卓] 岡田紗佳・小池諒・渡辺史哉・近藤誠一
+DESCRIPTION:対戦選手:\n・岡田紗佳\n・小池諒\n・渡辺史哉\n・近藤誠一
 LOCATION:https://abema.tv/now-on-air/mahjong
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
-DESCRIPTION:[FINAL STAGE A卓]
+DESCRIPTION:[FINAL STAGE A卓] 岡田紗佳・小池諒・渡辺史哉・近藤誠一
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-07-27-f42ffaa3f040@m-tournament.m-league.jp
+UID:2026-07-27-ed4eb2e30706@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260727T190000
 DTEND;TZID=Asia/Tokyo:20260727T223000
-SUMMARY:[FINAL STAGE B卓]
+SUMMARY:[FINAL STAGE B卓] 東城りお・内川幸太郎・逢川恵夢・勝又健志
+DESCRIPTION:対戦選手:\n・東城りお\n・内川幸太郎\n・逢川恵夢\n・勝又健志
 LOCATION:https://abema.tv/now-on-air/mahjong
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
-DESCRIPTION:[FINAL STAGE B卓]
+DESCRIPTION:[FINAL STAGE B卓] 東城りお・内川幸太郎・逢川恵夢・勝又健志
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT

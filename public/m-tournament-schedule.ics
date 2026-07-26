@@ -383,7 +383,7 @@ DTSTART;TZID=Asia/Tokyo:20260727T150000
 DTEND;TZID=Asia/Tokyo:20260727T183000
 SUMMARY:[FINAL STAGE A卓] 岡田紗佳・小池諒・渡辺史哉・近藤誠一
 DESCRIPTION:対戦選手:\n・岡田紗佳\n・小池諒\n・渡辺史哉\n・近藤誠一
-LOCATION:https://abema.tv/now-on-air/mahjong
+LOCATION:https://abema.go.link/9HT7N
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
@@ -396,7 +396,7 @@ DTSTART;TZID=Asia/Tokyo:20260727T190000
 DTEND;TZID=Asia/Tokyo:20260727T223000
 SUMMARY:[FINAL STAGE B卓] 東城りお・内川幸太郎・逢川恵夢・勝又健志
 DESCRIPTION:対戦選手:\n・東城りお\n・内川幸太郎\n・逢川恵夢\n・勝又健志
-LOCATION:https://abema.tv/now-on-air/mahjong
+LOCATION:https://abema.go.link/9HT7N
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
@@ -404,29 +404,29 @@ DESCRIPTION:[FINAL STAGE B卓] 東城りお・内川幸太郎・逢川恵夢・�
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-07-31-05a4b92b5e39@m-tournament.m-league.jp
+UID:2026-07-31-556ef2a205cc@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260731T150000
 DTEND;TZID=Asia/Tokyo:20260731T183000
-SUMMARY:[FINAL STAGE C卓] 滝沢和典・伊達朱里紗
-DESCRIPTION:対戦選手:\n・滝沢和典\n・伊達朱里紗
-LOCATION:https://abema.tv/now-on-air/mahjong
+SUMMARY:[FINAL STAGE C卓] 滝沢和典・伊達朱里紗・忍田幸夫・二階堂亜樹
+DESCRIPTION:対戦選手:\n・滝沢和典\n・伊達朱里紗\n・忍田幸夫\n・二階堂亜樹
+LOCATION:https://abema.go.link/5KqIN
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
-DESCRIPTION:[FINAL STAGE C卓] 滝沢和典・伊達朱里紗
+DESCRIPTION:[FINAL STAGE C卓] 滝沢和典・伊達朱里紗・忍田幸夫・二階堂亜樹
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-07-31-34e4aba9c062@m-tournament.m-league.jp
+UID:2026-07-31-452a46126732@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260731T190000
 DTEND;TZID=Asia/Tokyo:20260731T223000
-SUMMARY:[FINAL STAGE D卓] 菅原千瑛・永井孝典
-DESCRIPTION:対戦選手:\n・菅原千瑛\n・永井孝典
-LOCATION:https://abema.tv/now-on-air/mahjong
+SUMMARY:[FINAL STAGE D卓] 菅原千瑛・永井孝典・浅見真紀・瀬戸熊直樹
+DESCRIPTION:対戦選手:\n・菅原千瑛\n・永井孝典\n・浅見真紀\n・瀬戸熊直樹
+LOCATION:https://abema.go.link/5KqIN
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
-DESCRIPTION:[FINAL STAGE D卓] 菅原千瑛・永井孝典
+DESCRIPTION:[FINAL STAGE D卓] 菅原千瑛・永井孝典・浅見真紀・瀬戸熊直樹
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT

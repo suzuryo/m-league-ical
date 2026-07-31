@@ -430,29 +430,29 @@ DESCRIPTION:[FINAL STAGE D卓] 菅原千瑛・永井孝典・浅見真紀・瀬�
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-08-03-004e2abf506a@m-tournament.m-league.jp
+UID:2026-08-03-7d4c4efa1da1@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260803T150000
 DTEND;TZID=Asia/Tokyo:20260803T183000
-SUMMARY:[SEMIFINAL A卓] 渡辺史哉・東城りお
-DESCRIPTION:対戦選手:\n・渡辺史哉\n・東城りお
+SUMMARY:[SEMIFINAL A卓] 渡辺史哉・東城りお・二階堂亜樹・瀬戸熊直樹
+DESCRIPTION:対戦選手:\n・渡辺史哉\n・東城りお\n・二階堂亜樹\n・瀬戸熊直樹
 LOCATION:https://abema.tv/now-on-air/mahjong
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
-DESCRIPTION:[SEMIFINAL A卓] 渡辺史哉・東城りお
+DESCRIPTION:[SEMIFINAL A卓] 渡辺史哉・東城りお・二階堂亜樹・瀬戸熊直樹
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-08-03-31e549ff78c8@m-tournament.m-league.jp
+UID:2026-08-03-841f3a29cb25@m-tournament.m-league.jp
 DTSTART;TZID=Asia/Tokyo:20260803T190000
 DTEND;TZID=Asia/Tokyo:20260803T223000
-SUMMARY:[SEMIFINAL B卓] 岡田紗佳・勝又健志
-DESCRIPTION:対戦選手:\n・岡田紗佳\n・勝又健志
+SUMMARY:[SEMIFINAL B卓] 岡田紗佳・勝又健志・滝沢和典・永井孝典
+DESCRIPTION:対戦選手:\n・岡田紗佳\n・勝又健志\n・滝沢和典\n・永井孝典
 LOCATION:https://abema.tv/now-on-air/mahjong
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:PT0M
-DESCRIPTION:[SEMIFINAL B卓] 岡田紗佳・勝又健志
+DESCRIPTION:[SEMIFINAL B卓] 岡田紗佳・勝又健志・滝沢和典・永井孝典
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT

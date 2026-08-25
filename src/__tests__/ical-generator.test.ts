@@ -19,7 +19,7 @@ describe('ical-generator', () => {
       expect(ical).toContain('BEGIN:VCALENDAR')
       expect(ical).toContain('VERSION:2.0')
       expect(ical).toContain('PRODID:-//M-League Schedule//JP')
-      expect(ical).toContain('X-WR-CALNAME:Mリーグ 2025-26 スケジュール')
+      expect(ical).toContain('X-WR-CALNAME:Mリーグ 2026-27 スケジュール')
       expect(ical).toContain('X-WR-TIMEZONE:Asia/Tokyo')
       expect(ical).toContain('BEGIN:VTIMEZONE')
       expect(ical).toContain('TZID:Asia/Tokyo')

@@ -96,7 +96,7 @@ data/
 ### Data Flow
 
 1. **Scraper** (`MLeagueScraper`) fetches HTML from M-League
-   website for each month (2025/9 through 2026/5)
+   website for each month (2026/9 through 2027/5)
 2. **Parser** (`html-parser.ts`) extracts schedule data using regex patterns
 3. **Generator** (`ical-generator.ts`) converts schedules to iCalendar format
 4. **File Utils** saves output to `public/m-league-schedule.ics` for GitHub Pages
@@ -118,7 +118,7 @@ data/
 
 All configuration is centralized in `M_LEAGUE_CONFIG`:
 
-- **Periods**: 2025/9 through 2026/5 (hardcoded array)
+- **Periods**: 2026/9 through 2027/5 (hardcoded array)
 - **Selectors**: CSS class names for HTML parsing
 - **Regex Patterns**: For extracting dates, teams, URLs from HTML
 - **Calendar Settings**: Timezone, event times (19:00-24:00 JST), default location
@@ -153,7 +153,7 @@ Mリーグ:
 - Event title format: `[Team1][Team2][Team3][Team4]`
 - Time: 19:00-24:00 JST (Japan Standard Time)
 - Location: Game URL or `https://abema.tv/now-on-air/mahjong`
-- Calendar name: "Mリーグ 2025-26 スケジュール"
+- Calendar name: "Mリーグ 2026-27 スケジュール"
 - UID: Deterministic hash based on date + team names (SHA-256, 12 chars)
 - Includes alarm at event start time
 
@@ -204,16 +204,16 @@ CRLF を保持する (リポジトリ blob は LF 正規化)。
 - **Test Location**: All tests are in `src/__tests__/`
   directory following Vitest conventions
 - **Fixtures**: Real downloaded HTML data from M-League
-  website (173 total matches across 9 months)
+  website (150 total schedule entries across 7 published months)
   - Located in `src/__tests__/fixtures/`
-  - Files: `2025-09.html` through `2026-05.html`
+  - Files: `2026-09.html` through `2027-03.html`
   - `m-tournament.html` - Mトーナメントサイトの実 HTML
     (2026シーズン、確定16+未定19=35試合分)
   - `m-tournament-extra-sample.yaml` - 補助データテスト用
 - **Coverage**: 100% coverage on all modules (excludes entry point and type definitions)
 - **Mocking**: Uses `vi.fn()` and `vi.spyOn()` for global `fetch` and `console.log`
 
-Test files cover (全 123 tests):
+Test files cover (全 129 tests):
 
 - `calendar-utils.test.ts` - UID generation and datetime formatting (19 tests)
 - `html-parser.test.ts` - Schedule parsing with real fixtures (16 tests)
@@ -223,8 +223,8 @@ Test files cover (全 123 tests):
 - `tournament-html-parser.test.ts` - Mトーナメント HTML パース (23 tests)
 - `m-tournament-scraper.test.ts` - Mトーナメント HTTP fetch (6 tests)
 - `tournament-ical-generator.test.ts` - Mトーナメント iCal 生成 (9 tests)
-- `tournament-extra-parser.test.ts` - 補助データYAMLパース (18 tests)
-- `tournament-merger.test.ts` - 公式と補助のマージ (10 tests)
+- `tournament-extra-parser.test.ts` - 補助データYAMLパース (21 tests)
+- `tournament-merger.test.ts` - 公式と補助のマージ (13 tests)
 
 ## Important Notes
 

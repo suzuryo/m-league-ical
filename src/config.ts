@@ -2,19 +2,19 @@ export const M_LEAGUE_CONFIG = {
   baseUrl: 'https://m-league.jp/games/',
 
   periods: [
-    { year: 2025, month: 9 },
-    { year: 2025, month: 10 },
-    { year: 2025, month: 11 },
-    { year: 2025, month: 12 },
-    { year: 2026, month: 1 },
-    { year: 2026, month: 2 },
-    { year: 2026, month: 3 },
-    { year: 2026, month: 4 },
-    { year: 2026, month: 5 },
+    { year: 2026, month: 9 },
+    { year: 2026, month: 10 },
+    { year: 2026, month: 11 },
+    { year: 2026, month: 12 },
+    { year: 2027, month: 1 },
+    { year: 2027, month: 2 },
+    { year: 2027, month: 3 },
+    { year: 2027, month: 4 },
+    { year: 2027, month: 5 },
   ],
 
   calendar: {
-    name: 'Mリーグ 2025-26 スケジュール',
+    name: 'Mリーグ 2026-27 スケジュール',
     timezone: 'Asia/Tokyo',
     eventStartTime: '190000', // 19:00:00
     eventEndTime: '235959', // 23:59:59

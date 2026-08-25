@@ -8,7 +8,7 @@ import { mergeMatches } from './utils/tournament-merger'
 
 async function fetchMLeague(): Promise<void> {
   console.log('=== M-League ===')
-  console.log('Fetching all schedules from 2025/9 to 2026/5...\n')
+  console.log('Fetching all schedules from 2026/9 to 2027/5...\n')
 
   const scraper = new MLeagueScraper()
   const schedules = await scraper.fetchAll()

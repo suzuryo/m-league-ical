@@ -4,8 +4,8 @@ Mリーグ・Mトーナメントの試合スケジュールを取得し、カレ
 
 ## プログラムの機能
 
-- [Mリーグ公式サイトの日程ページ](https://m-league.jp/games/?mly=2025&mlm=9#schedule)から
-  2025年9月〜2026年5月のスケジュールを自動取得し、
+- [Mリーグ公式サイトの日程ページ](https://m-league.jp/games/?mly=2026&mlm=9#schedule)から
+  2026年9月〜2027年5月のスケジュールを自動取得し、
   `m-league-schedule.ics` を生成
 - [Mトーナメント公式サイト](https://m-tournament.m-league.jp/)から
   対戦カードを自動取得し、`m-tournament-schedule.ics` を生成

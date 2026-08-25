@@ -9,68 +9,66 @@ const FIXTURES_DIR = join(__dirname, './fixtures')
 
 describe('html-parser', () => {
   describe('parseSchedules', () => {
-    it('2025年9月のHTMLから正しくスケジュールを抽出する', () => {
-      const html = readFileSync(join(FIXTURES_DIR, '2025-09.html'), 'utf-8')
-      const schedules = parseSchedules(html, 2025)
-
-      expect(schedules.length).toBe(12)
-      expect(schedules[0].date).toBe('2025-09-15')
-      expect(schedules[0].teams.length).toBeGreaterThan(0)
-    })
-
-    it('2025年10月のHTMLから正しくスケジュールを抽出する', () => {
-      const html = readFileSync(join(FIXTURES_DIR, '2025-10.html'), 'utf-8')
-      const schedules = parseSchedules(html, 2025)
-
-      expect(schedules.length).toBe(28)
-    })
-
-    it('2026年1月のHTMLから正しくスケジュールを抽出する', () => {
-      const html = readFileSync(join(FIXTURES_DIR, '2026-01.html'), 'utf-8')
+    it('2026年9月のHTMLから正しくスケジュールを抽出する', () => {
+      const html = readFileSync(join(FIXTURES_DIR, '2026-09.html'), 'utf-8')
       const schedules = parseSchedules(html, 2026)
 
-      expect(schedules.length).toBe(24)
+      expect(schedules.length).toBe(16)
+      expect(schedules[0].date).toBe('2026-09-14')
+      expect(schedules[0].teams).toHaveLength(4)
     })
 
-    it('2026年4月のHTMLから正しくスケジュールを抽出する', () => {
-      const html = readFileSync(join(FIXTURES_DIR, '2026-04.html'), 'utf-8')
+    it('2026年10月のHTMLから正しくスケジュールを抽出する', () => {
+      const html = readFileSync(join(FIXTURES_DIR, '2026-10.html'), 'utf-8')
       const schedules = parseSchedules(html, 2026)
 
-      expect(schedules.length).toBe(15)
+      expect(schedules.length).toBe(36)
     })
 
-    it('全期間で合計173試合のスケジュールを抽出する', () => {
+    it('2027年1月のHTMLから正しくスケジュールを抽出する', () => {
+      const html = readFileSync(join(FIXTURES_DIR, '2027-01.html'), 'utf-8')
+      const schedules = parseSchedules(html, 2027)
+
+      expect(schedules.length).toBe(16)
+    })
+
+    it('2027年3月のHTMLから正しくスケジュールを抽出する', () => {
+      const html = readFileSync(join(FIXTURES_DIR, '2027-03.html'), 'utf-8')
+      const schedules = parseSchedules(html, 2027)
+
+      expect(schedules.length).toBe(2)
+    })
+
+    it('2026-27レギュラーシーズン全期間から150試合枠を抽出する', () => {
       const files = [
-        '2025-09.html',
-        '2025-10.html',
-        '2025-11.html',
-        '2025-12.html',
-        '2026-01.html',
-        '2026-02.html',
-        '2026-03.html',
-        '2026-04.html',
-        '2026-05.html',
+        '2026-09.html',
+        '2026-10.html',
+        '2026-11.html',
+        '2026-12.html',
+        '2027-01.html',
+        '2027-02.html',
+        '2027-03.html',
       ]
 
       let total = 0
       files.forEach((file) => {
         const html = readFileSync(join(FIXTURES_DIR, file), 'utf-8')
-        const year = file.startsWith('2026') ? 2026 : 2025
+        const year = file.startsWith('2027') ? 2027 : 2026
         const schedules = parseSchedules(html, year)
         total += schedules.length
       })
 
-      expect(total).toBe(173)
+      expect(total).toBe(150)
     })
 
     it('抽出したスケジュールが正しい形式を持つ', () => {
-      const html = readFileSync(join(FIXTURES_DIR, '2025-09.html'), 'utf-8')
-      const schedules = parseSchedules(html, 2025)
+      const html = readFileSync(join(FIXTURES_DIR, '2026-09.html'), 'utf-8')
+      const schedules = parseSchedules(html, 2026)
 
       schedules.forEach((schedule) => {
         expect(schedule.date).toMatch(/^\d{4}-\d{2}-\d{2}$/)
         expect(Array.isArray(schedule.teams)).toBe(true)
-        expect(schedule.teams.length).toBeGreaterThan(0)
+        expect(schedule.teams).toHaveLength(4)
         if (schedule.url) {
           expect(schedule.url).toMatch(/^https?:\/\//)
         }
@@ -193,17 +191,17 @@ describe('html-parser', () => {
     })
 
     it('実際のHTMLファイルでスケジュールの有無を正しく判定する', () => {
-      const html2025_09 = readFileSync(
-        join(FIXTURES_DIR, '2025-09.html'),
+      const html2026_09 = readFileSync(
+        join(FIXTURES_DIR, '2026-09.html'),
         'utf-8',
       )
-      const html2026_04 = readFileSync(
-        join(FIXTURES_DIR, '2026-04.html'),
+      const html2027_03 = readFileSync(
+        join(FIXTURES_DIR, '2027-03.html'),
         'utf-8',
       )
 
-      expect(hasScheduleData(html2025_09)).toBe(true)
-      expect(hasScheduleData(html2026_04)).toBe(true)
+      expect(hasScheduleData(html2026_09)).toBe(true)
+      expect(hasScheduleData(html2027_03)).toBe(true)
     })
   })
 })

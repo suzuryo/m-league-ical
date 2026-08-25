@@ -6,6 +6,15 @@ import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { MLeagueScraper } from '../scrapers/m-league-scraper'
 
 const FIXTURES_DIR = join(__dirname, './fixtures')
+const CURRENT_SEASON_FILES = new Set([
+  '2026-09.html',
+  '2026-10.html',
+  '2026-11.html',
+  '2026-12.html',
+  '2027-01.html',
+  '2027-02.html',
+  '2027-03.html',
+])
 
 describe('m-league-scraper', () => {
   let scraper: MLeagueScraper
@@ -17,17 +26,17 @@ describe('m-league-scraper', () => {
 
   describe('fetchMonth', () => {
     it('HTMLを取得してスケジュールをパースする', async () => {
-      const html = readFileSync(join(FIXTURES_DIR, '2025-09.html'), 'utf-8')
+      const html = readFileSync(join(FIXTURES_DIR, '2026-09.html'), 'utf-8')
 
       global.fetch = vi.fn().mockResolvedValue({
         ok: true,
         text: async () => html,
       }) as unknown as typeof fetch
 
-      const schedules = await scraper.fetchMonth(2025, 9)
+      const schedules = await scraper.fetchMonth(2026, 9)
 
-      expect(schedules).toHaveLength(12)
-      expect(schedules[0].date).toBe('2025-09-15')
+      expect(schedules).toHaveLength(16)
+      expect(schedules[0].date).toBe('2026-09-14')
     })
 
     it('スケジュールデータが存在しない場合は空配列を返す', async () => {
@@ -40,7 +49,7 @@ describe('m-league-scraper', () => {
 
       const consoleSpy = vi.spyOn(console, 'log')
 
-      const schedules = await scraper.fetchMonth(2025, 4)
+      const schedules = await scraper.fetchMonth(2027, 4)
 
       expect(schedules).toEqual([])
       expect(consoleSpy).toHaveBeenCalledWith(
@@ -58,7 +67,7 @@ describe('m-league-scraper', () => {
 
       const consoleSpy = vi.spyOn(console, 'log')
 
-      const schedules = await scraper.fetchMonth(2025, 9)
+      const schedules = await scraper.fetchMonth(2026, 9)
 
       expect(schedules).toEqual([])
       expect(consoleSpy).toHaveBeenCalledWith(
@@ -78,7 +87,7 @@ describe('m-league-scraper', () => {
 
       const consoleSpy = vi.spyOn(console, 'log')
 
-      const schedules = await scraper.fetchMonth(2025, 9)
+      const schedules = await scraper.fetchMonth(2026, 9)
 
       expect(schedules).toEqual([])
       expect(consoleSpy).toHaveBeenCalledWith(
@@ -97,10 +106,10 @@ describe('m-league-scraper', () => {
         text: async () => html,
       }) as unknown as typeof fetch
 
-      await scraper.fetchMonth(2025, 9)
+      await scraper.fetchMonth(2026, 9)
 
       expect(global.fetch).toHaveBeenCalledWith(
-        'https://m-league.jp/games/?mly=2025&mlm=9#schedule',
+        'https://m-league.jp/games/?mly=2026&mlm=9#schedule',
       )
     })
 
@@ -114,10 +123,10 @@ describe('m-league-scraper', () => {
 
       const consoleSpy = vi.spyOn(console, 'log')
 
-      await scraper.fetchMonth(2025, 9)
+      await scraper.fetchMonth(2026, 9)
 
       expect(consoleSpy).toHaveBeenCalledWith(
-        'Fetching schedule from: https://m-league.jp/games/?mly=2025&mlm=9#schedule',
+        'Fetching schedule from: https://m-league.jp/games/?mly=2026&mlm=9#schedule',
       )
 
       consoleSpy.mockRestore()
@@ -138,6 +147,13 @@ describe('m-league-scraper', () => {
         const year = yearMatch[1]
         const filename = `${year}-${month}.html`
 
+        if (!CURRENT_SEASON_FILES.has(filename)) {
+          return Promise.resolve({
+            ok: true,
+            text: async () => '<html><body></body></html>',
+          })
+        }
+
         try {
           const html = readFileSync(join(FIXTURES_DIR, filename), 'utf-8')
           return Promise.resolve({
@@ -156,13 +172,25 @@ describe('m-league-scraper', () => {
 
       const schedules = await scraper.fetchAll()
 
-      // 実際のデータに基づく合計: 173試合
-      expect(schedules.length).toBe(173)
+      expect(schedules).toHaveLength(150)
+      expect(schedules[0].date).toBe('2026-09-14')
+      expect(schedules.at(-1)?.date).toBe('2027-03-02')
+      expect(schedules.every((schedule) => schedule.teams.length === 4)).toBe(
+        true,
+      )
       expect(global.fetch).toHaveBeenCalledTimes(9)
+      expect(mockFetch).toHaveBeenNthCalledWith(
+        1,
+        'https://m-league.jp/games/?mly=2026&mlm=9#schedule',
+      )
+      expect(mockFetch).toHaveBeenNthCalledWith(
+        9,
+        'https://m-league.jp/games/?mly=2027&mlm=5#schedule',
+      )
     })
 
     it('各月のログを出力する', async () => {
-      const html = readFileSync(join(FIXTURES_DIR, '2025-09.html'), 'utf-8')
+      const html = readFileSync(join(FIXTURES_DIR, '2026-09.html'), 'utf-8')
 
       global.fetch = vi.fn().mockResolvedValue({
         ok: true,
@@ -173,9 +201,8 @@ describe('m-league-scraper', () => {
 
       await scraper.fetchAll()
 
-      // 2025/9は12試合
       expect(consoleSpy).toHaveBeenCalledWith(
-        expect.stringContaining('Found 12 matches for 2025/9'),
+        expect.stringContaining('Found 16 matches for 2026/9'),
       )
 
       consoleSpy.mockRestore()
@@ -187,7 +214,7 @@ describe('m-league-scraper', () => {
         callCount++
         const html =
           callCount === 1
-            ? readFileSync(join(FIXTURES_DIR, '2025-09.html'), 'utf-8')
+            ? readFileSync(join(FIXTURES_DIR, '2026-09.html'), 'utf-8')
             : '<html><body>No schedule</body></html>'
 
         return Promise.resolve({
@@ -198,8 +225,7 @@ describe('m-league-scraper', () => {
 
       const schedules = await scraper.fetchAll()
 
-      // 最初の月だけ12試合
-      expect(schedules.length).toBe(12)
+      expect(schedules.length).toBe(16)
       expect(global.fetch).toHaveBeenCalledTimes(9)
     })
 

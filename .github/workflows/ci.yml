@@ -30,7 +30,28 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install --no-install-recommends -y libatomic1
 
+      - name: Verify Takumi Guard helper offline
+        run: bash scripts/takumi-guard-test.sh
+
+      - name: Prepare Takumi Guard
+        id: takumi
+        env:
+          TAKUMI_GUARD_TOKEN: ${{ secrets.TAKUMI_GUARD_TOKEN }}
+          TAKUMI_GUARD_AUTH: >-
+            ${{ (github.repository == 'suzuryo/m-league-ical' &&
+                 github.actor != 'dependabot[bot]' &&
+                 github.event.pull_request.user.login != 'dependabot[bot]' &&
+                 (github.event_name != 'pull_request' ||
+                  github.event.pull_request.head.repo.full_name == github.repository))
+                && 'required' || 'anonymous' }}
+        run: bash scripts/takumi-guard.sh prepare
+
       - uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413 # v6.1.0
+        env:
+          NPM_CONFIG_USERCONFIG: ${{ steps.takumi.outputs.npmrc }}
+          NPM_CONFIG_REGISTRY: https://npm.flatt.tech/
+          PNPM_CONFIG_REGISTRY: https://npm.flatt.tech/
+          TAKUMI_GUARD_TOKEN: ${{ steps.takumi.outputs.mode == 'required' && secrets.TAKUMI_GUARD_TOKEN || '' }}
 
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
@@ -38,6 +59,11 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
+        env:
+          NPM_CONFIG_USERCONFIG: ${{ steps.takumi.outputs.npmrc }}
+          NPM_CONFIG_REGISTRY: https://npm.flatt.tech/
+          PNPM_CONFIG_REGISTRY: https://npm.flatt.tech/
+          TAKUMI_GUARD_TOKEN: ${{ steps.takumi.outputs.mode == 'required' && secrets.TAKUMI_GUARD_TOKEN || '' }}
         run: pnpm install --frozen-lockfile
 
       - name: lint
@@ -49,6 +75,12 @@ jobs:
           sudo apt-get install --no-install-recommends -y python3
           python3 -m unittest discover -s tests -p '*_test.py'
 
+      - name: Clean up Takumi Guard config
+        if: always()
+        env:
+          TAKUMI_GUARD_DIRECTORY: ${{ steps.takumi.outputs.directory }}
+        run: bash scripts/takumi-guard.sh cleanup "$TAKUMI_GUARD_DIRECTORY"
+
   typecheck:
     runs-on: ${{ (inputs.runner == 'github-hosted' || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository)) && 'ubuntu-latest' || 'arf-linux' }}
     steps:
@@ -59,7 +91,28 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install --no-install-recommends -y libatomic1
 
+      - name: Verify Takumi Guard helper offline
+        run: bash scripts/takumi-guard-test.sh
+
+      - name: Prepare Takumi Guard
+        id: takumi
+        env:
+          TAKUMI_GUARD_TOKEN: ${{ secrets.TAKUMI_GUARD_TOKEN }}
+          TAKUMI_GUARD_AUTH: >-
+            ${{ (github.repository == 'suzuryo/m-league-ical' &&
+                 github.actor != 'dependabot[bot]' &&
+                 github.event.pull_request.user.login != 'dependabot[bot]' &&
+                 (github.event_name != 'pull_request' ||
+                  github.event.pull_request.head.repo.full_name == github.repository))
+                && 'required' || 'anonymous' }}
+        run: bash scripts/takumi-guard.sh prepare
+
       - uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413 # v6.1.0
+        env:
+          NPM_CONFIG_USERCONFIG: ${{ steps.takumi.outputs.npmrc }}
+          NPM_CONFIG_REGISTRY: https://npm.flatt.tech/
+          PNPM_CONFIG_REGISTRY: https://npm.flatt.tech/
+          TAKUMI_GUARD_TOKEN: ${{ steps.takumi.outputs.mode == 'required' && secrets.TAKUMI_GUARD_TOKEN || '' }}
 
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
@@ -67,10 +120,21 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
+        env:
+          NPM_CONFIG_USERCONFIG: ${{ steps.takumi.outputs.npmrc }}
+          NPM_CONFIG_REGISTRY: https://npm.flatt.tech/
+          PNPM_CONFIG_REGISTRY: https://npm.flatt.tech/
+          TAKUMI_GUARD_TOKEN: ${{ steps.takumi.outputs.mode == 'required' && secrets.TAKUMI_GUARD_TOKEN || '' }}
         run: pnpm install --frozen-lockfile
 
       - name: typecheck
         run: pnpm run typecheck
+
+      - name: Clean up Takumi Guard config
+        if: always()
+        env:
+          TAKUMI_GUARD_DIRECTORY: ${{ steps.takumi.outputs.directory }}
+        run: bash scripts/takumi-guard.sh cleanup "$TAKUMI_GUARD_DIRECTORY"
 
   test:
     runs-on: ${{ (inputs.runner == 'github-hosted' || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository)) && 'ubuntu-latest' || 'arf-linux' }}
@@ -82,7 +146,28 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install --no-install-recommends -y libatomic1
 
+      - name: Verify Takumi Guard helper offline
+        run: bash scripts/takumi-guard-test.sh
+
+      - name: Prepare Takumi Guard
+        id: takumi
+        env:
+          TAKUMI_GUARD_TOKEN: ${{ secrets.TAKUMI_GUARD_TOKEN }}
+          TAKUMI_GUARD_AUTH: >-
+            ${{ (github.repository == 'suzuryo/m-league-ical' &&
+                 github.actor != 'dependabot[bot]' &&
+                 github.event.pull_request.user.login != 'dependabot[bot]' &&
+                 (github.event_name != 'pull_request' ||
+                  github.event.pull_request.head.repo.full_name == github.repository))
+                && 'required' || 'anonymous' }}
+        run: bash scripts/takumi-guard.sh prepare
+
       - uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413 # v6.1.0
+        env:
+          NPM_CONFIG_USERCONFIG: ${{ steps.takumi.outputs.npmrc }}
+          NPM_CONFIG_REGISTRY: https://npm.flatt.tech/
+          PNPM_CONFIG_REGISTRY: https://npm.flatt.tech/
+          TAKUMI_GUARD_TOKEN: ${{ steps.takumi.outputs.mode == 'required' && secrets.TAKUMI_GUARD_TOKEN || '' }}
 
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
@@ -90,7 +175,18 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
+        env:
+          NPM_CONFIG_USERCONFIG: ${{ steps.takumi.outputs.npmrc }}
+          NPM_CONFIG_REGISTRY: https://npm.flatt.tech/
+          PNPM_CONFIG_REGISTRY: https://npm.flatt.tech/
+          TAKUMI_GUARD_TOKEN: ${{ steps.takumi.outputs.mode == 'required' && secrets.TAKUMI_GUARD_TOKEN || '' }}
         run: pnpm install --frozen-lockfile
 
       - name: test
         run: pnpm run test
+
+      - name: Clean up Takumi Guard config
+        if: always()
+        env:
+          TAKUMI_GUARD_DIRECTORY: ${{ steps.takumi.outputs.directory }}
+        run: bash scripts/takumi-guard.sh cleanup "$TAKUMI_GUARD_DIRECTORY"

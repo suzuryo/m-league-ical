@@ -8,6 +8,15 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      runner:
+        description: Runner route (manual hosted fallback)
+        required: true
+        type: choice
+        default: arc
+        options:
+          - arc
+          - github-hosted
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -27,7 +36,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    runs-on: ${{ inputs.runner == 'github-hosted' && 'ubuntu-latest' || 'arf-linux' }}
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1

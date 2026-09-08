@@ -1,3 +1,8 @@
 [tools]
 node = "24.20.0"
 pnpm = "12.3.2"
+
+[env]
+# mise の shell activation / exec 後の取得に適用する。初回設定は README を参照。
+NPM_CONFIG_REGISTRY = "https://npm.flatt.tech/"
+PNPM_CONFIG_REGISTRY = "https://npm.flatt.tech/"

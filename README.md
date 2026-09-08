@@ -64,3 +64,20 @@ https://suzuryo.github.io/m-league-ical/m-tournament-schedule.ics
 2. メニューバーから「ファイル」→「新規照会カレンダー...」
 3. URLを入力
 4. 「照会」をクリック
+
+## ローカルの依存取得
+
+通常の `pnpm install` / `pnpm add` は、固定値の `.npmrc` により匿名の Takumi Guard を経由します。
+npm の registry 取得にも同じ設定を使います。キーは project config に保存しません。
+
+mise の初回 tool 取得では、npm backend の metadata 取得より前に registry を渡します。
+mise の shell activation 後や `mise exec` 内では `mise.toml` の同じ非秘密設定が適用されます。
+
+```sh
+NPM_CONFIG_REGISTRY=https://npm.flatt.tech/ PNPM_CONFIG_REGISTRY=https://npm.flatt.tech/ mise install
+mise exec -- pnpm install --frozen-lockfile
+```
+
+任意のキー認証と安全な取得コマンドは
+[共通 runbook](https://github.com/suzuryo/actions-runner-fleet/blob/main/docs/runbooks/takumi-guard.md#ローカルでの取得)
+を参照してください。認証失敗時に匿名へ fallback しません。

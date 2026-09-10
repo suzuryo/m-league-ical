@@ -6,4 +6,6 @@ dist/
 .env.local
 .idea/
 /coverage
-.worktrees/
+# 作業用 worktree の置き場。置き場が分かれると git worktree list の掃除が漏れるので
+# ここに統一する。他の場所に作ると git status に出る
+/.claude/worktrees/

@@ -1,6 +1,6 @@
 [tools]
-node = "24.20.0"
-pnpm = "12.3.2"
+node = "24.21.0"
+pnpm = "12.3.4"
 
 [env]
 # mise の shell activation / exec 後の取得に適用する。初回設定は README を参照。

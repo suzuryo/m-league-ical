@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#MISE description="ARC停止時に選択したworkflowをGitHub-hostedで起動する(既定: ci.yml、main)"
+#MISE description="self-hosted runner停止時に選択したworkflowをGitHub-hostedで起動する(既定: ci.yml、main)"
 set -euo pipefail
 
 usage() {

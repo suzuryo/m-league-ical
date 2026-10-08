@@ -3,7 +3,7 @@
 Mリーグ・Mトーナメントの試合スケジュールを取得し、カレンダーアプリで購読可能な iCal 形式で出力するツールです。
 
 CI と Pages の実行先、手動 GitHub-hosted 実行は
-[ARC CI の運用手順](docs/runbooks/arc-ci.md)を参照してください。
+[CI の実行先と手動切替の手順](docs/runbooks/arc-ci.md)を参照してください。
 
 ## プログラムの機能
 

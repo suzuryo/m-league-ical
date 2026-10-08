@@ -16,8 +16,8 @@ Mリーグ（日本のプロ麻雀リーグ）と Mトーナメントの日程�
 `pnpm run test` / `test:coverage`、`pnpm run lint`（Biome）、`pnpm run typecheck`。
 一覧は `package.json` と `mise tasks`。
 
-CI は ARC の self-hosted runner で動く。止まったときの手動実行は
-`docs/runbooks/arc-ci.md`（`github-pages.yml` を dispatch すると本番配信になる）。
+CI は arf-scaler（suzuryo/actions-runner-fleet）が供給する self-hosted runner（`arf-linux`）で動く。
+止まったときの手動実行は `docs/runbooks/arc-ci.md`（`github-pages.yml` を dispatch すると本番配信になる）。
 
 ## データの流れ
 

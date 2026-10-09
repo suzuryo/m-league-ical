@@ -53,7 +53,7 @@ jobs:
           PNPM_CONFIG_REGISTRY: https://npm.flatt.tech/
           TAKUMI_GUARD_TOKEN: ${{ steps.takumi.outputs.mode == 'required' && secrets.TAKUMI_GUARD_TOKEN || '' }}
 
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: ${{ env.NODE_VERSION }}
           # self-hosted ではキャッシュを復元・保存しない。
@@ -116,7 +116,7 @@ jobs:
           PNPM_CONFIG_REGISTRY: https://npm.flatt.tech/
           TAKUMI_GUARD_TOKEN: ${{ steps.takumi.outputs.mode == 'required' && secrets.TAKUMI_GUARD_TOKEN || '' }}
 
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: ${{ env.NODE_VERSION }}
           # self-hosted ではキャッシュを復元・保存しない。
@@ -173,7 +173,7 @@ jobs:
           PNPM_CONFIG_REGISTRY: https://npm.flatt.tech/
           TAKUMI_GUARD_TOKEN: ${{ steps.takumi.outputs.mode == 'required' && secrets.TAKUMI_GUARD_TOKEN || '' }}
 
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: ${{ env.NODE_VERSION }}
           # self-hosted ではキャッシュを復元・保存しない。

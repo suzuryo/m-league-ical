@@ -4,5 +4,5 @@
   "globs": ["**/*.md"],
   // wiki 記法 [[...]] を禁止する共有カスタムルール(コード内は除外)
   "customRules": ["./markdownlint-rules/no-wikilinks.cjs"],
-  "ignores": ["**/node_modules", ".git", "dist", "coverage"]
+  "ignores": [".worktrees", "**/node_modules", ".git", "dist", "coverage"]
 }

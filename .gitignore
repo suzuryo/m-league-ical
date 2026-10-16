@@ -6,8 +6,10 @@ dist/
 .env.local
 .idea/
 /coverage
-# 作業用 worktree の置き場。置き場が分かれると git worktree list の掃除が漏れるので
-# ここに統一する。他の場所に作ると git status に出る
+# 旧 worktree のローカル状態を保持するため、以前の配置先も除外する
 /.claude/worktrees/
 # Claude Code の個人用設定（settings.local.json など）はコミットしない
 /.claude/*.local.json
+
+# 手動 worktree
+/.worktrees/

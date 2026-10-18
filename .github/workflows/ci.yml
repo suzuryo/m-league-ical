@@ -78,7 +78,7 @@ jobs:
           python3 -m unittest discover -s tests -p '*_test.py'
 
       - name: Clean up Takumi Guard config
-        if: always()
+        if: always() && steps.takumi.outcome != 'skipped'
         env:
           TAKUMI_GUARD_DIRECTORY: ${{ steps.takumi.outputs.directory }}
         run: bash scripts/takumi-guard.sh cleanup "$TAKUMI_GUARD_DIRECTORY"
@@ -135,7 +135,7 @@ jobs:
         run: pnpm run typecheck
 
       - name: Clean up Takumi Guard config
-        if: always()
+        if: always() && steps.takumi.outcome != 'skipped'
         env:
           TAKUMI_GUARD_DIRECTORY: ${{ steps.takumi.outputs.directory }}
         run: bash scripts/takumi-guard.sh cleanup "$TAKUMI_GUARD_DIRECTORY"
@@ -192,7 +192,7 @@ jobs:
         run: pnpm run test
 
       - name: Clean up Takumi Guard config
-        if: always()
+        if: always() && steps.takumi.outcome != 'skipped'
         env:
           TAKUMI_GUARD_DIRECTORY: ${{ steps.takumi.outputs.directory }}
         run: bash scripts/takumi-guard.sh cleanup "$TAKUMI_GUARD_DIRECTORY"

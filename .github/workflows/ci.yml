@@ -16,9 +16,6 @@ on:
 permissions:
   contents: read
 
-env:
-  NODE_VERSION: "24.16.0"
-
 jobs:
   lint:
     runs-on: ${{ (inputs.runner == 'github-hosted' || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository)) && 'ubuntu-latest' || 'arf-linux' }}
@@ -55,7 +52,7 @@ jobs:
 
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version-file: mise.toml
           # self-hosted ではキャッシュを復元・保存しない。
           cache: ${{ runner.environment == 'github-hosted' && 'pnpm' || '' }}
           package-manager-cache: ${{ runner.environment == 'github-hosted' }}
@@ -78,7 +75,7 @@ jobs:
           python3 -m unittest discover -s tests -p '*_test.py'
 
       - name: Clean up Takumi Guard config
-        if: always()
+        if: always() && steps.takumi.outcome != 'skipped'
         env:
           TAKUMI_GUARD_DIRECTORY: ${{ steps.takumi.outputs.directory }}
         run: bash scripts/takumi-guard.sh cleanup "$TAKUMI_GUARD_DIRECTORY"
@@ -118,7 +115,7 @@ jobs:
 
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version-file: mise.toml
           # self-hosted ではキャッシュを復元・保存しない。
           cache: ${{ runner.environment == 'github-hosted' && 'pnpm' || '' }}
           package-manager-cache: ${{ runner.environment == 'github-hosted' }}
@@ -135,7 +132,7 @@ jobs:
         run: pnpm run typecheck
 
       - name: Clean up Takumi Guard config
-        if: always()
+        if: always() && steps.takumi.outcome != 'skipped'
         env:
           TAKUMI_GUARD_DIRECTORY: ${{ steps.takumi.outputs.directory }}
         run: bash scripts/takumi-guard.sh cleanup "$TAKUMI_GUARD_DIRECTORY"
@@ -175,7 +172,7 @@ jobs:
 
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version-file: mise.toml
           # self-hosted ではキャッシュを復元・保存しない。
           cache: ${{ runner.environment == 'github-hosted' && 'pnpm' || '' }}
           package-manager-cache: ${{ runner.environment == 'github-hosted' }}
@@ -192,7 +189,7 @@ jobs:
         run: pnpm run test
 
       - name: Clean up Takumi Guard config
-        if: always()
+        if: always() && steps.takumi.outcome != 'skipped'
         env:
           TAKUMI_GUARD_DIRECTORY: ${{ steps.takumi.outputs.directory }}
         run: bash scripts/takumi-guard.sh cleanup "$TAKUMI_GUARD_DIRECTORY"
